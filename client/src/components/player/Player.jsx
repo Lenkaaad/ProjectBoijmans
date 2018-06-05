@@ -4,13 +4,14 @@ import PlayerWaiting from './PlayerWaiting';
 
 class Player extends Component {
 
-    constructor(props) {
-      super(props);
-    }
+    // constructor(props) {
+    //   super(props);
+    // }
     
     render() {
       return (
-        <div className="Player">
+        <div className="player">
+          <h1>Game Lobby</h1>
           {/* switch in plaatsen */}
           <PlayerJoin />
           <PlayerWaiting />

@@ -11,11 +11,10 @@ class Game extends Component {
     
     render() {
       return (
-        <div className="Player">
-          <h1>Game Lobby</h1>
+        <div className="game">
+          <h1>Game</h1>
           {/* switch in plaatsen */}
           <GameRonde />
-          {/* aantal rondes die ingevuld worden => aantal stemrondes? */}
           <StemRonde />
           <GameWinner />
         </div>
