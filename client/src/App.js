@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Onboarding from './components/Onboarding';
+import Player from './components/player/Player';
 //import { BrowserRouter, Route, Link } from 'react-router-dom'
 //import { Offline, Online, Detector } from "react-detect-offline";
 
@@ -19,7 +20,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Onboarding />
+        <Player />
       </div>
     );
   }
