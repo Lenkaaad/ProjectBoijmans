@@ -11,7 +11,6 @@ class Player extends Component {
     render() {
       return (
         <div className="Player">
-          <h1>Game Lobby</h1>
           {/* switch in plaatsen */}
           <PlayerJoin />
           <PlayerWaiting />
