@@ -4,13 +4,25 @@ class User extends Component {
 
     constructor(props) {
       super(props);
+
+      this.socket = this.props.socket;
+    }
+
+    handleSubmit = e => {
+      e.preventDefault();
+      const avatar = e.currentTarget.avatar.value
+      const nickname = e.currentTarget.nickname.value 
+      const host = true;
+
+      this.socket.emit('create user', {nickname, avatar, host});
+      this.props.handleChangeScreens();
     }
     
     render() {
       return (
         <div className="User">
         <h2>Wie ben jij?</h2>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="nickname">Nickname</label>
             <input type="text" name="nickname"/>
@@ -23,7 +35,7 @@ class User extends Component {
             <input type="radio" name="avatar" id="vangogh" value="5"/><label htmlFor="vangogh">mona lisa</label><br/>
             <input type="radio" name="avatar" id="warhol" value="3"/><label htmlFor="warhol">warhol</label><br/>
           </div>
-          <button>configure lobby</button>
+          <input type="submit" value="configure lobby" />
         </form>
         </div>
       );

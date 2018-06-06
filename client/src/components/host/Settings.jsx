@@ -4,13 +4,28 @@ class Settings extends Component {
 
     constructor(props) {
       super(props);
+
+      this.socket = this.props.socket;
+    }
+
+    handleSubmit = e => {
+      e.preventDefault();
+      const gamename = e.currentTarget.gamename.value;
+      const spelers = e.currentTarget.spelers.value;
+      const rondes = e.currentTarget.rondes.value;
+      const tijd = e.currentTarget.tijd.value;
+
+      this.socket.emit('create lobby', {gamename, spelers, rondes, tijd})
+      this.props.handleGameName(gamename);
+      this.props.handleChangeScreens();
+
     }
     
     render() {
       return (
         <div className="Settings">
         <h2>Game lobby instellingen</h2>
-        <form>
+        <form onSubmit={this.handleSubmit}>
           <div>
             <label htmlFor="gamename">Gamename </label>
             <input type="text" id="gamename" name="gamename"/>
