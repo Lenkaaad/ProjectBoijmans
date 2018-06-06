@@ -6,27 +6,26 @@ class Waiting extends Component {
       super(props);
 
       this.state = {
-
       }
       
       this.socket = this.props.socket;
-      this.gamename = this.props.state.currentLobby
-      
     }
     
     render() {
 
+      console.log(this.state);
       return (
         <div className="Waiting">
           <h2>Wachtlobby</h2>
           <h3>And now we wait...</h3>
           <p>Geef de code door aan je vrienden 
 (of vijanden) zodat ze de lobby in kunnen!</p>
-          <div>{this.props.state.currentLobby}</div>
+          {this.props.lobby !== null ?
+          <div>{this.props.lobby.gamename}</div> : console.log("not found!") }
           <div>
             <ul>
               {
-                this.props.players.map(player => <li>{player.nickname}</li>)
+                this.props.lobby !== null ? this.props.lobby.players.map(player => <li>{player.nickname}</li>) : console.log("oopsie!")
               }
             </ul>
           </div>

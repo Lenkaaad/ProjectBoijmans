@@ -2,14 +2,28 @@ import React, { Component } from 'react';
 
 class PlayerJoin extends Component {
 
-    // constructor(props) {
-    //   super(props);
-    // }
+    constructor(props) {
+      super(props);
+
+      this.socket = this.props.socket;
+    }
+
+    handleSubmitPlayer = e => {
+      e.preventDefault();
+      const nickname = e.currentTarget.nickname.value;
+      const avatar = e.currentTarget.avatar.value;
+      const gamename = e.currentTarget.spelcode.value;
+
+      console.log(gamename);
+
+      this.socket.emit('user join', { nickname, avatar, gamename});
+      this.props.handleChangeScreens();
+    }
     
     render() {
       return (
         <div className="player-join">
-          <form>
+          <form onSubmit={this.handleSubmitPlayer}>
             <label htmlFor="nickname">Je nickname</label>
             <input id="nickname" name="nickname" type="text"/>
             <p className="feedback">Wees een echte kunstenaar</p>

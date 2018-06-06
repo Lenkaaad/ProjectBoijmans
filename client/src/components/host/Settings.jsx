@@ -16,7 +16,6 @@ class Settings extends Component {
       const tijd = e.currentTarget.tijd.value;
 
       this.socket.emit('create lobby', {gamename, spelers, rondes, tijd})
-      this.props.handleGameName(gamename);
       this.props.handleChangeScreens();
 
     }

@@ -19,19 +19,30 @@ class App extends Component {
     super(props);
   
     this.state = {
-      currentLobby: null
+      currentLobby: null,
+      lobby: null
     }
+  }
+
+  componentDidMount() {
+    socket.emit('test', 'dit is een testbericht');
+    
+    socket.on('lobby', lobby => {
+      this.setState({lobby: lobby});
+      console.log("lobby has been added")
+    })
+
+    socket.on('error', alert => {
+      alert(alert);
+    })
+
   }
   
   render() {
-    socket.emit('test', 'dit is een testbericht');
-    
-    socket.on('lobbies', lobbies => {
-      this.setState({lobbies: lobbies});
-    })
 
-    socket.on('new lobby', lobby => {
-      this.setState({currentLobby: lobby})
+    socket.on('lobby', lobby => {
+      this.setState({lobby: lobby});
+      console.log("lobby has been added")
     })
 
     return (
@@ -47,6 +58,11 @@ class App extends Component {
         <Host socket={socket} state={this.state}/>
         )}/>
       </Switch>
+      <h2>Testing</h2>
+      {/* Clarification: voor een of andere manier heeft hij bij de eerste fetch nog geen resultaat. Bij deze dus eerst checken om errors te voorkomen. */}
+      <ul>
+      {this.state.lobby !== null ? <li>{this.state.lobby.gamename}</li> : console.log("loading...")}
+      </ul>
       </div>
     );
   }

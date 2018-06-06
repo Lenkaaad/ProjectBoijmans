@@ -8,20 +8,32 @@ class Player extends Component {
       super(props);
 
       this.state = {
-        screen: 0
+        screen: 0,
+        lobby: null
       }
 
       this.socket = this.props.socket;
-      console.log(this.props.state);
+    }
+
+    componentDidMount() {
+      this.socket.on('lobby', lobby => {
+        this.setState({lobby: lobby});
+      });
+    }
+
+    changeScreens = () => {
+      const newValue = this.state.screen + 1;
+
+      this.setState({screen: newValue});
     }
 
     renderSwitch = (screen) => {
       switch (screen) {
         case 0:
-          return <PlayerJoin/>
+          return <PlayerJoin socket={this.socket} handleChangeScreens={this.changeScreens} />
           break;
         case 1: 
-          return <PlayerWaiting />
+          return <PlayerWaiting socket={this.socket} lobby={this.state.lobby} />
         default:
           break;
       }

@@ -11,13 +11,16 @@ class Host extends Component {
 
       this.state = {
         screen: 0,
-        gamename: null,
-        players: []
+        lobby: null
       }
 
       this.socket = this.props.socket;
-      this.lobby = {}
-      console.log(this.props.state);
+    }
+
+    componentDidMount() {
+      this.socket.on('lobby', lobby => {
+        this.setState({lobby: lobby});
+      })
     }
 
     changeScreens = () => {
@@ -26,23 +29,19 @@ class Host extends Component {
       this.setState({screen: newValue});
     }
 
-    handleGameName = gamename => {
-      this.setState({gamename: gamename});
-    }
-
-    renderSwitch = (screen, state) => {
+    renderSwitch = (screen) => {
       switch (screen) {
         case 0:
           return <User socket={this.socket} handleChangeScreens={this.changeScreens} />
           break;
         case 1: 
-          return <Settings socket={this.socket} handleChangeScreens={this.changeScreens} handleGameName={this.handleGameName} />
+          return <Settings socket={this.socket} handleChangeScreens={this.changeScreens} />
           break;
         case 2: 
           return <Mode socket={this.socket} handleChangeScreens={this.changeScreens} />
           break;
         case 3:
-          return <Waiting socket={this.socket} state={state} players={this.state.players} />
+          return <Waiting socket={this.socket} lobby={this.state.lobby} />
           break;
         default:
           break;
@@ -51,24 +50,9 @@ class Host extends Component {
     
     render() {
 
-      this.socket.on('lobbies', lobbies => {
-        this.setState({lobbies: lobbies});
-      })
-
-      this.socket.on('new lobby', lobby => {
-        this.setState({gamename: lobby})
-      })
-
-      this.socket.on('players', players => {
-        this.setState({players});
-      })
-      
-
-      console.log(this.state);
-
       return (
         <div className="Host">
-        {this.renderSwitch(this.state.screen, this.props.state)}
+        {this.renderSwitch(this.state.screen)}
         </div>
       );
     }
