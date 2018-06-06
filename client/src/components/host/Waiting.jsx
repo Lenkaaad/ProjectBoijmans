@@ -7,19 +7,25 @@ class Waiting extends Component {
 
       this.state = {
       }
-      
+
       this.socket = this.props.socket;
     }
-    
+
     render() {
 
       console.log(this.state);
       return (
         <div className="Waiting">
-          <h2>Wachtlobby</h2>
-          <h3>And now we wait...</h3>
-          <p>Geef de code door aan je vrienden 
-(of vijanden) zodat ze de lobby in kunnen!</p>
+          <header>
+            <h2>Game lobby!</h2>
+          </header>
+
+          <img src="#" alt="imageWaiting" />
+
+          <p>Spelcode</p>
+
+          <h3 className="waittitle">And now we wait...</h3>
+          <p className="waitdescription">Geef de code door aan je vrienden (of vijanden) zodat ze de lobby in kunnen!</p>
           {this.props.lobby !== null ?
           <div>{this.props.lobby.gamename}</div> : console.log("not found!") }
           <div>
@@ -29,10 +35,13 @@ class Waiting extends Component {
               }
             </ul>
           </div>
-          <button>start het spel</button>
+          <button className="submitButton">
+            Start het spel!
+            <img src="assets/img/arrow.svg" alt="arrow" />
+          </button>
         </div>
       );
     }
   }
-  
+
   export default Waiting;

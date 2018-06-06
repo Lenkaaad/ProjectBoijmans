@@ -1,0 +1,159 @@
+@import "reset.css";
+@import "vars.css";
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after { /* stylelint-disable-line */
+  box-sizing: inherit;
+}
+
+body {
+  background-color: #F0EEE6;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  font-family: sans-serif;
+  color: var(--textColor);
+}
+
+header {
+  background-color: var(--yellowColor);
+  padding: 2rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.inputField {
+  background-color: var(--backgroundColorInput);
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  border-bottom: .2rem solid var(--greenColor);
+  height: 3.5rem;
+}
+
+.formInput {
+  display: grid;
+  margin-bottom: 4rem;
+}
+
+.formTitle {
+  font-weight: bold;
+  margin: 3rem 0 .7rem;
+  font-size: 1.7rem;
+}
+
+.inputDescription {
+  color: var(--greenColor);
+  font-size: 1.3rem;
+}
+
+.avatargrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: .7rem;
+}
+
+.avatargrid input {
+  margin:0;padding:0;
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  appearance:none;
+}
+
+.scream {
+  background-image: url(../assets/img/scream.svg);
+}
+
+.melkmeisje {
+  background-image: url(../assets/img/melkmeisje.svg);
+}
+
+.monalisa {
+  background-image: url(../assets/img/monalisa.svg);
+}
+
+.magritte {
+  background-image: url(../assets/img/margritte.svg);
+}
+
+.vangogh {
+  background-image: url(../assets/img/vangogh.svg);
+}
+
+.warhol {
+  background-image: url(../assets/img/warhole.svg);
+}
+
+.avatargrid input:active + .card,
+.avatargrid input:active + .card {
+  opacity: 1;
+}
+
+.avatargrid input:checked + .card,
+.avatargrid input:checked + .card {
+  -webkit-filter: none;
+  -moz-filter: none;
+  filter: none;
+}
+
+.card {
+  cursor: pointer;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 10rem;
+  height: 10rem;
+
+  -webkit-transition: all 100ms ease-in;
+  -moz-transition: all 100ms ease-in;
+  transition: all 100ms ease-in;
+
+  -webkit-filter: opacity(.6);
+  -moz-filter: opacity(.6);
+  filter: opacity(.6);
+}
+
+.submitButton {
+  background-color: var(--greenColor);
+  padding: 1.2rem 0;
+  width: 100%;
+  margin-top: 4rem;
+
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.submitButton input, button{
+  color: white;
+  font-weight: bold;
+  font-size: 1.6rem;
+}
+
+.settingsGame {
+  margin-bottom: 2rem;
+}
+
+.modeGrid {
+  display: grid;
+  grid-row: 1fr 1fr 1fr;
+}
+
+.waittitle {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.7rem;
+  margin: 1rem 0;
+}
+
+.waitdescription {
+  text-align: center;
+}

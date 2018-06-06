@@ -19,33 +19,43 @@ class Settings extends Component {
       this.props.handleChangeScreens();
 
     }
-    
+
     render() {
       return (
         <div className="Settings">
-        <h2>Game lobby instellingen</h2>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label htmlFor="gamename">Gamename </label>
-            <input type="text" id="gamename" name="gamename"/>
-          </div>
-          <div>
-            <label htmlFor="spelers">Aantal spelers </label>
-            <input type="number" id="spelers" name="spelers"/>
-          </div>
-          <div>
-            <label htmlFor="rondes">Aantal rondes</label>
-            <input type="number" id="rondes" name="rondes"/>
-          </div>
-          <div>
-            <label htmlFor="tijd">Tijd per ronde </label>
-            <input type="number" id="tijd" name="tijd"/>
-          </div>
-          <input type="submit" value="verder naar mode"/>
+          <header>
+              <h2>Hoe loopt je spel?</h2>
+          </header>
+
+          <form onSubmit={this.handleSubmit}>
+            <div className="formInput">
+              <label htmlFor="gamename" className="formTitle">Spelnaam</label>
+              <input type="text" id="gamename" name="gamename" className="inputField" placeholder="Vul een leuke spelnaam in" />
+            </div>
+            <div className="settingsGame">
+              <label htmlFor="spelers" className="formTitle">Aantal spelers </label>
+              <p className="inputDescription">Het is zeker een populariteitswedstrijd</p>
+              <input type="number" id="spelers" name="spelers"/>
+            </div>
+            <div className="settingsGame">
+              <label htmlFor="rondes" className="formTitle">Aantal rondes</label>
+              <p className="inputDescription">Een korte game over de middag of een marathon?</p>
+              <input type="number" id="rondes" name="rondes"/>
+            </div>
+            <div className="settingsGame">
+              <label htmlFor="tijd" className="formTitle">Tijd per ronde </label>
+              <p className="inputDescription">Weed out the weak door niet te veel tijd toe te laten!</p>
+              <input type="number" id="tijd" name="tijd"/>
+            </div>
+
+            <div className="submitButton">
+              <input type="submit" value="Maak het spel aan" />
+              <img src="././assets/img/arrow.svg" alt="arrow" />
+            </div>
         </form>
         </div>
       );
     }
   }
-  
+
   export default Settings;

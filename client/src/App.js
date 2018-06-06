@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import './css/style.css';
 import Onboarding from './components/Onboarding';
 import Home from './components/Home';
 import Player from './components/player/Player';
@@ -17,7 +17,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-  
+
     this.state = {
       currentLobby: null,
       lobby: null,
@@ -27,7 +27,7 @@ class App extends Component {
 
   componentDidMount() {
     socket.emit('test', 'dit is een testbericht');
-    
+
     socket.on('lobby', lobby => {
       this.setState({lobby: lobby});
       console.log("lobby has been added")
@@ -42,7 +42,7 @@ class App extends Component {
     })
 
   }
-  
+
   render() {
 
     socket.on('lobby', lobby => {
