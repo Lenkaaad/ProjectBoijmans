@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PlayerJoin from './PlayerJoin';
 import PlayerWaiting from './PlayerWaiting';
+import {withRouter} from "react-router-dom";
 
 class Player extends Component {
 
@@ -19,6 +20,18 @@ class Player extends Component {
       this.socket.on('lobby', lobby => {
         this.setState({lobby: lobby});
       });
+
+      this.socket.on('leave request', () => {
+        this.socket.emit('leave lobby');
+        this.props.history.push('/');
+      })
+    }
+
+    leaveLobby = () => {
+      if(this.state.screen > 0){
+        this.socket.emit('leave lobby');
+        this.props.history.push('/');
+      }
     }
 
     changeScreens = () => {
@@ -42,6 +55,7 @@ class Player extends Component {
     render() {
       return (
         <div className="player">
+        <button onClick={this.leaveLobby}>leave lobby</button>
           <h1>Game Lobby</h1>
           {this.renderSwitch(this.state.screen)}
         </div>
@@ -49,4 +63,4 @@ class Player extends Component {
     }
   }
   
-  export default Player;
+  export default withRouter(Player);

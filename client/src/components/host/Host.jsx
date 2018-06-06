@@ -3,6 +3,7 @@ import User from './User';
 import Settings from './Settings';
 import Mode from './Mode';
 import Waiting from './Waiting';
+import {withRouter} from "react-router-dom";
 
 class Host extends Component {
 
@@ -29,6 +30,13 @@ class Host extends Component {
       this.setState({screen: newValue});
     }
 
+    leaveLobby = () => {
+      if(this.state.screen > 1){
+        this.socket.emit('remove lobby');
+        this.props.history.push('/');
+      }
+    }
+
     renderSwitch = (screen) => {
       switch (screen) {
         case 0:
@@ -52,10 +60,11 @@ class Host extends Component {
 
       return (
         <div className="Host">
+        <button onClick={this.leaveLobby}>leave lobby</button>
         {this.renderSwitch(this.state.screen)}
         </div>
       );
     }
   }
   
-  export default Host;
+  export default withRouter(Host);
