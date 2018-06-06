@@ -20,7 +20,8 @@ class App extends Component {
   
     this.state = {
       currentLobby: null,
-      lobby: null
+      lobby: null,
+      notification: null
     }
   }
 
@@ -30,6 +31,10 @@ class App extends Component {
     socket.on('lobby', lobby => {
       this.setState({lobby: lobby});
       console.log("lobby has been added")
+    })
+
+    socket.on('lobby removed', message => {
+      this.setState({notification: message});
     })
 
     socket.on('error', alert => {
@@ -63,6 +68,8 @@ class App extends Component {
       <ul>
       {this.state.lobby !== null ? <li>{this.state.lobby.gamename}</li> : console.log("loading...")}
       </ul>
+      {/* Put timer on this message so it disappears and reset state. */}
+      {this.state.notification !== null ? <p>{this.state.notification}</p> : console.log("no error")}
       </div>
     );
   }
