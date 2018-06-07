@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import GameRonde from './GameRonde';
 import StemRonde from './StemRonde';
 import GameWinner from './GameWinner';
+import PickerWait from './PickerWait';
 
 class Game extends Component {
 
@@ -12,7 +13,8 @@ class Game extends Component {
         screen: 0,
         lobby: null,
         winScreen: false,
-        ronde: null
+        ronde: null,
+        picker: false
       }
 
       this.socket = this.props.socket;
@@ -36,6 +38,10 @@ class Game extends Component {
         this.setState({ronde: ronde});
         this.changeScreens();
       })
+
+      this.socket.on('wait for round', () => {
+        this.setState({picker: true});
+      })
     }
 
     changeScreens = () => {
@@ -57,10 +63,14 @@ class Game extends Component {
     renderSwitch = (screen) => {
       switch (screen) {
         case 0:
-          return <GameRonde socket={this.socket} handleChangeScreens={this.changeScreens} ronde={this.state.ronde} />
+          if(this.state.picker){
+            return <PickerWait socket={this.socket} />
+          }else{
+            return <GameRonde socket={this.socket} handleChangeScreens={this.changeScreens} ronde={this.state.ronde} />
+          }
           break;
         case 1: 
-          return <StemRonde socket={this.socket} lobby={this.state.lobby} ronde={this.state.ronde}/>
+          return <StemRonde socket={this.socket} lobby={this.state.lobby} ronde={this.state.ronde} picker={this.state.picker} />
           break;
         default:
           break;

@@ -4,6 +4,27 @@ class StemRonde extends Component {
 
     constructor(props) {
       super(props);
+
+      this.state = {
+        winner: null
+      }
+
+      this.socket = this.props.socket;
+    }
+
+    componentDidMount() {  
+      this.socket.on('winner', winner => {
+        this.setState({winner: winner});
+      })
+    }
+
+    handleStem = e => {
+      e.preventDefault();
+      const naam = e.currentTarget.antwoord.value;
+
+      this.socket.emit('vote for answer', naam);
+
+      // stuur stem door naar server => update players
     }
     
     render() {
@@ -14,21 +35,20 @@ class StemRonde extends Component {
           <section>
             <h2 className="hide">Kunstwerk</h2>
             <img src="#" alt="Kunstwerk"/>
-            <button>Meer Info</button>
           </section>
-
+          
           <section>
             <h2 className="hide">Antwoorden</h2>
-            <ul>
+            { this.state.winner === null ?
+              <form onSubmit={this.handleStem}>
               {
-                this.props.ronde !== null ? this.props.ronde.antwoorden.map(ronde => <li>{ronde.antwoord}</li>) : console.log("oopsie!")
+                this.props.picker && this.props.ronde !== null ? this.props.ronde.antwoorden.map(ronde => <div><input type="radio" value={ronde.player} id={ronde.player} name="antwoord" /><label htmlFor={ronde.player}>{ronde.antwoord}</label></div>) : <ul>{this.props.ronde.antwoorden.map(ronde => <li>{ronde.antwoord}</li>)}</ul>
               }
-            </ul>
-          </section>
-
-          <section>
-            <h2 className="hide">Confirm</h2>
-            <button>Klaar met stemmen</button>
+              {
+                this.props.picker && this.props.ronde !== null ? <input type="submit" value="stem nu" /> : console.log("not picker")
+              }
+            </form>
+            : <ul>{this.props.ronde.antwoorden.map(ronde => <li>{ronde.antwoord === this.state.winner.antwoord ? ("winner: " + ronde.antwoord) : ronde.antwoord}</li>)}</ul>}
           </section>
         </div>
       );
