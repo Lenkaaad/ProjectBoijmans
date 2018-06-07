@@ -4,9 +4,32 @@ class GameRonde extends Component {
 
     constructor(props) {
       super(props);
+
+      this.state = {
+        enteringDone: false
+      }
+
+      this.socket = this.props.socket;
+    }
+
+    handleSubmitText = e => {
+      e.preventDefault();
+
+      const answer = e.currentTarget.answer.value;
+
+      this.socket.emit('enter answer', answer);
+      e.currentTarget.answer.disabled = true;
+      this.setState({enteringDone: true})
+
+      console.log(answer);
+      //this.props.handleChangeScreens();
     }
     
     render() {
+
+      console.log(this.props.ronde);
+      
+
       return (
         <div className="ronde">
           <section>
@@ -15,6 +38,8 @@ class GameRonde extends Component {
           </section>
           <section>
             <h2 className="hide">Over het kunstwerk</h2>
+
+            <p>{this.props.ronde !== null ? this.props.ronde.artwork : console.log("oopsie!")}</p>
             <article className="art-info left">
               <h3>Kunstenaar</h3>
               <p>Salvador Dali</p>
@@ -25,26 +50,15 @@ class GameRonde extends Component {
             </article>
           </section>
           <section>
-            <h2 className="hide">Spelers</h2>
-            <dl>
-              <dt>Milenka</dt>
-              <dd></dd>
-              <dt>Steffie</dt>
-              <dd>...</dd>
-              <dt>Larissa</dt>
-              <dd></dd>
-              <dt>Elisa</dt>
-              <dd>...</dd>
-            </dl>
-          </section>
-          <section>
             <h2 className="hide">Timer</h2>
             <p>5m 30s</p>
           </section>
           <section>
             <h2 className="hide">Jouw Antwoord</h2>
-            <input name="answer" type="text" placeholder="Je leuke hedendaagse en grappige interpretatie komt hier, toch?"/>
-            <button>Check</button>
+            <form onSubmit={this.handleSubmitText}>
+              <input name="answer" type="text" placeholder="Je leuke hedendaagse en grappige interpretatie komt hier, toch?"/>
+              <input disabled={this.state.enteringDone ? true : false } type="submit" name="check" value="check"  />
+            </form>
           </section>
         </div>
       );

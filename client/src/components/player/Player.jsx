@@ -25,6 +25,10 @@ class Player extends Component {
         this.socket.emit('leave lobby');
         this.props.history.push('/');
       })
+      
+      this.socket.on('go game', lobby => {
+        this.props.history.push('/game');
+      })
     }
 
     leaveLobby = () => {

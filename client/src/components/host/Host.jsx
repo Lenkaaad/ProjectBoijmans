@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import User from './User';
 import Settings from './Settings';
-import Mode from './Mode';
 import Waiting from './Waiting';
 import {withRouter} from "react-router-dom";
 
@@ -21,6 +20,10 @@ class Host extends Component {
     componentDidMount() {
       this.socket.on('lobby', lobby => {
         this.setState({lobby: lobby});
+      })
+
+      this.socket.on('go game', lobby => {
+        this.props.history.push('/game');
       })
     }
 
@@ -46,9 +49,6 @@ class Host extends Component {
           return <Settings socket={this.socket} handleChangeScreens={this.changeScreens} />
           break;
         case 2: 
-          return <Mode socket={this.socket} handleChangeScreens={this.changeScreens} />
-          break;
-        case 3:
           return <Waiting socket={this.socket} lobby={this.state.lobby} />
           break;
         default:

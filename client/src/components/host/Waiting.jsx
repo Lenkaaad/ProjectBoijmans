@@ -11,6 +11,10 @@ class Waiting extends Component {
       this.socket = this.props.socket;
     }
 
+    handleStartGame = e => {
+      this.socket.emit('start game')
+    }
+
     render() {
 
       console.log(this.state);
@@ -35,7 +39,7 @@ class Waiting extends Component {
               }
             </ul>
           </div>
-          <button className="submitButton">
+          <button onClick={this.handleStartGame} className="submitButton">
             Start het spel!
             <img src="assets/img/arrow.svg" alt="arrow" />
           </button>

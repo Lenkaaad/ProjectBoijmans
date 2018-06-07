@@ -4,6 +4,7 @@ import Onboarding from './components/Onboarding';
 import Home from './components/Home';
 import Player from './components/player/Player';
 import Host from './components/host/Host';
+import Game from './components/game/Game';
 import Kunstgallerij from './components/gallerij/Kunstgallerij';
 import Kunstdetail from './components/detail/Kunstdetail';
 import Muziekdetail from './components/detail/Muziekdetail';
@@ -17,7 +18,7 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-
+  
     this.state = {
       currentLobby: null,
       lobby: null,
@@ -27,7 +28,7 @@ class App extends Component {
 
   componentDidMount() {
     socket.emit('test', 'dit is een testbericht');
-
+    
     socket.on('lobby', lobby => {
       this.setState({lobby: lobby});
       console.log("lobby has been added")
@@ -35,14 +36,15 @@ class App extends Component {
 
     socket.on('lobby removed', message => {
       this.setState({notification: message});
+      setTimeout(() => {
+        this.setState({notification: ""});
+      }, 2000);
     })
 
-    socket.on('error', alert => {
-      alert(alert);
-    })
+
 
   }
-
+  
   render() {
 
     socket.on('lobby', lobby => {
@@ -62,12 +64,10 @@ class App extends Component {
         <Route path='/create' render={() => (
         <Host socket={socket} state={this.state}/>
         )}/>
+        <Route path='/game' render={() => (
+        <Game socket={socket} state={this.state} />
+        )} />
       </Switch>
-      <h2>Testing</h2>
-      {/* Clarification: voor een of andere manier heeft hij bij de eerste fetch nog geen resultaat. Bij deze dus eerst checken om errors te voorkomen. */}
-      <ul>
-      {this.state.lobby !== null ? <li>{this.state.lobby.gamename}</li> : console.log("loading...")}
-      </ul>
       {/* Put timer on this message so it disappears and reset state. */}
       {this.state.notification !== null ? <p>{this.state.notification}</p> : console.log("no error")}
       </div>

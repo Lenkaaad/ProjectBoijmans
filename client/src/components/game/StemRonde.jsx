@@ -7,6 +7,8 @@ class StemRonde extends Component {
     }
     
     render() {
+
+      console.log(this.props.ronde);
       return (
         <div className="stemmen">
           <section>
@@ -18,10 +20,9 @@ class StemRonde extends Component {
           <section>
             <h2 className="hide">Antwoorden</h2>
             <ul>
-              <li>Antwoord 1</li>
-              <li>Antwoord 2</li>
-              <li>Antwoord 3</li>
-              <li>Antwoord 4</li>
+              {
+                this.props.ronde !== null ? this.props.ronde.antwoorden.map(ronde => <li>{ronde.antwoord}</li>) : console.log("oopsie!")
+              }
             </ul>
           </section>
 
