@@ -23,8 +23,11 @@ class StemRonde extends Component {
       const naam = e.currentTarget.antwoord.value;
 
       this.socket.emit('vote for answer', naam);
-
       // stuur stem door naar server => update players
+    }
+
+    handleNextRound = () => {
+      this.socket.emit('next round');
     }
     
     render() {
@@ -50,6 +53,9 @@ class StemRonde extends Component {
             </form>
             : <ul>{this.props.ronde.antwoorden.map(ronde => <li>{ronde.antwoord === this.state.winner.antwoord ? ("winner: " + ronde.antwoord) : ronde.antwoord}</li>)}</ul>}
           </section>
+          {
+            this.props.picker && this.state.winner !== null ? <button onClick={this.handleNextRound}>volgende ronde</button> : console.log("not picker")
+          }
         </div>
       );
     }

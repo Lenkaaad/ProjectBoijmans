@@ -3,6 +3,7 @@ import GameRonde from './GameRonde';
 import StemRonde from './StemRonde';
 import GameWinner from './GameWinner';
 import PickerWait from './PickerWait';
+import EndGame from './EndGame';
 
 class Game extends Component {
 
@@ -12,9 +13,9 @@ class Game extends Component {
       this.state = {
         screen: 0,
         lobby: null,
-        winScreen: false,
         ronde: null,
-        picker: false
+        picker: false,
+        winner: null
       }
 
       this.socket = this.props.socket;
@@ -32,6 +33,7 @@ class Game extends Component {
 
       this.socket.on('ronde', ronde => {
         this.setState({ronde: ronde});
+        this.setState({screen: 0});
       })
 
       this.socket.on('answers sent', ronde => {
@@ -42,6 +44,16 @@ class Game extends Component {
       this.socket.on('wait for round', () => {
         this.setState({picker: true});
       })
+
+      this.socket.on('picker', picker => {
+        this.setState({picker: picker});
+      })
+
+      this.socket.on('end game', winner => {
+        this.setState({winner: winner});
+        this.setState({screen: 2});
+      })
+
     }
 
     changeScreens = () => {
@@ -71,6 +83,9 @@ class Game extends Component {
           break;
         case 1: 
           return <StemRonde socket={this.socket} lobby={this.state.lobby} ronde={this.state.ronde} picker={this.state.picker} />
+          break;
+        case 2: 
+          return <EndGame socket={this.socket} winner={this.state.winner} />
           break;
         default:
           break;

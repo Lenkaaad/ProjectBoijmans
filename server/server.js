@@ -86,7 +86,8 @@ io.on('connection', function(socket){
       socket.lobby = gamename
       lobby.players.push({
         "id": socket.id,
-        "nickname": socket.nickname
+        "nickname": socket.nickname,
+        "wins": 0
       })
       socket.join(gamename);
       console.log("lobby exists... joining...")
@@ -118,9 +119,11 @@ io.on('connection', function(socket){
       const lobby = {
         "gamename": gamestring,
         "maxRondes": rondes,
+        "currentPicker": 0,
         "players": [{
           "id": socket.id,
-          "nickname": socket.nickname 
+          "nickname": socket.nickname,
+          "wins": 0
         }],
         "rondes": []
       }
@@ -192,8 +195,6 @@ io.on('connection', function(socket){
       "antwoorden": []
     })
 
-    
-
     io.sockets.in(socket.lobby).emit('go game');
     console.log(lobby.rondes[lobby.rondes.length - 1]);
     io.sockets.in(socket.lobby).emit('ronde', lobby.rondes[lobby.rondes.length - 1]);
@@ -228,7 +229,7 @@ io.on('connection', function(socket){
         //io.sockets.socket(savedSocketId).emit('vote round', laatsteronde)
       }
 
-      io.sockets.in(socket.lobby).emit('ronde', laatsteronde);
+      //io.sockets.in(socket.lobby).emit('ronde', laatsteronde);
       console.log(laatsteronde.antwoorden);
     }
   });
@@ -247,9 +248,60 @@ io.on('connection', function(socket){
     winner.win = true;
 
     console.log("The winner is " + winner.player);
+    const player = lobby.players.find(player => {
+      return player.nickname === winner.player;
+    })
+
+    player.wins++;
 
     io.sockets.in(socket.lobby).emit('winner', winner);
-    // io.sockets.in(socket.lobby).emit('ronde', laatsteronde);
+  })
+
+  socket.on('next round', () => {
+    const lobby = lobbies.find(lobby => {
+      return lobby.gamename === socket.lobby;
+    })
+
+    if(lobby.rondes.length < lobby.maxRondes){
+    console.log("volgende ronde start");
+
+    // select first picker + add to ronde?
+    
+    if(lobby.currentPicker < lobby.players.length - 1){
+      lobby.currentPicker++;
+    }else{
+      lobby.currentPicker = 0;
+    }
+
+    const picker = lobby.players[lobby.currentPicker].id;
+
+    lobby.rondes.push({
+      "artwork" : Math.floor(Math.random() * 21),
+      "picker" : picker,
+      "antwoorden": []
+    })
+
+    io.sockets.in(socket.lobby).emit('picker', false);
+
+    console.log(lobby.rondes[lobby.rondes.length - 1]);
+    io.sockets.in(socket.lobby).emit('ronde', lobby.rondes[lobby.rondes.length - 1]);
+    io.to(picker).emit('wait for round');
+
+    }else{
+      console.log("maximum aantal rondes bereikt!");
+      // emit event to get results
+
+      const sorted = lobby.players.sort(function(a, b){
+        return a.wins < b.wins;
+      })
+
+      const winner = sorted[0];
+      console.log(sorted);
+      console.log(winner);
+
+      io.sockets.in(socket.lobby).emit('end game', winner);
+    }
+
   })
   
 });
