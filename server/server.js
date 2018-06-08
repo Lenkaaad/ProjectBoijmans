@@ -1,7 +1,6 @@
 const io = require('socket.io')();
 
 let lobbies = [];
-let usernames = [];
 
 function randomStr(m) {
 	var m = m || 9; s = '', r = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -17,6 +16,7 @@ io.on('connection', function(socket){
   // on disconnect we log to console
   socket.on('disconnect', function(){
     console.log('User disconnected: '+socket.id);
+    console.log(lobbies);
 
     if(socket.host){
       const lobby = lobbies.find(lobby => {
@@ -83,17 +83,23 @@ io.on('connection', function(socket){
 
     // if lobby exists, add user to it
     if(lobby){
+      if(lobby.started){
+        console.log("whoops the game already started!");
+        socket.emit('err', 'Je kunt je niet toevoegen aan een spel als het al gestart is...');
+      }else{
       socket.lobby = gamename
       lobby.players.push({
         "id": socket.id,
         "nickname": socket.nickname,
         "wins": 0
       })
+      
       socket.join(gamename);
       console.log("lobby exists... joining...")
       
       // then send updated players back to everyone IN THAT ROOM!
       io.sockets.in(lobby.gamename).emit('lobby', lobby)
+      }
     }else{
       socket.emit('err', 'Deze lobby bestaat niet!')
       console.log("lobby doesn't exist...")
@@ -120,6 +126,7 @@ io.on('connection', function(socket){
         "gamename": gamestring,
         "maxRondes": rondes,
         "currentPicker": 0,
+        "started": false,
         "players": [{
           "id": socket.id,
           "nickname": socket.nickname,
@@ -185,6 +192,8 @@ io.on('connection', function(socket){
     const lobby = lobbies.find(lobby => {
       return lobby.gamename === socket.lobby;
     })
+
+    lobby.started = true;
 
     // select first picker + add to ronde?
     const picker = lobby.players[0].id;

@@ -157,3 +157,7 @@ header {
 .waitdescription {
   text-align: center;
 }
+
+.hide {
+  display: none;
+}

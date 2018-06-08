@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import './css/style.css';
 import Onboarding from './components/Onboarding';
 import Home from './components/Home';
+import Lobby from './components/Lobby';
 import Player from './components/player/Player';
 import Host from './components/host/Host';
 import Game from './components/game/Game';
 import Kunstgallerij from './components/gallerij/Kunstgallerij';
 import Kunstdetail from './components/detail/Kunstdetail';
 import Muziekdetail from './components/detail/Muziekdetail';
-import { Switch, Route, Link } from 'react-router-dom'
+import { Switch, Route, Link, withRouter } from 'react-router-dom'
 //import { Offline, Online, Detector } from "react-detect-offline";
 
 import openSocket from 'socket.io-client';
@@ -41,7 +42,10 @@ class App extends Component {
       }, 2000);
     })
 
-
+    socket.on('err', err => {
+      this.props.history.push('/');
+      this.setState({notification: err});
+    })
 
   }
   
@@ -57,6 +61,9 @@ class App extends Component {
       <Switch>
         <Route exact path='/' render={() => (
         <Home socket={socket}/>
+        )}/>
+        <Route path='/lobby' render={() => (
+        <Lobby socket={socket} state={this.state}/>
         )}/>
         <Route path='/join' render={() => (
         <Player socket={socket} state={this.state}/>
@@ -75,4 +82,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default withRouter(App);

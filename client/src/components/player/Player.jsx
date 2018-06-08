@@ -46,10 +46,10 @@ class Player extends Component {
 
     renderSwitch = (screen) => {
       switch (screen) {
-        case 0:
-          return <PlayerJoin socket={this.socket} handleChangeScreens={this.changeScreens} />
-          break;
-        case 1: 
+        // case 0:
+        //   return <PlayerJoin socket={this.socket} handleChangeScreens={this.changeScreens} />
+        //   break;
+        case 0: 
           return <PlayerWaiting socket={this.socket} lobby={this.state.lobby} />
         default:
           break;

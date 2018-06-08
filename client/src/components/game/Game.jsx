@@ -4,6 +4,7 @@ import StemRonde from './StemRonde';
 import GameWinner from './GameWinner';
 import PickerWait from './PickerWait';
 import EndGame from './EndGame';
+import { withRouter } from 'react-router-dom';
 
 class Game extends Component {
 
@@ -104,4 +105,4 @@ class Game extends Component {
     }
   }
   
-  export default Game;
+  export default withRouter(Game);
