@@ -39,10 +39,12 @@ class Waiting extends Component {
               }
             </ul>
           </div>
-          <button onClick={this.handleStartGame} className="submitButton">
-            Start het spel!
-            <img src="assets/img/arrow.svg" alt="arrow" />
-          </button>
+              {
+                this.props.lobby !== null ? (this.props.lobby.players.length > 2 ? <button onClick={this.handleStartGame} className="submitButton" >
+                Start het spel!
+                <img src="assets/img/arrow.svg" alt="arrow" />
+              </button> : console.log("nog enough players")) : console.log("no lobby")
+              }
         </div>
       );
     }
