@@ -16,11 +16,17 @@ class Home extends Component {
       return (
         <div className="home">
           <header>
-            <img src={logo} alt="logo" width="60" className="home__logo" />
-            <h1> - Game</h1>
+            <div className="container">
+              <div className="home__content">
+                <img src={logo} alt="logo" width="60" className="home__logo" />
+                <h1> - Game</h1>
+              </div>
+
+              <img src={homeimage} alt="homeimage" width="300" className="home__image" />
+            </div>
           </header>
-          <img src={homeimage} alt="homeimage" width="300" className="home__image" />
-          <div className="home__buttons">
+
+          <article className="container home__buttons">
             <Link to="/create">
               <button className="homebutton homebutton__gallerij">Kunst gallerij</button>
             </Link>
@@ -30,13 +36,16 @@ class Home extends Component {
                 <p className="playbutton__text">Speel met vrienden of andere spelers.</p>
               </div>
             </Link>
-          </div>
-          <Link to="/">
+          </article>
+
+          <div className="container">
             <div className="homebutton__boijmans">
-              <p className="boijmans__text">Bezoek de website van</p>
-              <img src={logoboijmans} alt="logoboijmans" width="200" />
+              <Link to="/">
+                <p className="boijmans__text">Bezoek de website van</p>
+                <img src={logoboijmans} alt="logoboijmans" width="200" />
+              </Link>
             </div>
-          </Link>
+          </div>
 
           <div className="feedback">Seems like you’re online and ready to go!</div>
         </div>

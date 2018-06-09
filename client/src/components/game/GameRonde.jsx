@@ -36,14 +36,16 @@ class GameRonde extends Component {
       return (
         <div className="ronde">
           <header>
-            <div></div>
-            <h2>Ronde</h2>
-            <Link to="/">
-              <img src={exit} alt="exit" height="30" />
-            </Link>
+            <div className="container">
+              <div></div>
+              <h2>Ronde</h2>
+              <Link to="/">
+                <img src={exit} alt="exit" height="30" />
+              </Link>
+            </div>
           </header>
 
-          <section>
+          <section className="container">
             <h2 className="hide">Jouw Antwoord</h2>
             <form onSubmit={this.handleSubmitText} className="formInterpretatie">
               <input name="answer" type="text" placeholder="Je leuke hedendaagse en grappige interpretatie komt hier, toch?" className="formInterpretatie__invoerveld" />
@@ -51,7 +53,7 @@ class GameRonde extends Component {
             </form>
           </section>
 
-          <div>
+          <div className="container">
             <img src={dali} alt="kunstwerk" className="kunstwerk" />
             <img src={play} alt="play" width="50" className="playbtn" />
           </div>

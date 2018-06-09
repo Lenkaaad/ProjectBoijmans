@@ -27,16 +27,17 @@ class Waiting extends Component {
       return (
         <div className="Waiting">
           <header>
-            <div></div>
-            <h2>Spelcode</h2>
-            <Link to="/">
-              <img src={exit} alt="exitbtn" height="30" />
-            </Link>
+            <div className="container">
+              <div></div>
+              <h2>Spelcode</h2>
+              <Link to="/">
+                <img src={exit} alt="exitbtn" height="30" />
+              </Link>
+            </div>
           </header>
 
-          <div className="waitcontainer">
+          <div className="container waitcontainer">
             <img src={sezanne} alt="imageWaiting" className="waitcontainer__img" />
-
             {
                 this.props.lobby !== null ? (this.props.lobby.players.length > 2 ? <button onClick={this.handleStartGame} className="waitcontainer__volgende">
                 Ronde 1
@@ -44,22 +45,24 @@ class Waiting extends Component {
               </button> : console.log("nog enough players")) : console.log("no lobby")
             }
 
-            {/* <button onClick={this.handleStartGame} className="waitcontainer__volgende">
+            <button onClick={this.handleStartGame} className="waitcontainer__volgende">
             Ronde 1
               <img src={yellowArrow} alt="arrow" height="30" className="waitcontainer__next" />
-            </button> */}
+            </button>
           </div>
+          
+          <div className="container">
+            <div className="waitingcontent">
+              <h3 className="waitingcontent__title">And now we wait...</h3>
+              <p className="waitingcontent__description">Geef de code door aan je vrienden (of vijanden) zodat ze de lobby in kunnen!</p>
+            </div>
 
-          <div class="waitingcontent">
-            <h3 className="waitingcontent__title">And now we wait...</h3>
-            <p className="waitingcontent__description">Geef de code door aan je vrienden (of vijanden) zodat ze de lobby in kunnen!</p>
-          </div>
-
-          <ul className="waiting">
+            <ul className="waiting">
               {
                 this.props.lobby !== null ? this.props.lobby.players.map(player => <li><img src={monalisa} alt="avatar" />{player.nickname}</li>) : console.log("oopsie!")
               }
-          </ul>
+            </ul>
+          </div>
 
           {this.props.lobby !== null ?
             <div className="codecontainer">

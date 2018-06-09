@@ -3,6 +3,7 @@ import {withRouter} from "react-router-dom";
 import arrow from '../assets/img/arrow.svg';
 import backbtn from '../assets/img/backarrow.svg';
 import scream from '../assets/img/scream.svg';
+import { Link } from 'react-router-dom';
 
 class Lobby extends Component {
 
@@ -35,7 +36,7 @@ class Lobby extends Component {
 
       if(e.currentTarget.checked){
         document.querySelector('.add-spelcode').classList.remove('hide');
-        document.querySelector('.enter-button').value = "Sluit je aan tot het spel";
+        document.querySelector('.enter-button').value = "Sluit aan bij het spel";
       }else{
         document.querySelector('.add-spelcode').classList.add('hide');
         document.querySelector('.enter-button').value = "Maak een spel aan";
@@ -44,23 +45,27 @@ class Lobby extends Component {
     
     render() {
       return (
-        <div className="Lobby">
+        <div className="lobby">
           <header>
-            <img src={backbtn} alt="arrow" height="25" />
-            <h2>Wie ben je?</h2>
-            <div></div>
+            <div className="container">
+              <Link to="/">
+                <img src={backbtn} alt="arrow" height="25" />
+              </Link>
+              <h2>Wie ben je?</h2>
+              <div></div>
+            </div>
           </header>
           <div className="avatar">
               <img src={scream} alt="randomAvatar" height="136" width="136" />
           </div>
           <form onSubmit={this.handleSubmitPlayer}>
-            <div className="formInput">
+            <div className="container formInput">
               <label htmlFor="nickname" className="formInput__title">Je nickname</label>
               <input id="nickname" name="nickname" type="text" placeholder="Vul een leuke nickname in" className="formInput__input" />
               <p className="formInput__description">Wees een echte kunstenaar</p>
             </div>
 
-            <div className="spelcodecontainer">
+            <div className="container spelcodecontainer">
               <label htmlFor="lobbycode" className="spelcodecontainer__spelcode">Ik heb een spelcode!
                 <input type="checkbox" name="lobbycode" id="lobbycode" onChange={this.showSpelcode} value="1" className="hide" />
                 <span className="checkmark"></span>
@@ -69,14 +74,16 @@ class Lobby extends Component {
 
             <hr />
 
-            <div className="add-spelcode hide">
+            <div className="container add-spelcode hide">
               <label htmlFor="spelcode" className="formInput__title">Spelcode</label><br />
               <input type="text" name="spelcode" id="spelcode" className="formInput__input" placeholder="Vul hier jou spelcode in" />
             </div>
 
             <div className="submitButton">
-              <input type="submit" className="enter-button" value="Sluit aan bij het spel"/>
-              <img src={arrow} alt="arrow" height="25" />
+              <div className="container submit__layout">
+                <input type="submit" className="enter-button" value="Maak een spel aan" />
+                <img src={arrow} alt="arrow" height="25" />
+              </div>
             </div>
           </form>
         </div>

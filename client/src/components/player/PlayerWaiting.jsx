@@ -18,11 +18,13 @@ class PlayerWaiting extends Component {
     return (
       <div className="player-wait">
         <header>
-          <div></div>
-          <h2>Wachtruimte</h2>
-          <Link to="/">
-            <img src={exit} alt="exit" height="30" />
-          </Link>
+          <div className="container">
+            <div></div>
+            <h2>Wachtruimte</h2>
+            <Link to="/">
+              <img src={exit} alt="exit" height="30" />
+            </Link>
+          </div>
         </header>
         <ul className="waitgrid">
             {

@@ -24,12 +24,17 @@ header {
   text-align: center;
   font-weight: bold;
   font-size: 1.6rem;
+}
 
+.lobby header .container,
+.Waiting header .container,
+.Settings header .container,
+.ronde header .container{
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-}
+} 
 
 a {
   text-decoration: none;
@@ -37,6 +42,11 @@ a {
 
 .hide {
   display: none;
+}
+
+input[type="submit"], button {
+  border-color: var(--greenColor);
+  background-color: var(--greenColor);
 }
 
 .home header {
@@ -54,11 +64,18 @@ a {
 .home__logo {
   z-index: 99;
   margin-right: 1rem;
+  position: relative;
+}
+
+.home__content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 6rem;
 }
 
 .home__image {
-  margin-top: -5rem;
-  position: absolute;
+  margin-top: -3rem;
 }
 
 .home__buttons {
@@ -66,7 +83,7 @@ a {
   flex-direction: row-reverse;
   justify-content: center;
   align-items: flex-end;
-  margin-top: 10rem;
+  margin-top: 5rem;
 }
 
 .homebutton {
@@ -102,7 +119,9 @@ a {
   margin-top: -0.3rem;
 }
 
-.playbutton__text, .boijmans__text {
+.playbutton__text, 
+.boijmans__text {
+  color: white;
   opacity: 0.6;
   padding: 0 .5rem;
 }
@@ -217,7 +236,9 @@ a {
   overflow: hidden;
   position: fixed;
   bottom: 0;
+}
 
+.submit__layout {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -257,7 +278,7 @@ a {
 
 .waitcontainer__volgende {
   background-color: var(--greenColor);
-  padding: 1rem .5rem;
+  padding: 1rem;
   color: var(--yellowColor);
   font-size: 1.8rem;
   font-weight: bold;
@@ -284,7 +305,7 @@ a {
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 1rem;
 
-  margin-top: 3rem;
+  margin: 3rem 0 10rem;
   padding: 0 1rem;
   text-align: center;
 }
@@ -296,6 +317,7 @@ a {
 }
 
 .waitcontainer__img {
+  width: 100vw;
   height: 19rem;
 }
 
@@ -310,8 +332,13 @@ a {
 
 .codecontainer {
   background-color: #EBE6D2;
-  padding: 2.5rem 0;
+  padding: 2rem 0;
   margin-top: 3rem;
+
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
 }
 
 .codecontainer__code {
@@ -319,7 +346,7 @@ a {
   text-align: center;
   font-weight: bold;
   text-transform: uppercase;
-  font-size: 3rem;
+  font-size: 2.6rem;
 }
 
 .pickerwait {
@@ -537,4 +564,100 @@ a {
 
 .mentions__three {
   background-color: var(--yellowColor);
+}
+
+@media only screen and (min-width: 960px) {
+  body {
+    font-size: 1.8rem;
+  }
+
+  .container {
+    width: 96rem;
+    margin: 0 auto;
+  }
+
+  .home header {
+    margin-bottom: 5rem;
+  }
+
+  .home__buttons {
+    margin-top: 10rem;
+  }
+
+  .home__image {
+    width: 40rem;
+  }
+
+  .homebutton__boijmans {
+    width: 25vw;
+  }
+
+  .homebutton {
+    width: 12rem;
+    height: 13rem;
+  }
+
+  .playbutton {
+    width: 25rem;
+    height: 25rem;
+  }
+
+  .playbutton__text {
+    font-size: 1.6rem;
+  }
+
+  .playbutton__play {
+    padding: 3.5rem 4rem;
+    width: 17rem;
+  }
+
+  .feedback {
+    font-size: 1.6rem;
+  }
+
+  .spelcodecontainer {
+    padding: 3rem 0 1rem;
+  }
+
+  .rondes__less, .rondes__more {
+    font-size: 3.4rem;
+  }
+
+  .formInput__title {
+    font-size: 2.2rem;
+    margin-bottom: 1.7rem;
+  }
+
+  .formInput__description {
+    font-size: 1.5rem;
+  }
+
+  .waitingcontent__title {
+    font-size: 2rem;
+  }
+
+  .waitingcontent__description {
+    font-size: 1.7rem
+  }
+
+  .waitcontainer__img {
+    height: 26rem;
+  }
+  
+  .waiting {
+    grid-template-columns: repeat(6, 1fr);
+    margin: 3rem 0 17rem;
+  }
+
+  .submitButton input, button {
+    font-size: 1.8rem;
+  }
+
+  .waitcontainer__volgende {
+    padding: 1rem 2.5rem;
+  }
+
+  .kunstwerk {
+    width: 40vw;
+  }
 }

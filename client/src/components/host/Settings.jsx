@@ -26,19 +26,21 @@ class Settings extends Component {
       return (
         <div className="Settings">
           <header>
+            <div className="container">
               <Link to="/">
                 <img src={backbtn} alt="backbutton" height="30" />
               </Link>
               <h2>Hoe loopt je spel?</h2>
               <div></div>
+            </div>
           </header>
 
           <div className="rondes">
-              <img src={rondeicon} alt="rondeImage" height="136" width="136" />
+            <img src={rondeicon} alt="rondeImage" height="136" width="136" />
           </div>
 
           <form onSubmit={this.handleSubmit}>
-            <div className="settingGame">
+            <div className="container settingGame">
               <label htmlFor="rondes" className="formInput__title">Aantal rondes</label>
               <p className="formInput__description">Een korte game over de middag of een marathon?</p>
               
@@ -50,8 +52,10 @@ class Settings extends Component {
             </div>
 
             <div className="submitButton">
-              <input type="submit" value="Start het spel" />
-              <img src={arrow} alt="arrow" height="25" />
+              <div className="container submit__layout">
+                <input type="submit" value="Start het spel" />
+                <img src={arrow} alt="arrow" height="25" />
+              </div>
             </div>
         </form>
         </div>
