@@ -37,10 +37,17 @@ class Waiting extends Component {
           <div className="waitcontainer">
             <img src={sezanne} alt="imageWaiting" className="waitcontainer__img" />
 
-            <button onClick={this.handleStartGame} className="waitcontainer__volgende">
+            {
+                this.props.lobby !== null ? (this.props.lobby.players.length > 2 ? <button onClick={this.handleStartGame} className="waitcontainer__volgende">
+                Ronde 1
+                <img src={yellowArrow} alt="arrow"  height="30" className="waitcontainer__next" />
+              </button> : console.log("nog enough players")) : console.log("no lobby")
+            }
+
+            {/* <button onClick={this.handleStartGame} className="waitcontainer__volgende">
             Ronde 1
               <img src={yellowArrow} alt="arrow" height="30" className="waitcontainer__next" />
-            </button>
+            </button> */}
           </div>
 
           <div class="waitingcontent">
@@ -55,9 +62,9 @@ class Waiting extends Component {
           </ul>
 
           {this.props.lobby !== null ?
-          <div className="codecontainer">
-            <p className="codecontainer__code">{this.props.lobby.gamename}</p>
-          </div> : console.log("not found!") }
+            <div className="codecontainer">
+              <p className="codecontainer__code">{this.props.lobby.gamename}</p>
+            </div> : console.log("not found!") }
         </div>
       );
     }
