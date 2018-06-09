@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import arrow from '../../assets/img/arrow.svg';
+import backbtn from '../../assets/img/backarrow.svg';
 
 class User extends Component {
 
@@ -23,19 +25,21 @@ class User extends Component {
       return (
         <div className="User">
           <header>
-              <h2>Wie ben jij?</h2>
-            </header>
+            <img src={backbtn} alt="arrow" height="25" />
+            <h2>Wie ben je?</h2>
+            <div></div>
+          </header>
 
             <form onSubmit={this.handleSubmit}>
               <div className="formInput">
-                <label htmlFor="nickname" className="formTitle">Je nickname</label>
-                <input type="text" placeholder="Vul een leuke nickname in" name="nickname" className="inputField" />
-                <p className="inputDescription">Wees een echte kunstenaar</p>
+                <label htmlFor="nickname" className="formInput__title">Je nickname</label>
+                <input type="text" placeholder="Vul een leuke nickname in" name="nickname" className="formInput__input" />
+                <p className="formInput__description">Wees een echte kunstenaar</p>
               </div>
 
               <div className="submitButton">
                 <input type="submit" value="Maak je avatar" />
-                <img src="././assets/img/arrow.svg" alt="arrow" />
+                <img src={arrow} alt="arrow" height="25" />
               </div>
             </form>
         </div>

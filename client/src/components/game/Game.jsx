@@ -96,7 +96,6 @@ class Game extends Component {
     render() {
       return (
         <div className="game">
-          <h1>Game</h1>
           {/* Check if player is part of a lobby (request to server) and redirect to home if not + add notification */}
           {/* If player is part of game, load right screen etc. */}
           {this.renderSwitch(this.state.screen)}

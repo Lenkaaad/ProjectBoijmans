@@ -60,7 +60,6 @@ class Player extends Component {
       return (
         <div className="player">
         <button onClick={this.leaveLobby}>leave lobby</button>
-          <h1>Game Lobby</h1>
           {this.renderSwitch(this.state.screen)}
         </div>
       );

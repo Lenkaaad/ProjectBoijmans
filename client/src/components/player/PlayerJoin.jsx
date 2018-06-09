@@ -23,7 +23,7 @@ class PlayerJoin extends Component {
     
     render() {
       return (
-        <div className="player-join">
+        <div className="playerjoin">
           <form onSubmit={this.handleSubmitPlayer}>
             <label htmlFor="nickname">Je nickname</label>
             <input id="nickname" name="nickname" type="text"/>

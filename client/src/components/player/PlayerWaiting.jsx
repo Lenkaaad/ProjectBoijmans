@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import exit from '../../assets/img/exit.svg';
+import monalisa from '../../assets/img/monalisa.svg';
 
 class PlayerWaiting extends Component {
 
@@ -14,18 +17,21 @@ class PlayerWaiting extends Component {
 
     return (
       <div className="player-wait">
-        <section>
-          <h2>Wachten tot het spel start!</h2>
-          <ul>
+        <header>
+          <div></div>
+          <h2>Wachtruimte</h2>
+          <Link to="/">
+            <img src={exit} alt="exit" height="30" />
+          </Link>
+        </header>
+        <ul className="waitgrid">
             {
-              this.props.lobby !== null ? this.props.lobby.players.map(player => <li>{player.nickname}</li>) : console.log("oopsie!")
+              this.props.lobby !== null ? this.props.lobby.players.map(player => <li><img src={monalisa} alt="avatar" />{player.nickname}</li>) : console.log("oopsie!")
             }
-          </ul>
-        </section>
-        <section>
-          <h2 className="hide">Loading Tekst</h2>
-          <p>Nog even de kunst afstoffen...</p>
-        </section>
+        </ul>
+        <div className="feedback">
+          <p>Wachten tot het spel start ...</p>
+        </div>
       </div>
     );
   }

@@ -1,6 +1,8 @@
 :root {
-    --textColor: #000;
-    --greenColor: #4E9687;
-    --yellowColor: #EFAF00;
-    --backgroundColorInput: #F7F6F3;
-  }
+  --textColor: #000;
+  --greenColor: #4E9687;
+  --yellowColor: #EFAF00;
+  --redColor: #D94700;
+  --purpleColor: #692E47;
+  --backgroundColorInput: #F7F6F3;
+}

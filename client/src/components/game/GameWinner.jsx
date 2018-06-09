@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import exit from '../../assets/img/exit.svg';
 
 class GameWinner extends Component {
 
@@ -9,6 +11,13 @@ class GameWinner extends Component {
     render() {
       return (
         <div className="winnaar">
+          <header>
+            <div></div>
+            <h2>Winnaar</h2>
+            <Link to="/">
+              <img src={exit} alt="exit" height="30" />
+            </Link>
+          </header>
           <section>
             <h2 className="hide">Winnaar</h2>
             <article>

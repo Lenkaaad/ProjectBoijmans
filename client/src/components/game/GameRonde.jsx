@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+import exit from '../../assets/img/exit.svg';
+import play from '../../assets/img/playbtn.svg';
+import dali from '../../assets/img/dali.jpg';
 
 class GameRonde extends Component {
 
@@ -29,37 +33,33 @@ class GameRonde extends Component {
 
       console.log(this.props.ronde);
       
-
       return (
         <div className="ronde">
-          <section>
-            <h2 className="hide">Kunstwerk</h2>
-            <img src="#" alt="Kunstwerk"/>
-          </section>
-          <section>
-            <h2 className="hide">Over het kunstwerk</h2>
+          <header>
+            <div></div>
+            <h2>Ronde</h2>
+            <Link to="/">
+              <img src={exit} alt="exit" height="30" />
+            </Link>
+          </header>
 
-            <p>{this.props.ronde !== null ? this.props.ronde.artwork : console.log("oopsie!")}</p>
-            <article className="art-info left">
-              <h3>Kunstenaar</h3>
-              <p>Salvador Dali</p>
-            </article>
-            <article className="art-info right">
-              <h3>Stijl</h3>
-              <p>Surrealisme</p>
-            </article>
-          </section>
-          <section>
-            <h2 className="hide">Timer</h2>
-            <p>5m 30s</p>
-          </section>
           <section>
             <h2 className="hide">Jouw Antwoord</h2>
-            <form onSubmit={this.handleSubmitText}>
-              <input name="answer" type="text" placeholder="Je leuke hedendaagse en grappige interpretatie komt hier, toch?"/>
-              <input disabled={this.state.enteringDone ? true : false } type="submit" name="check" value="check"  />
+            <form onSubmit={this.handleSubmitText} className="formInterpretatie">
+              <input name="answer" type="text" placeholder="Je leuke hedendaagse en grappige interpretatie komt hier, toch?" className="formInterpretatie__invoerveld" />
+              <input disabled={this.state.enteringDone ? true : false } type="submit" name="check" value="&#x2713;" className="formInterpretatie__checkbtn" />
             </form>
           </section>
+
+          <div>
+            <img src={dali} alt="kunstwerk" className="kunstwerk" />
+            <img src={play} alt="play" width="50" className="playbtn" />
+          </div>
+
+          <section>
+            <p className="hide">{this.props.ronde !== null ? this.props.ronde.artwork : console.log("oopsie!")}</p>
+          </section>
+          
         </div>
       );
     }
