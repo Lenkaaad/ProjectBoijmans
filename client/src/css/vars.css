@@ -5,4 +5,15 @@
   --redColor: #D94700;
   --purpleColor: #692E47;
   --backgroundColorInput: #F7F6F3;
+
+  --level1-height: 27rem;
+  --level1-width: 18rem;
+  --level0-height: 40.125rem;
+  --level0-width: 21.4rem;
+
+  --level-2-left: 65rem;
+  --level-1-left: 50rem;
+  --level0-left: 33rem;
+  --level1-left: 18rem;
+  --level2-left: 5rem;
 }

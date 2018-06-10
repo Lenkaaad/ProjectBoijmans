@@ -81,13 +81,10 @@ class Game extends Component {
           }else{
             return <GameRonde socket={this.socket} handleChangeScreens={this.changeScreens} ronde={this.state.ronde} />
           }
-          break;
         case 1: 
           return <StemRonde socket={this.socket} lobby={this.state.lobby} ronde={this.state.ronde} picker={this.state.picker} />
-          break;
         case 2: 
           return <EndGame socket={this.socket} winner={this.state.winner} />
-          break;
         default:
           break;
       }

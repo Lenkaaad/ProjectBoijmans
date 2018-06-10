@@ -9,8 +9,10 @@ import Game from './components/game/Game';
 import Kunstgallerij from './components/gallerij/Kunstgallerij';
 import Kunstdetail from './components/detail/Kunstdetail';
 import Muziekdetail from './components/detail/Muziekdetail';
+import Notfound from './components/Notfound';
 import { Switch, Route, Link, withRouter } from 'react-router-dom'
 
+import {artworks} from './assets/data/gallerij.json';
 
 import openSocket from 'socket.io-client';
 const socket = openSocket('http://localhost:8000');
@@ -76,6 +78,23 @@ class App extends Component {
         )}/>
         <Route path='/game' render={() => (
         <Game socket={socket} state={this.state} />
+        )} />
+        <Route path='/gallery/:id/music' render={({match}) => {
+          const id = match.params.id;
+          if(artworks[id]){
+            return <Muziekdetail artworks={artworks} id={id} />
+          }
+          return <Route component={Notfound} />
+        }} />
+        <Route path='/gallery/:id' render={({match}) => {
+          const id = match.params.id;
+          if(artworks[id]){
+            return <Kunstdetail artworks={artworks} id={id} />
+          }
+          return <Route component={Notfound} />
+        }} />
+        <Route path='/gallery' render={() => (
+        <Kunstgallerij artworks={artworks}/>
         )} />
       </Switch>
       {/* Put timer on this message so it disappears and reset state. */}

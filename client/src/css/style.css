@@ -105,11 +105,7 @@ input[type="submit"], button {
   flex-direction: row-reverse;
   justify-content: center;
   align-items: flex-end;
-<<<<<<< HEAD
-  margin-top: 7rem;
-=======
   margin-top: 9rem;
->>>>>>> c38625c337fd12809621cfa5af60ab2a317e035a
 }
 
 .homebutton {
@@ -673,6 +669,154 @@ input[type="submit"], button {
 
 .mentions__three {
   background-color: var(--yellowColor);
+}
+
+#carousel {
+  height: 20rem;
+  width: 100vw;
+  margin: auto;
+
+  display: flex;
+  justify-content: space-between;
+}
+
+.inner-carousel {
+  display: flex;
+}
+
+.arrow {
+  width: 3rem;
+  height: 3rem;
+  background-color: white;
+  text-align: center;
+  font-size: 2.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 2rem;
+  color: #228291;
+  line-height: 3rem;
+  margin-top: 8.5rem;
+  z-index: 1000;
+}
+
+.item {
+  transition: height .3s, width .3s, left .3s, margin-top .3s, line-height .3s, background-color .3s;
+}
+
+.level-1 {
+  height: var(--level1-height);
+  width: var(--level1-width);
+  margin-top: 2.5rem;
+  z-index: 2;
+}
+
+.level0 {
+  height: var(--level0-height);
+  width: var(--level0-width);
+  z-index: 3;
+}
+
+.level1 {
+  height: var(--level1-height);
+  width: var(--level1-width);
+  margin-top: 2.5rem;
+  z-index: 2;
+}
+
+.left-enter {
+  opacity: 0;
+  height: var(--level1-height) - 30;
+  width: 0;
+  margin-top: 2.5rem;
+}
+
+.left-enter.left-enter-active {
+  opacity: 1;
+  height: var(--level1-height);
+  width: var(--level1-width);
+  margin-top: 2.5rem;
+  transition: left .3s, opacity .3s, height .3s, width .3s, margin-top .3s, line-height .3s;
+}
+
+.left-leave {
+  opacity: 1;
+  height: var(--level1-height);
+  width: var(--level1-width);
+  margin-top: 2.5rem;
+}
+
+.left-leave.left-leave-active {
+  opacity: 0;
+  height: var(--level1-height);
+  margin-top: 2.5rem;
+  width: 0;
+  transition: left .3s, opacity .3s, height .3s, width .3s, margin-top .3s, line-height .3s;
+}
+
+.right-enter {
+  opacity: 0;
+  height: var(--level1-height) - 30;
+  width: 0;
+  margin-top: 2.5rem;
+}
+
+.right-enter.right-enter-active {
+  opacity: 1;
+  height: var(--level1-height);
+  margin-top: 2.5rem;
+  width: var(--level1-width);
+  transition: left .3s, opacity .3s, height .3s, width .3s, margin-top .3s, line-height .3s;
+}
+
+.right-leave {
+  height: var(--level1-height);
+  opacity: 1;
+  margin-top: 2.5rem;
+  width: var(--level1-width);
+}
+
+.right-leave.right-leave-active {
+  opacity: 0;
+  height: var(--level1-height);
+  width: 0;
+  margin-top: 2.5rem;
+  transition: left .3s, opacity .3s, height .3s, width .3s, margin-top .3s, line-height .3s;
+}
+
+.noselect {
+  -webkit-user-select: none; 
+   -khtml-user-select: none; 
+     -moz-user-select: none; 
+      -ms-user-select: none;  
+          user-select: none;
+}
+
+.gallery-image {
+  height: 80%;
+}
+
+.gallery-image-info {
+  height: 20%;
+}
+
+.default-cursor {
+  cursor: default;
+}
+
+
+
+.heart-open {
+  background-image: url(../assets/img/heart-open.svg);
+  background-repeat: no-repeat;
+  width: 4.1rem;
+  height: 3.75rem;
+}
+
+.heart-filled {
+  background-image: url(../assets/img/heart-filled.svg);
+  background-repeat: no-repeat;
+  width: 4.1rem;
+  height: 3.75rem;
 }
 
 @media only screen and (min-width: 760px) {

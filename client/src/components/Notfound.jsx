@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import arrow from '../assets/img/arrow.svg';
 
 class Notfound extends Component {
 
@@ -12,7 +13,7 @@ class Notfound extends Component {
 
           <img src="#" alt="monalisa" />
 
-          <Link className="submitButton">
+          <Link to="/" className="submitButton">
             <img src={arrow} alt="arrow" height="25" className="arrowRotate" />
             <p>Terug naar home</p>
           </Link>
