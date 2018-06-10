@@ -2,6 +2,7 @@ const io = require('socket.io')();
 
 let lobbies = [];
 
+// function generates a random string + number combination (used for lobby code)
 function randomStr(m) {
 	var m = m || 9; s = '', r = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
 	for (var i=0; i < m; i++) { s += r.charAt(Math.floor(Math.random()*r.length)); }
@@ -11,13 +12,13 @@ function randomStr(m) {
 io.on('connection', function(socket){
   // what to do when a user connects
   console.log('User connected: '+ socket.id);
-  console.log(randomStr(5));
+
 
   // on disconnect we log to console
   socket.on('disconnect', function(){
     console.log('User disconnected: '+socket.id);
-    console.log(lobbies);
 
+    // if socket is host of a lobby, remove said lobby
     if(socket.host){
       const lobby = lobbies.find(lobby => {
         return lobby.gamename === socket.lobby;
@@ -28,26 +29,30 @@ io.on('connection', function(socket){
         var filteredlobbies = lobbies.filter(function(lobby) { return lobby.gamename !== socket.lobby; }); 
         lobbies = filteredlobbies;
   
-        // send all people in room request to leave
+        // send all people in room request to leave + message
         io.sockets.in(socket.lobby).emit('leave request');
+        io.sockets.in(socket.lobby).emit('lobby removed', 'The host has left the lobby!');
   
         // leave lobby as host
         socket.leave(socket.lobby)
-        socket.emit('lobby removed', 'The lobby has been removed!');
+        // socket.emit('lobby removed', 'The lobby has been removed!');
         socket.lobby = null
       }
-  
+
       console.log(lobbies);
     }else{
+      // if socket is not host of a lobby, check if socket is in a lobby, if so, remove socket from lobby and list of players
       const lobby = lobbies.find(lobby => {
         return lobby.gamename === socket.lobby;
       })
 
+      // remove socket from players
       if(lobby){
         var filteredplayers = lobby.players.filter(function(player) { return player.id !== socket.id; }); 
         lobby.players = filteredplayers;
       }
 
+      // leave room, send other sockets update on players
       socket.leave(socket.lobby)
       io.sockets.in(socket.lobby).emit('lobby', lobby);
       socket.lobby = null
@@ -72,6 +77,7 @@ io.on('connection', function(socket){
     socket.avatar = avatar
   })
 
+  // when user joins a game with gamename/gamecode
   socket.on('user join', ({ nickname, avatar, gamename}) => {
 
     const lobby = lobbies.find(lobby => {
@@ -83,6 +89,7 @@ io.on('connection', function(socket){
 
     // if lobby exists, add user to it
     if(lobby){
+      // if lobby already started: player can't join anymore
       if(lobby.started){
         console.log("whoops the game already started!");
         socket.emit('err', 'Je kunt je niet toevoegen aan een spel als het al gestart is...');
@@ -91,6 +98,7 @@ io.on('connection', function(socket){
       lobby.players.push({
         "id": socket.id,
         "nickname": socket.nickname,
+        "avatar": socket.avatar,
         "wins": 0
       })
       
@@ -101,16 +109,19 @@ io.on('connection', function(socket){
       io.sockets.in(lobby.gamename).emit('lobby', lobby)
       }
     }else{
+      // als de lobby niet bestaat, send error naar socket met message
       socket.emit('err', 'Deze lobby bestaat niet!')
       console.log("lobby doesn't exist...")
     }
   })
 
-
+  // create a lobby
   socket.on('create lobby', (rondes) => {
 
+    // create gamecode
     const gamestring = randomStr(5);
 
+    // if a lobby already exists with this string: lobby already exists
     const lobby = lobbies.find(lobby => {
       return lobby.gamename === gamestring;
     })
@@ -120,6 +131,7 @@ io.on('connection', function(socket){
 
     if(lobby !== undefined){
       console.log("lobby already exists");
+      // preferably recreate a new gamecode and check again
       // return false: gamestring already exists
     }else{
       const lobby = {
@@ -130,6 +142,7 @@ io.on('connection', function(socket){
         "players": [{
           "id": socket.id,
           "nickname": socket.nickname,
+          "avatar": socket.avatar,
           "wins": 0
         }],
         "rondes": []
@@ -145,7 +158,10 @@ io.on('connection', function(socket){
     
   })
 
+  // remove a lobby
   socket.on('remove lobby', () => {
+
+    // called when exit as host
     const lobby = lobbies.find(lobby => {
       return lobby.gamename === socket.lobby;
     })
@@ -157,11 +173,14 @@ io.on('connection', function(socket){
 
       // send all people in room request to leave
       io.sockets.in(socket.lobby).emit('leave request');
+      io.sockets.in(socket.lobby).emit('lobby removed', 'The host has removed the lobby!');
 
-      // leave lobby as host
+      // leave lobby as host + change host to false
       socket.leave(socket.lobby)
       socket.lobby = null
+      socket.host = false
 
+      // send host back to homescreen with message
       socket.emit('lobby removed', 'The lobby has been removed!');
 
     }
@@ -176,37 +195,42 @@ io.on('connection', function(socket){
         return lobby.gamename === socket.lobby;
       })
 
+      // filter socket out of players
       if(lobby){
         var filteredplayers = lobby.players.filter(function(player) { return player.id !== socket.id; }); 
         lobby.players = filteredplayers;
       }
 
+      // leave room, send update to other players in room
       socket.leave(socket.lobby)
       io.sockets.in(socket.lobby).emit('lobby', lobby);
       socket.lobby = null
   })
 
   socket.on('start game', () => {
-    console.log("Host has started the game");
+    // start game when after all players joined
 
     const lobby = lobbies.find(lobby => {
       return lobby.gamename === socket.lobby;
     })
 
+    // add variable to keep track of state of game;
     lobby.started = true;
 
     // select first picker + add to ronde?
     const picker = lobby.players[0].id;
 
     lobby.rondes.push({
-      "artwork" : Math.floor(Math.random() * 21),
+      "artwork" : Math.ceil(Math.random() * 8),
       "picker" : picker,
       "antwoorden": []
     })
 
+    // send update to players in game
     io.sockets.in(socket.lobby).emit('go game');
-    console.log(lobby.rondes[lobby.rondes.length - 1]);
+    // send current ronde to players in games
     io.sockets.in(socket.lobby).emit('ronde', lobby.rondes[lobby.rondes.length - 1]);
+    // send wait for round state to picker
     io.to(picker).emit('wait for round');
 
   })
@@ -216,14 +240,11 @@ io.on('connection', function(socket){
       return lobby.gamename === socket.lobby;
     })
 
-    console.log("enter answer")
-    console.log(lobby);
-
     if(lobby !== undefined){
+      // get last round
       const laatsteronde = lobby.rondes[lobby.rondes.length - 1];
 
-      console.log(laatsteronde);
-
+      // create antwoord object
       const antwoord = {
         "player": socket.nickname,
         "id": socket.id,
@@ -231,8 +252,10 @@ io.on('connection', function(socket){
         "win": false
       }
 
+      // push antwoord to last round on enter answer
       laatsteronde.antwoorden.push(antwoord);
 
+      // if all players in lobby - picker have sent answer: go to voting
       if(laatsteronde.antwoorden.length === (lobby.players.length - 1)){
         io.sockets.in(socket.lobby).emit('answers sent', laatsteronde);
         //io.sockets.socket(savedSocketId).emit('vote round', laatsteronde)
@@ -250,19 +273,22 @@ io.on('connection', function(socket){
 
     const laatsteronde = lobby.rondes[lobby.rondes.length - 1];
 
+    // find picked answer
     const winner = laatsteronde.antwoorden.find(antwoord => {
       return antwoord.player === name;
     })
 
+    // add win to true
     winner.win = true;
 
-    console.log("The winner is " + winner.player);
     const player = lobby.players.find(player => {
       return player.nickname === winner.player;
     })
 
+    // add a win to the player
     player.wins++;
 
+    // send winner to players
     io.sockets.in(socket.lobby).emit('winner', winner);
   })
 
@@ -285,14 +311,13 @@ io.on('connection', function(socket){
     const picker = lobby.players[lobby.currentPicker].id;
 
     lobby.rondes.push({
-      "artwork" : Math.floor(Math.random() * 21),
+      "artwork" : Math.ceil(Math.random() * 8),
       "picker" : picker,
       "antwoorden": []
     })
 
     io.sockets.in(socket.lobby).emit('picker', false);
 
-    console.log(lobby.rondes[lobby.rondes.length - 1]);
     io.sockets.in(socket.lobby).emit('ronde', lobby.rondes[lobby.rondes.length - 1]);
     io.to(picker).emit('wait for round');
 
@@ -304,6 +329,7 @@ io.on('connection', function(socket){
         return a.wins < b.wins;
       })
 
+      // still need to fix ties!
       const winner = sorted[0];
       console.log(sorted);
       console.log(winner);
