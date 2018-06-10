@@ -54,9 +54,11 @@ class Lobby extends Component {
               <div></div>
             </div>
           </header>
+
           <div className="avatar">
               <div className={`avatar__image avatar__image__${this.avatar} randomAvatar`}></div>
           </div>
+
           <form onSubmit={this.handleSubmitPlayer}>
             <div className="container formInput">
               <label htmlFor="nickname" className="formInput__title">Je nickname</label>
@@ -64,14 +66,15 @@ class Lobby extends Component {
               <p className="formInput__description">Wees een echte kunstenaar</p>
             </div>
 
-            <div className="container spelcodecontainer">
-              <label htmlFor="lobbycode" className="spelcodecontainer__spelcode">Ik heb een spelcode!
-                <input type="checkbox" name="lobbycode" id="lobbycode" onChange={this.showSpelcode} value="1" className="hide" />
-                <span className="checkmark"></span>
-              </label>
-            </div>
+            <div className="container">
+              <div className="spelcodecontainer">
+                <label htmlFor="lobbycode" className="spelcodecontainer__spelcode">Ik heb een spelcode!
+                  <input type="checkbox" name="lobbycode" id="lobbycode" onChange={this.showSpelcode} value="1" className="hide" />
+                  <span className="checkmark"></span>
+                </label>
+              </div>
 
-            <hr />
+              <hr />
 
             <div className="container add-spelcode hide bottom-item">
               {/* <label htmlFor="spelcode" className="formInput__title">Spelcode</label><br /> */}
@@ -84,6 +87,7 @@ class Lobby extends Component {
                 <img src={arrow} alt="arrow" height="25" />
               </div>
             </div>
+          </div>
           </form>
         </div>
       );

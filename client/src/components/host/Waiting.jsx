@@ -45,7 +45,7 @@ class Waiting extends Component {
                 this.props.lobby !== null ? (this.props.lobby.players.length > 2 ? <button onClick={this.handleStartGame} className="waitcontainer__volgende">
                 Ronde 1
                 <img src={yellowArrow} alt="arrow"  height="30" className="waitcontainer__next" />
-              </button> : console.log("nog enough players")) : console.log("no lobby")
+              </button> : <p className="feedbackmelding">Je bent niet met genoeg aantal spelers. Je moet met minimum 3 spelers zijn om te kunnen spelen.</p> ) : console.log("no lobby")
             }
           </div>
           

@@ -34,7 +34,9 @@ class PlayerWaiting extends Component {
             {
               this.props.lobby !== null ? this.props.lobby.players.map(player => <li><div className={`avatar__image_medium avatar__image__${player.avatar}`}></div><span>{player.nickname}</span></li>) : console.log("oopsie!")
             }
-        </ul>
+          </ul>
+      
+
         <div className="feedback">
           <p>Wachten tot het spel start ...</p>
         </div>

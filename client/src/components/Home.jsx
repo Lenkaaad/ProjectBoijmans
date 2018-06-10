@@ -28,7 +28,7 @@ class Home extends Component {
           </header>
 
           <article className="container home__buttons">
-            <Link to="/create">
+            <Link to="/">
               <button className="homebutton homebutton__gallerij">Kunst gallerij</button>
             </Link>
             <Link to="/lobby">

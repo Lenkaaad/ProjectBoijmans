@@ -1,5 +1,6 @@
 @import "reset.css";
 @import "vars.css";
+@import "fonts.css";
 
 html {
   font-size: 62.5%;
@@ -25,7 +26,7 @@ body {
   background-color: #F0EEE6;
   font-size: 1.5rem;
   line-height: 1.8rem;
-  font-family: sans-serif;
+  font-family: 'SchulbuchNord', sans-serif;
   color: var(--textColor);
 }
 
@@ -37,10 +38,20 @@ header {
   font-size: 1.6rem;
 }
 
+h1, h3 {
+  font-family: 'SFProDisplayBold', sans-serif;
+}
+
+h2 {
+  font-family: 'SFProDisplayBold', sans-serif;
+  font-size: 2rem;
+}
+
 .lobby header .container,
 .Waiting header .container,
 .Settings header .container,
-.ronde header .container{
+.ronde header .container,
+.player-wait header .container {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -94,7 +105,11 @@ input[type="submit"], button {
   flex-direction: row-reverse;
   justify-content: center;
   align-items: flex-end;
+<<<<<<< HEAD
   margin-top: 7rem;
+=======
+  margin-top: 9rem;
+>>>>>>> c38625c337fd12809621cfa5af60ab2a317e035a
 }
 
 .homebutton {
@@ -258,6 +273,11 @@ input[type="submit"], button {
   width: 2.5rem;
   background-color: var(--backgroundColorInput);
   border: .2rem solid var(--greenColor);
+}
+
+.feedbackmelding {
+  font-size: 1.3rem;
+  color: var(--redColor);
 }
 
 .spelcodecontainer input:checked ~ .checkmark {
@@ -467,7 +487,7 @@ input[type="submit"], button {
   font-weight: bold;
   text-align: center;
   font-size: 1.7rem;
-  margin: 1rem 0;
+  padding: 1.5rem 0;
 }
 
 .waitingcontent__description {
@@ -655,6 +675,65 @@ input[type="submit"], button {
   background-color: var(--yellowColor);
 }
 
+@media only screen and (min-width: 760px) {
+
+  h2 {
+    font-size: 2.3rem;
+  }
+
+  header {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .homebutton__boijmans {
+    width: 30vw;
+    margin: 1rem 7rem 0 25rem;
+  }
+
+  .feedback {
+    font-size: 1.5rem;
+  }
+
+  .homebutton {
+    width: 13rem;
+    height: 13rem;
+  }
+
+  .home__image {
+    width: 40rem;
+  }
+
+  .playbutton {
+    width: 21rem;
+    height: 21rem;
+  }
+
+  .playbutton__text {
+    font-size: 1.6rem;
+  }
+
+  .formInput__title {
+    font-size: 2.2rem;
+    margin-bottom: 1.7rem;
+  }
+
+  .formInput__description {
+    font-size: 1.5rem;
+  }
+
+  .spelcodecontainer__spelcode {
+    font-size: 1.5rem;
+  }
+
+  .waitingcontent__title {
+    font-size: 2.1rem;
+  }
+
+  .waitgrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 @media only screen and (min-width: 960px) {
   body {
     font-size: 1.8rem;
@@ -669,21 +748,12 @@ input[type="submit"], button {
     margin-bottom: 5rem;
   }
 
-  .home__buttons {
-    margin-top: 10rem;
-  }
-
-  .home__image {
-    width: 40rem;
-  }
-
   .homebutton__boijmans {
     width: 25vw;
   }
 
-  .homebutton {
-    width: 12rem;
-    height: 13rem;
+  .home__buttons{
+    margin-top: 12rem;
   }
 
   .playbutton {
@@ -691,17 +761,10 @@ input[type="submit"], button {
     height: 25rem;
   }
 
-  .playbutton__text {
-    font-size: 1.6rem;
-  }
-
   .playbutton__play {
     padding: 3.5rem 4rem;
     width: 17rem;
-  }
-
-  .feedback {
-    font-size: 1.6rem;
+    font-size: 4rem;
   }
 
   .spelcodecontainer {
@@ -712,21 +775,12 @@ input[type="submit"], button {
     font-size: 3.4rem;
   }
 
-  .formInput__title {
-    font-size: 2.2rem;
-    margin-bottom: 1.7rem;
-  }
-
-  .formInput__description {
-    font-size: 1.5rem;
-  }
-
   .waitingcontent__title {
-    font-size: 2rem;
+    font-size: 2.3rem;
   }
 
   .waitingcontent__description {
-    font-size: 1.7rem
+    font-size: 1.6rem
   }
 
   .waitcontainer__img {
@@ -748,5 +802,9 @@ input[type="submit"], button {
 
   .kunstwerk {
     width: 40vw;
+  }
+
+  .waitgrid {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
