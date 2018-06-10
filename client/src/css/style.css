@@ -36,6 +36,11 @@ header {
   text-align: center;
   font-weight: bold;
   font-size: 1.6rem;
+
+  /* width: 100%;
+  overflow: hidden;
+  position: fixed;
+  top: 0; */
 }
 
 h1, h3 {
@@ -51,7 +56,11 @@ h2 {
 .Waiting header .container,
 .Settings header .container,
 .ronde header .container,
-.player-wait header .container {
+.player-wait header .container,
+.judgewait header .container,
+.stemmen header .container,
+.endgame header .container,
+.ronde header .container {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -223,7 +232,7 @@ input[type="submit"], button {
   border-right: transparent;
   border-bottom: .2rem solid var(--greenColor);
   height: 4rem;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   padding: 0.5rem;
 }
 
@@ -236,7 +245,7 @@ input[type="submit"], button {
 .formInput__title {
   font-weight: bold;
   margin: 3rem 0 .7rem;
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 .add-spelcode {
@@ -253,8 +262,7 @@ input[type="submit"], button {
   padding: 0.5rem 3rem 0rem 3rem;
   margin: 1rem 0 0rem 1rem;
   cursor: pointer;
-  font-size: 2rem;
-  /* font-weight: bold; */
+  font-size: 1.6rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -402,7 +410,6 @@ input[type="submit"], button {
 
 .waitcontainer__img {
   width: 100vw;
-  height: 19rem;
 }
 
 .waitcontainer__next {
@@ -437,6 +444,7 @@ input[type="submit"], button {
   background-color: var(--backgroundColorInput);
   padding: 3rem 1rem;
   text-align: center;
+  margin: 3rem 0;
 }
 
 .kunstwerk {
@@ -448,14 +456,14 @@ input[type="submit"], button {
 }
 
 .artWork__container {
-  width: 100vw;
+  /* width: 100vw; */
   height: 100vh;
 }
 
 .playbtn {
   position: relative;
-  top: 12rem;
-  left: 43%;
+  top: 50%;
+  left: 30%;
 }
 
 .waitimg {
@@ -471,10 +479,6 @@ input[type="submit"], button {
   padding: 0 1rem;
 }
 
-.waitgrid li {
-  text-align: center;
-}
-
 .waitgrid .avatar__image_medium {
   margin-bottom: 1rem;
 }
@@ -482,7 +486,7 @@ input[type="submit"], button {
 .waitingcontent__title {
   font-weight: bold;
   text-align: center;
-  font-size: 1.7rem;
+  font-size: 2rem;
   padding: 1.5rem 0;
 }
 
@@ -517,8 +521,6 @@ input[type="submit"], button {
   border-bottom: .3rem solid var(--greenColor);
   font-size: 2rem;
 }
-
-
 
 .formInterpretatie__invoerveld::placeholder {
   font-size: 2rem;
@@ -591,8 +593,6 @@ input[type="submit"], button {
   font-weight: bold;
 }
 
-
-
 .antwoord_speler:nth-child(2n+0) {
   background-color: #EAE6D9;
 }
@@ -614,13 +614,18 @@ input[type="submit"], button {
 .winner {
   background-color: #EBE6D2;
   padding: 2rem;
-  margin-left: 10rem;
   margin-top: -9rem;
+  width: 20vw;
+}
+
+.winnerinfo .avatar {
+  margin-top: -5rem;
 }
 
 .winner__name {
   font-weight: bold;
-  font-size: 2rem;
+  font-size: 3rem;
+  padding-bottom: 1rem;
 }
 
 .mentions {
@@ -669,6 +674,16 @@ input[type="submit"], button {
 
 .mentions__three {
   background-color: var(--yellowColor);
+}
+
+.winner {
+  width: 50vw;
+}
+
+.winnerinfo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 #carousel {
@@ -803,8 +818,6 @@ input[type="submit"], button {
   cursor: default;
 }
 
-
-
 .heart-open {
   background-image: url(../assets/img/heart-open.svg);
   background-repeat: no-repeat;
@@ -865,16 +878,24 @@ input[type="submit"], button {
     font-size: 1.5rem;
   }
 
-  .spelcodecontainer__spelcode {
+  .waitgrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mentions__title {
+    font-size: 2.6rem;
+  }
+
+  .mentions__subtitle {
+    font-size: 1.8rem;
+  }
+
+  .mentions__content {
     font-size: 1.5rem;
   }
 
-  .waitingcontent__title {
-    font-size: 2.1rem;
-  }
-
-  .waitgrid {
-    grid-template-columns: repeat(3, 1fr);
+  .waitcontainer__img {
+    width: 70vw;
   }
 }
 
@@ -928,12 +949,12 @@ input[type="submit"], button {
   }
 
   .waitcontainer__img {
-    height: 26rem;
+    width: 66vw;
   }
   
   .waiting {
-    grid-template-columns: repeat(6, 1fr);
-    margin: 3rem 0 17rem;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 3rem 0 10rem;
   }
 
   .submitButton input, button {
@@ -950,5 +971,17 @@ input[type="submit"], button {
 
   .waitgrid {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .mentions__title {
+    padding: 4rem 0 6rem;
+  }
+
+  .mentions__subtitle {
+    font-size: 2rem;
+  }
+
+  .mentions__content {
+    font-size: 1.6rem;
   }
 }

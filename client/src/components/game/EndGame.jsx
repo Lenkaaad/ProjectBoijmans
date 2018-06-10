@@ -35,25 +35,29 @@ class EndGame extends Component {
       return (
         <div className="endgame">
           <header>
-            <div></div>
-            <h2>De winnaar</h2>
+            <div className="container">
+              <div></div>
+              <h2>De winnaar</h2>
               <img onClick={this.exitLobby} src={exit} alt="exit" height="30" />
+            </div>
           </header>
           
-          <img src={sezanne} alt="imageWaiting" className="waitcontainer__img" />
+          <div className="container">
+            <img src={sezanne} alt="imageWaiting" className="waitcontainer__img" />
+          
+            <div className="winnerinfo">
+              <div className="avatar">
+                <div className={`avatar__image_small avatar__image__${this.avatar} randomAvatar`}></div>
+              </div>
 
-          <div className="winnerinfo">
-          <div className="avatar">
-            <div className={`avatar__image_small avatar__image__${this.avatar} randomAvatar`}></div>
-          </div>
-
-            <div className="winner">
-              <p className="winner__name">{this.props.winner.nickname}</p>
-              <p>{this.props.winner.wins} punten</p>
+              <div className="winner">
+                <p className="winner__name">{this.props.winner.nickname}</p>
+                <p>{this.props.winner.wins} punten</p>
+              </div>
             </div>
           </div>
 
-          <section className="mentions">
+          <section className="container mentions">
             <h2 className="mentions__title">Honorable mentions</h2>
             <ul>
               <li>

@@ -30,12 +30,14 @@ class PlayerWaiting extends Component {
               <img onClick={this.exitLobby} src={exit} alt="exit" height="30" />
           </div>
         </header>
-        <ul className="waitgrid bottom-item">
+
+        <div className="container">
+          <ul className="waitgrid bottom-item">
             {
               this.props.lobby !== null ? this.props.lobby.players.map(player => <li><div className={`avatar__image_medium avatar__image__${player.avatar}`}></div><span>{player.nickname}</span></li>) : console.log("oopsie!")
             }
           </ul>
-      
+        </div>
 
         <div className="feedback">
           <p>Wachten tot het spel start ...</p>

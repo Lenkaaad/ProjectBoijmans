@@ -18,9 +18,11 @@ class GameWinner extends Component {
       return (
         <div className="winnaar">
           <header>
-            <div></div>
-            <h2>Winnaar</h2>
+            <div className="container">
+              <div></div>
+              <h2>Winnaar</h2>
               <img onClick={this.exitLobby} src={exit} alt="exit" height="30" />
+            </div>
           </header>
           <section>
             <h2 className="hide">Winnaar</h2>
@@ -30,7 +32,7 @@ class GameWinner extends Component {
               <p>15 punten</p>
             </article>
           </section>
-          <section className="bottom-item">
+          <section className="container bottom-item">
             <h2>Honorable mentions</h2>
             <ul>
               <li>

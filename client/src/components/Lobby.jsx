@@ -60,13 +60,14 @@ class Lobby extends Component {
           </div>
 
           <form onSubmit={this.handleSubmitPlayer}>
-            <div className="container formInput">
-              <label htmlFor="nickname" className="formInput__title">Je nickname</label>
-              <input id="nickname" name="nickname" type="text" placeholder="Vul een leuke nickname in" className="formInput__input" />
-              <p className="formInput__description">Wees een echte kunstenaar</p>
-            </div>
 
             <div className="container">
+              <div className="formInput">
+                <label htmlFor="nickname" className="formInput__title">Je nickname</label>
+                <input id="nickname" name="nickname" type="text" placeholder="Vul een leuke nickname in" className="formInput__input" />
+                <p className="formInput__description">Wees een echte kunstenaar</p>
+              </div>
+
               <div className="spelcodecontainer">
                 <label htmlFor="lobbycode" className="spelcodecontainer__spelcode">Ik heb een spelcode!
                   <input type="checkbox" name="lobbycode" id="lobbycode" onChange={this.showSpelcode} value="1" className="hide" />
@@ -76,9 +77,11 @@ class Lobby extends Component {
 
               <hr />
 
-            <div className="container add-spelcode hide bottom-item">
-              {/* <label htmlFor="spelcode" className="formInput__title">Spelcode</label><br /> */}
-              <input type="text" name="spelcode" id="spelcode" className="formInput__input" placeholder="Vul hier jou spelcode in" />
+              <div className="container add-spelcode hide bottom-item">
+                {/* <label htmlFor="spelcode" className="formInput__title">Spelcode</label><br /> */}
+                <input type="text" name="spelcode" id="spelcode" className="formInput__input" placeholder="Vul hier jou spelcode in" />
+              </div>
+
             </div>
 
             <div className="submitButton">
@@ -87,7 +90,7 @@ class Lobby extends Component {
                 <img src={arrow} alt="arrow" height="25" />
               </div>
             </div>
-          </div>
+          
           </form>
         </div>
       );

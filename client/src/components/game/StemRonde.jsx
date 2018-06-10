@@ -78,13 +78,15 @@ class StemRonde extends Component {
       return (
         <div className="stemmen">
           <header>
-            <div></div>
-            <h2>Stemronde</h2>
+            <div className="container">
+              <div></div>
+              <h2>Stemronde</h2>
               <img onClick={this.exitLobby} src={exit} alt="exit" height="30" />
+            </div>
           </header>
           <section>
             <h2 className="hide">Kunstwerk</h2>
-            <div className="waitcontainer">
+            <div className="container waitcontainer">
             <img src={this.getRightImage(this.props.ronde.artwork)} alt="Kunstwerk" className="waitimg" />
             {
               this.props.picker && this.state.winner !== null ? <button onClick={this.handleNextRound} className="waitcontainer__volgende">Volgende ronde <img src={yellowArrow} alt="arrow" height="30" className="waitcontainer__next" /></button> : console.log("not picker")
@@ -95,16 +97,16 @@ class StemRonde extends Component {
             <h2 className="hide">Antwoorden</h2>
             { this.state.winner === null ?
               <form onSubmit={this.handleStem}>
-              {this.props.picker && this.props.ronde !== null ? <div className="judgecontainer"><p>Jij bent de baas. Kies je favoriet</p></div> : console.log("aan het kiezen") }
+              {this.props.picker && this.props.ronde !== null ? <div className="container judgecontainer"><p>Jij bent de baas. Kies je favoriet</p></div> : console.log("aan het kiezen") }
               
               {
-                this.props.picker && this.props.ronde !== null ? this.props.ronde.antwoorden.map(ronde => <div><div className="antwoord_speler"><label htmlFor={ronde.player} className="containerRadio">{ronde.antwoord}<input type="radio" value={ronde.player} id={ronde.player} name="antwoord" /><span class="checkmarkRadio"></span></label></div></div>) : <div><ul>{this.props.ronde.antwoorden.map(ronde => <li className="antwoord_speler">{ronde.antwoord}</li>)}</ul><div className="feedback">Wachten op de beoordeling ...</div></div>
+                this.props.picker && this.props.ronde !== null ? this.props.ronde.antwoorden.map(ronde => <div className="container"><div className="antwoord_speler"><label htmlFor={ronde.player} className="containerRadio">{ronde.antwoord}<input type="radio" value={ronde.player} id={ronde.player} name="antwoord" /><span class="checkmarkRadio"></span></label></div></div>) : <div><ul className="container">{this.props.ronde.antwoorden.map(ronde => <li className="antwoord_speler">{ronde.antwoord}</li>)}</ul><div className="feedback">Wachten op de beoordeling ...</div></div>
               }
               {
-                this.props.picker && this.props.ronde !== null ? <div className="submitButton"><input type="submit" value="Stem nu" /><img src={arrow} alt="arrow" height="25" /></div> : console.log("not picker")
+                this.props.picker && this.props.ronde !== null ? <div className="submitButton"><div className="container submit__layout"><input type="submit" value="Stem nu" /><img src={arrow} alt="arrow" height="25" /></div></div> : console.log("not picker")
               }
             </form>
-            : <ul>{this.props.ronde.antwoorden.map(ronde => <li className={`antwoord_speler ${ronde.antwoord === this.state.winner.antwoord ? 'round_winnerState' : console.log("not winner")}`}>{ronde.antwoord}</li>)}</ul>}
+            : <ul className="container">{this.props.ronde.antwoorden.map(ronde => <li className={`antwoord_speler ${ronde.antwoord === this.state.winner.antwoord ? 'round_winnerState' : console.log("not winner")}`}>{ronde.antwoord}</li>)}</ul>}
           </section>
         </div>
       );

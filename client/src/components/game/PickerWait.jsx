@@ -62,17 +62,22 @@ class PickerWait extends Component {
       return (
         <div className="judgewait">
           <header>
-            <div></div>
-            <h2>Ronde</h2>
+            <div className="container">
+              <div></div>
+              <h2>Ronde</h2>
               <img onClick={this.exitLobby} src={exit} alt="exitbtn" height="30" />
+            </div>
           </header>
-          <div className="pickerwait">
-            <p>Jij stemt! De andere spelers zijn nu hun antwoorden aan het ingeven.</p>
-          </div>
-          
-          <div class="artWork__container bottom-item">
-            <img src={this.getRightImage(this.props.ronde.artwork)} alt="kunstwerk" className="kunstwerk" />
-            <img src={play} alt="play" width="50" className="playbtn" />
+
+          <div className="container">
+            <div className="pickerwait">
+              <p>Jij stemt! De andere spelers zijn nu hun antwoorden aan het ingeven.</p>
+            </div>
+
+            <div class="artWork__container bottom-item">
+              <img src={this.getRightImage(this.props.ronde.artwork)} alt="kunstwerk" className="kunstwerk" />
+              <img src={play} alt="play" width="50" className="playbtn" />
+            </div>
           </div>
 
           <div className="feedback">
