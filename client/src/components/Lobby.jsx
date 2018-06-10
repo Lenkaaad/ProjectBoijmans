@@ -55,9 +55,11 @@ class Lobby extends Component {
               <div></div>
             </div>
           </header>
+
           <div className="avatar">
               <img src={scream} alt="randomAvatar" height="136" width="136" />
           </div>
+
           <form onSubmit={this.handleSubmitPlayer}>
             <div className="container formInput">
               <label htmlFor="nickname" className="formInput__title">Je nickname</label>
@@ -65,18 +67,20 @@ class Lobby extends Component {
               <p className="formInput__description">Wees een echte kunstenaar</p>
             </div>
 
-            <div className="container spelcodecontainer">
-              <label htmlFor="lobbycode" className="spelcodecontainer__spelcode">Ik heb een spelcode!
-                <input type="checkbox" name="lobbycode" id="lobbycode" onChange={this.showSpelcode} value="1" className="hide" />
-                <span className="checkmark"></span>
-              </label>
-            </div>
+            <div className="container">
+              <div className="spelcodecontainer">
+                <label htmlFor="lobbycode" className="spelcodecontainer__spelcode">Ik heb een spelcode!
+                  <input type="checkbox" name="lobbycode" id="lobbycode" onChange={this.showSpelcode} value="1" className="hide" />
+                  <span className="checkmark"></span>
+                </label>
+              </div>
 
-            <hr />
+              <hr />
 
-            <div className="container add-spelcode hide">
-              <label htmlFor="spelcode" className="formInput__title">Spelcode</label><br />
-              <input type="text" name="spelcode" id="spelcode" className="formInput__input" placeholder="Vul hier jou spelcode in" />
+              <div className="add-spelcode hide">
+                <label htmlFor="spelcode" className="formInput__title">Spelcode</label><br />
+                <input type="text" name="spelcode" id="spelcode" className="formInput__input" placeholder="Vul hier jou spelcode in" />
+              </div>
             </div>
 
             <div className="submitButton">

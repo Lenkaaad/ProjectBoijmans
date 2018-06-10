@@ -48,7 +48,7 @@ class GameRonde extends Component {
           <section className="container">
             <h2 className="hide">Jouw Antwoord</h2>
             <form onSubmit={this.handleSubmitText} className="formInterpretatie">
-              <input name="answer" type="text" placeholder="Je leuke hedendaagse en grappige interpretatie komt hier, toch?" className="formInterpretatie__invoerveld" />
+              <input name="answer" type="text" placeholder="Schrijf hier jouw grappige interpretatie van dit schilderij. " className="formInterpretatie__invoerveld" />
               <input disabled={this.state.enteringDone ? true : false } type="submit" name="check" value="&#x2713;" className="formInterpretatie__checkbtn" />
             </form>
           </section>

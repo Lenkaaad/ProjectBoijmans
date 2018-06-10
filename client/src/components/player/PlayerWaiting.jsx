@@ -26,11 +26,15 @@ class PlayerWaiting extends Component {
             </Link>
           </div>
         </header>
-        <ul className="waitgrid">
+        
+        <div className="container">
+          <ul className="waitgrid">
             {
               this.props.lobby !== null ? this.props.lobby.players.map(player => <li><img src={monalisa} alt="avatar" />{player.nickname}</li>) : console.log("oopsie!")
             }
-        </ul>
+          </ul>
+        </div>
+
         <div className="feedback">
           <p>Wachten tot het spel start ...</p>
         </div>

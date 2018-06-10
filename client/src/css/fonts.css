@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'SchulbuchNord';
+    font-style: normal;
+    font-weight: 400;
+    src:
+      url('../assets/fonts/schulbuchnord/SchulbuchNordNormal.woff2') format('woff2'),
+      url('../assets/fonts/schulbuchnord/SchulbuchNordNormal.woff') format('woff'),
+}
+  
+@font-face {
+    font-family: 'SFProDisplayBold';
+    font-style: normal;
+    font-weight: 700;
+    src:
+      url('../assets/fonts/sfprodisplay/SF-Pro-Display-Bold.woff2') format('woff2'),
+      url('../assets/fonts/sfprodisplay/SF-Pro-Display-Bold.woff') format('woff'),
+}
+
+@font-face {
+    font-family: 'SFProDisplaySemiBold';
+    font-style: normal;
+    font-weight: 700;
+    src:
+      url('../assets/fonts/sfprodisplay/SF-Pro-Display-Semibold.woff2') format('woff2'),
+      url('../assets/fonts/sfprodisplay/SF-Pro-Display-Semibold.woff') format('woff'),
+}
+
+@font-face {
+    font-family: 'SFProDisplayMedium';
+    font-style: normal;
+    font-weight: 700;
+    src:
+      url('../assets/fonts/sfprodisplay/SF-Pro-Display-Medium.woff2') format('woff2'),
+      url('../assets/fonts/sfprodisplay/SF-Pro-Display-Medium.woff') format('woff'),
+}
