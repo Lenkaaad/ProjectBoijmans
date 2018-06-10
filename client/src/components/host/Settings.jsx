@@ -22,6 +22,20 @@ class Settings extends Component {
 
     }
 
+    changeRounds = e => {
+      e.preventDefault();
+      console.log(e.currentTarget.dataset.what);
+
+      const rounds = document.querySelector('#rondes');
+      if(e.currentTarget.dataset.what === 'more'){
+        rounds.value++
+      }else{
+        if(rounds.value > 1){
+          rounds.value--;
+        }
+      }
+    }
+
     render() {
       return (
         <div className="Settings">
@@ -45,16 +59,15 @@ class Settings extends Component {
               <p className="formInput__description">Een korte game over de middag of een marathon?</p>
               
               <div className="rondes">
-                <button className="rondes__less">-</button>
-                <input type="number" id="rondes" name="rondes"/>
-                <button className="rondes__more">+</button>
+                <button data-what="less" className="rondes__less" onClick={this.changeRounds}>-</button>
+                <input type="number" disabled id="rondes" name="rondes" min="1" value="5" class="roundsInput"/>
+                <button data-what="more" className="rondes__more" onClick={this.changeRounds}>+</button>
               </div>
             </div>
 
             <div className="submitButton">
               <div className="container submit__layout">
-                <input type="submit" value="Start het spel" />
-                <img src={arrow} alt="arrow" height="25" />
+                <input type="submit" value="Start het spel" className="enter-button" />
               </div>
             </div>
         </form>

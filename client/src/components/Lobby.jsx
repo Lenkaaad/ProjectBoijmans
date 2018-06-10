@@ -65,7 +65,7 @@ class Lobby extends Component {
               <div className="formInput">
                 <label htmlFor="nickname" className="formInput__title">Je nickname</label>
                 <input id="nickname" name="nickname" type="text" placeholder="Vul een leuke nickname in" className="formInput__input" />
-                <p className="formInput__description">Wees een echte kunstenaar</p>
+                <p className="formInput__description">Wees een echte kunstenaar!</p>
               </div>
 
               <div className="spelcodecontainer">
@@ -74,8 +74,6 @@ class Lobby extends Component {
                   <span className="checkmark"></span>
                 </label>
               </div>
-
-              <hr />
 
               <div className="container add-spelcode hide bottom-item">
                 {/* <label htmlFor="spelcode" className="formInput__title">Spelcode</label><br /> */}
@@ -87,7 +85,6 @@ class Lobby extends Component {
             <div className="submitButton">
               <div className="container submit__layout">
                 <input type="submit" className="enter-button" value="Maak een spel aan" />
-                <img src={arrow} alt="arrow" height="25" />
               </div>
             </div>
           
