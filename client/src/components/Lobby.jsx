@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {withRouter} from "react-router-dom";
 import arrow from '../assets/img/arrow.svg';
 import backbtn from '../assets/img/backarrow.svg';
-import scream from '../assets/img/scream.svg';
 import { Link } from 'react-router-dom';
 
 class Lobby extends Component {
@@ -11,7 +10,7 @@ class Lobby extends Component {
       super(props);
 
       this.socket = this.props.socket;
-      this.avatar = Math.floor(Math.random() * 7);
+      this.avatar = Math.ceil(Math.random() * 6);
     }
 
     handleSubmitPlayer = e => {
@@ -56,7 +55,7 @@ class Lobby extends Component {
             </div>
           </header>
           <div className="avatar">
-              <img src={scream} alt="randomAvatar" height="136" width="136" />
+              <div className={`avatar__image avatar__image__${this.avatar} randomAvatar`}></div>
           </div>
           <form onSubmit={this.handleSubmitPlayer}>
             <div className="container formInput">
@@ -74,8 +73,8 @@ class Lobby extends Component {
 
             <hr />
 
-            <div className="container add-spelcode hide">
-              <label htmlFor="spelcode" className="formInput__title">Spelcode</label><br />
+            <div className="container add-spelcode hide bottom-item">
+              {/* <label htmlFor="spelcode" className="formInput__title">Spelcode</label><br /> */}
               <input type="text" name="spelcode" id="spelcode" className="formInput__input" placeholder="Vul hier jou spelcode in" />
             </div>
 

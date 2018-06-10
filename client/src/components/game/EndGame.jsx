@@ -3,7 +3,12 @@ import {withRouter} from "react-router-dom";
 import exit from '../../assets/img/exit.svg';
 import { Link } from 'react-router-dom';
 import sezanne from '../../assets/img/cezanne.jpg';
-import monalisa from '../../assets/img/monalisa.svg';
+import avatar_1 from '../../assets/img/avatar-1.svg';
+import avatar_2 from '../../assets/img/avatar-2.svg';
+import avatar_3 from '../../assets/img/avatar-3.svg';
+import avatar_4 from '../../assets/img/avatar-4.svg';
+import avatar_5 from '../../assets/img/avatar-5.svg';
+import avatar_6 from '../../assets/img/avatar-6.svg';
 
 class EndGame extends Component {
 
@@ -15,6 +20,12 @@ class EndGame extends Component {
       }
 
       this.socket = this.props.socket;
+      this.avatar = this.props.winner.avatar;
+    }
+
+    exitLobby = () => {
+      this.socket.emit('leave lobby');
+      this.props.history.push('/');
     }
     
     render() {
@@ -26,19 +37,19 @@ class EndGame extends Component {
           <header>
             <div></div>
             <h2>De winnaar</h2>
-            <Link to="/">
-              <img src={exit} alt="exit" height="30" />
-            </Link>
+              <img onClick={this.exitLobby} src={exit} alt="exit" height="30" />
           </header>
           
           <img src={sezanne} alt="imageWaiting" className="waitcontainer__img" />
 
           <div className="winnerinfo">
-            <img src={monalisa} alt="avatarplayer" width="100" className="avatar__winner" />
+          <div className="avatar">
+            <div className={`avatar__image_small avatar__image__${this.avatar} randomAvatar`}></div>
+          </div>
 
             <div className="winner">
               <p className="winner__name">{this.props.winner.nickname}</p>
-              <p>Punten</p>
+              <p>{this.props.winner.wins} punten</p>
             </div>
           </div>
 
@@ -73,4 +84,4 @@ class EndGame extends Component {
     }
   }
   
-  export default EndGame;
+  export default withRouter(EndGame);

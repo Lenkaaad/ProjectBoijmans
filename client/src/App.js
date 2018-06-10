@@ -10,7 +10,7 @@ import Kunstgallerij from './components/gallerij/Kunstgallerij';
 import Kunstdetail from './components/detail/Kunstdetail';
 import Muziekdetail from './components/detail/Muziekdetail';
 import { Switch, Route, Link, withRouter } from 'react-router-dom'
-//import { Offline, Online, Detector } from "react-detect-offline";
+
 
 import openSocket from 'socket.io-client';
 const socket = openSocket('http://localhost:8000');
@@ -45,6 +45,9 @@ class App extends Component {
     socket.on('err', err => {
       this.props.history.push('/');
       this.setState({notification: err});
+      setTimeout(() => {
+        this.setState({notification: ""});
+      }, 2000);
     })
 
   }
@@ -76,7 +79,7 @@ class App extends Component {
         )} />
       </Switch>
       {/* Put timer on this message so it disappears and reset state. */}
-      {this.state.notification !== null ? <p>{this.state.notification}</p> : console.log("no error")}
+      <p className="err">{this.state.notification !== null ? <p>{this.state.notification}</p> : console.log("no error")}</p>
       </div>
     );
   }

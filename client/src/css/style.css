@@ -10,6 +10,17 @@ html {
   box-sizing: inherit;
 }
 
+textarea:focus, input:focus, button:focus, label:focus{
+  outline: none;
+}
+
+.err {
+  font-size: 1.8rem;
+  width: 100%;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
 body {
   background-color: #F0EEE6;
   font-size: 1.5rem;
@@ -83,7 +94,7 @@ input[type="submit"], button {
   flex-direction: row-reverse;
   justify-content: center;
   align-items: flex-end;
-  margin-top: 5rem;
+  margin-top: 7rem;
 }
 
 .homebutton {
@@ -147,13 +158,62 @@ input[type="submit"], button {
   margin: 4rem 0 2rem;
 }
 
+.avatar {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem;
+}
+
+.avatar__image {
+  width: 20rem;
+  height: 20rem;
+}
+
+.avatar__image_medium {
+  width: 14rem;
+  height: 14rem;
+}
+
+.avatar__image_small {
+  width: 7rem;
+  height: 7rem;
+}
+
+.avatar__image__1 {
+  background-image: url('../assets/img/avatar-1.svg');
+}
+
+.avatar__image__2 {
+  background-image: url('../assets/img/avatar-2.svg');
+}
+
+.avatar__image__3 {
+  background-image: url('../assets/img/avatar-3.svg');
+}
+
+.avatar__image__4 {
+  background-image: url('../assets/img/avatar-4.svg');
+}
+
+.avatar__image__5 {
+  background-image: url('../assets/img/avatar-5.svg');
+}
+
+.avatar__image__6 {
+  background-image: url('../assets/img/avatar-6.svg');
+}
+
 .formInput__input {
   background-color: var(--backgroundColorInput);
   border-top: transparent;
   border-left: transparent;
   border-right: transparent;
   border-bottom: .2rem solid var(--greenColor);
-  height: 3.5rem;
+  height: 4rem;
+  font-size: 1.8rem;
+  padding: 0.5rem;
 }
 
 .formInput{
@@ -165,11 +225,15 @@ input[type="submit"], button {
 .formInput__title {
   font-weight: bold;
   margin: 3rem 0 .7rem;
-  font-size: 1.7rem;
+  font-size: 2.5rem;
 }
 
 .add-spelcode {
   margin-left: 1rem;
+}
+
+.bottom-item {
+  margin-bottom: 7rem;
 }
 
 .spelcodecontainer__spelcode{
@@ -178,8 +242,8 @@ input[type="submit"], button {
   padding: 0.5rem 3rem 0rem 3rem;
   margin: 1rem 0 0rem 1rem;
   cursor: pointer;
-  font-size: 1.4rem;
-  font-weight: bold;
+  font-size: 2rem;
+  /* font-weight: bold; */
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -224,7 +288,7 @@ input[type="submit"], button {
 
 .formInput__description {
   color: var(--greenColor);
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 .submitButton {
@@ -263,6 +327,10 @@ input[type="submit"], button {
   color: white;
   text-align: center;
   font-size: 1.2rem;
+}
+
+.feedback_offline {
+  background-color: var(--redColor);
 }
 
 .settingGame {
@@ -356,10 +424,16 @@ input[type="submit"], button {
 }
 
 .kunstwerk {
+  object-fit: cover;
   width: 100%;
   position: absolute;
   margin-top: -3rem;
   z-index: -999;
+}
+
+.artWork__container {
+  width: 100vw;
+  height: 100vh;
 }
 
 .playbtn {
@@ -385,7 +459,7 @@ input[type="submit"], button {
   text-align: center;
 }
 
-.waitgrid img {
+.waitgrid .avatar__image_medium {
   margin-bottom: 1rem;
 }
 
@@ -425,7 +499,10 @@ input[type="submit"], button {
   border-left: transparent;
   border-right: transparent;
   border-bottom: .3rem solid var(--greenColor);
+  font-size: 2rem;
 }
+
+
 
 .formInterpretatie__invoerveld::placeholder {
   font-size: 2rem;
@@ -498,12 +575,24 @@ input[type="submit"], button {
   font-weight: bold;
 }
 
+
+
 .antwoord_speler:nth-child(2n+0) {
   background-color: #EAE6D9;
 }
 
 .avatar__winner {
   margin: -5rem 0 0 1rem;
+}
+
+.round_winnerState {
+  background-color: var(--greenColor);
+  color: white;
+}
+
+.round_winnerState:before {
+  content: '\2713';
+  font-size: 4rem;
 }
 
 .winner {

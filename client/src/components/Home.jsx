@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/img/a_logo.svg';
 import homeimage from '../assets/img/homeimage.jpg';
 import logoboijmans from '../assets/img/boijmans-logo.svg';
+import { Offline, Online, Detector } from "react-detect-offline";
 
 class Home extends Component {
 
@@ -47,7 +48,13 @@ class Home extends Component {
             </div>
           </div>
 
+          <Online>
           <div className="feedback">Seems like you’re online and ready to go!</div>
+          </Online>
+
+          <Offline>
+          <div className="feedback feedback_offline">Seems like you’re not online...</div>
+          </Offline>
         </div>
       );
     }

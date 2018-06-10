@@ -60,7 +60,6 @@ class Host extends Component {
 
       return (
         <div className="Host">
-        <button onClick={this.leaveLobby}>leave lobby</button>
         {this.renderSwitch(this.state.screen)}
         </div>
       );

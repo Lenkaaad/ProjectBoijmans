@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import exit from '../../assets/img/exit.svg';
 import play from '../../assets/img/playbtn.svg';
 import dali from '../../assets/img/dali.jpg';
+import {withRouter} from "react-router-dom";
 
 class GameRonde extends Component {
 
@@ -28,6 +29,43 @@ class GameRonde extends Component {
       console.log(answer);
       //this.props.handleChangeScreens();
     }
+
+    exitLobby = () => {
+      this.socket.emit('leave lobby');
+      this.props.history.push('/');
+    }
+
+    getRightImage = artwork => {
+
+      switch(artwork){
+        case 1: 
+        return require('../../assets/img/art/1.jpg');
+        break;
+        case 2: 
+        return require('../../assets/img/art/2.jpg');
+        break;
+        case 3: 
+        return require('../../assets/img/art/3.jpg');
+        break;
+        case 4: 
+        return require('../../assets/img/art/4.jpg');
+        break;
+        case 5: 
+        return require('../../assets/img/art/5.jpg');
+        break;
+        case 6: 
+        return require('../../assets/img/art/6.jpg');
+        break;
+        case 7: 
+        return require('../../assets/img/art/7.jpg');
+        break;
+        case 8: 
+        return require('../../assets/img/art/8.jpg');
+        break;
+        default: 
+        break;
+      }
+    }
     
     render() {
 
@@ -39,22 +77,20 @@ class GameRonde extends Component {
             <div className="container">
               <div></div>
               <h2>Ronde</h2>
-              <Link to="/">
-                <img src={exit} alt="exit" height="30" />
-              </Link>
+                <img onClick={this.exitLobby} src={exit} alt="exit" height="30" />
             </div>
           </header>
 
           <section className="container">
             <h2 className="hide">Jouw Antwoord</h2>
             <form onSubmit={this.handleSubmitText} className="formInterpretatie">
-              <input name="answer" type="text" placeholder="Je leuke hedendaagse en grappige interpretatie komt hier, toch?" className="formInterpretatie__invoerveld" />
+              <textarea name="answer" placeholder="Je leuke hedendaagse en grappige interpretatie komt hier, toch?" className="formInterpretatie__invoerveld"></textarea>
               <input disabled={this.state.enteringDone ? true : false } type="submit" name="check" value="&#x2713;" className="formInterpretatie__checkbtn" />
             </form>
           </section>
 
-          <div className="container">
-            <img src={dali} alt="kunstwerk" className="kunstwerk" />
+          <div className="container artWork__container bottom-item">
+            {this.props.ronde !== null ? <img src={this.getRightImage(this.props.ronde.artwork)} alt="kunstwerk" className="kunstwerk" /> : console.log("not there yet")}
             <img src={play} alt="play" width="50" className="playbtn" />
           </div>
 
@@ -67,4 +103,4 @@ class GameRonde extends Component {
     }
   }
   
-  export default GameRonde;
+  export default withRouter(GameRonde);
