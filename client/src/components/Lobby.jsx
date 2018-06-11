@@ -64,7 +64,7 @@ class Lobby extends Component {
             <div className="container">
               <div className="formInput">
                 <label htmlFor="nickname" className="formInput__title">Je nickname</label>
-                <input id="nickname" name="nickname" type="text" placeholder="Vul een leuke nickname in" className="formInput__input" />
+                <input id="nickname" required name="nickname" type="text" placeholder="Vul een leuke nickname in" className="formInput__input" />
                 <p className="formInput__description">Wees een echte kunstenaar!</p>
               </div>
 
