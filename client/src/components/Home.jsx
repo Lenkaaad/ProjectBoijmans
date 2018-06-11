@@ -40,12 +40,12 @@ class Home extends Component {
           </article>
 
           <div className="container">
-            <div className="homebutton__boijmans">
-              <a href="https://www.boijmans.nl">
-                <p className="boijmans__text">Powered by</p>
-                <img src={logoboijmans} alt="logoboijmans" width="200" />
-              </a>
-            </div>
+            <a href="https://www.boijmans.nl" target="_blank">
+              <div className="homebutton__boijmans">
+                  <p className="boijmans__text">Powered by</p>
+                  <img src={logoboijmans} alt="logoboijmans" width="200" />
+              </div>
+            </a>
           </div>
 
           <Online>

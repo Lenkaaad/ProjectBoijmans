@@ -47,10 +47,8 @@ class Host extends Component {
         //   break;
         case 0: 
           return <Settings socket={this.socket} handleChangeScreens={this.changeScreens} />
-          break;
         case 1: 
           return <Waiting socket={this.socket} lobby={this.state.lobby} />
-          break;
         default:
           break;
       }

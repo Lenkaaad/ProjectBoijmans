@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Carousel from './Carousel';
 import FavouritesList from './FavouritesList';
+import backbtn from '../../assets/img/backarrow.svg';
+import { Link } from 'react-router-dom';
 
 class Kunstgallerij extends Component {
 
@@ -37,10 +39,10 @@ class Kunstgallerij extends Component {
       switch (screen) {
         case 0:
           return (
-            <div>
-              <div>
-                <label htmlFor="kunststroming">Kunststroming</label>
-                <select onChange={this.handleChangeStyle} name="kunststroming" id="kunststroming">
+            <div className="gallery__container">
+              <div className="styleSelector">
+                <label className="formInput__title" htmlFor="kunststroming">Kunststroming</label>
+                <select className="formInput__input" onChange={this.handleChangeStyle} name="kunststroming" id="kunststroming">
                 <option value="">Kies een kunststroming</option>
                   <option value="Oude Kunst">Oude Kunst</option>
                   <option value="Expressionisme">Expressionisme</option>
@@ -50,7 +52,7 @@ class Kunstgallerij extends Component {
                   <option value="Maniërisme">Maniërisme</option>
                 </select>
               </div>
-              <div>
+              <div className="carousel__container">
                 <Carousel items={this.state.filtered} active={0} />
               </div>
             </div>
@@ -64,12 +66,20 @@ class Kunstgallerij extends Component {
     
     render() {
       return (
-        <div className="Gallerij">
-          <h2>Kunstgallerij</h2>
+        <div className="gallerij">
+          <header>
+            <div className="container">
+              <Link to="/">
+                <img src={backbtn} alt="arrow" height="25" />
+              </Link>
+              <h2>Kunstgallerij</h2>
+              <div></div>
+            </div>
+          </header>
           <nav>
-            <ul>
-              <li onClick={e => this.handleClickNav(e, 0)}>Algemeen</li>
-              <li onClick={e => this.handleClickNav(e, 1)}>Favorieten</li>
+            <ul className="submenu">
+              <li className={this.state.screen === 0 ? 'submenu__item active' : 'submenu__item'} onClick={e => this.handleClickNav(e, 0)}>Algemeen</li>
+              <li className={this.state.screen === 1 ? 'submenu__item active' : 'submenu__item'} onClick={e => this.handleClickNav(e, 1)}>Favorieten</li>
             </ul>
           </nav>
           {this.renderSwitch(this.state.screen)}

@@ -48,11 +48,12 @@ class LikeButton extends Component {
     }
     
     localStorage.setItem("artwork-favourites", JSON.stringify(favourites));
+    this.props.handleChangeLike();
   }
 
   render () {
     console.log(this.state.favourited);
-    return <p onClick={this.handleLike} className={this.state.favourited ? 'heart-filled' : 'heart-open'}></p>;
+    return <p onClick={this.handleLike} className={this.state.favourited ? 'heart heart-filled' : 'heart heart-open'}></p>;
   }
 
 };
