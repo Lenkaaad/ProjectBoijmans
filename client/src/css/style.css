@@ -80,6 +80,10 @@ a {
 input[type="submit"], button {
   border-color: var(--greenColor);
   background-color: var(--greenColor);
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .home header {
@@ -361,6 +365,9 @@ input[type="submit"], button {
   font-weight: bold;
   font-size: 1.5rem;
   padding: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .submitButton .submit__layout .enter-button {
@@ -369,6 +376,9 @@ input[type="submit"], button {
   background-image: url('../assets/img/arrow.svg');
   background-position: right;
   background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
 .feedback {

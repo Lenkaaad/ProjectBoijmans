@@ -238,7 +238,7 @@ io.on('connection', function(socket){
     const picker = lobby.players[0].id;
 
     lobby.rondes.push({
-      "artwork" : Math.ceil(Math.random() * 8),
+      "artwork" : Math.ceil(Math.random() * 33),
       "picker" : picker,
       "antwoorden": []
     })
@@ -333,7 +333,7 @@ io.on('connection', function(socket){
     const picker = lobby.players[lobby.currentPicker].id;
 
     lobby.rondes.push({
-      "artwork" : Math.ceil(Math.random() * 8),
+      "artwork" : Math.ceil(Math.random() * 33),
       "picker" : picker,
       "antwoorden": []
     })
