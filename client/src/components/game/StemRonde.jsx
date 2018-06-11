@@ -36,37 +36,6 @@ class StemRonde extends Component {
       this.socket.emit('next round');
     }
 
-    getRightImage = artwork => {
-      switch(artwork){
-        case 1: 
-        return require('../../assets/img/art/1.jpg');
-        break;
-        case 2: 
-        return require('../../assets/img/art/2.jpg');
-        break;
-        case 3: 
-        return require('../../assets/img/art/3.jpg');
-        break;
-        case 4: 
-        return require('../../assets/img/art/4.jpg');
-        break;
-        case 5: 
-        return require('../../assets/img/art/5.jpg');
-        break;
-        case 6: 
-        return require('../../assets/img/art/6.jpg');
-        break;
-        case 7: 
-        return require('../../assets/img/art/7.jpg');
-        break;
-        case 8: 
-        return require('../../assets/img/art/8.jpg');
-        break;
-        default: 
-        break;
-      }
-    }
-
     exitLobby = () => {
       this.socket.emit('leave lobby');
       this.props.history.push('/');
@@ -87,7 +56,7 @@ class StemRonde extends Component {
           <section>
             <h2 className="hide">Kunstwerk</h2>
             <div className="container waitcontainer">
-            <img src={this.getRightImage(this.props.ronde.artwork)} alt="Kunstwerk" className="waitimg" />
+            <img src={require('../../assets/img/art/' + this.props.ronde.artwork + '.jpg')} alt="Kunstwerk" className="waitimg" />
             {
               this.props.picker && this.state.winner !== null ? <button onClick={this.handleNextRound} className="waitcontainer__volgende">Volgende ronde <img src={yellowArrow} alt="arrow" height="30" className="waitcontainer__next" /></button> : console.log("not picker")
             }

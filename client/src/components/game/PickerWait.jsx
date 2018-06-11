@@ -19,37 +19,6 @@ class PickerWait extends Component {
       this.imageURL = `../../assets/img/art/` + this.props.ronde.artwork + `.jpeg`;
     }
 
-    getRightImage = artwork => {
-      switch(artwork){
-        case 1: 
-        return require('../../assets/img/art/1.jpg');
-        break;
-        case 2: 
-        return require('../../assets/img/art/2.jpg');
-        break;
-        case 3: 
-        return require('../../assets/img/art/3.jpg');
-        break;
-        case 4: 
-        return require('../../assets/img/art/4.jpg');
-        break;
-        case 5: 
-        return require('../../assets/img/art/5.jpg');
-        break;
-        case 6: 
-        return require('../../assets/img/art/6.jpg');
-        break;
-        case 7: 
-        return require('../../assets/img/art/7.jpg');
-        break;
-        case 8: 
-        return require('../../assets/img/art/8.jpg');
-        break;
-        default: 
-        break;
-      }
-    }
-
     exitLobby = () => {
       this.socket.emit('leave lobby');
       this.props.history.push('/');
@@ -75,7 +44,7 @@ class PickerWait extends Component {
             </div>
 
             <div class="artWork__container bottom-item">
-              <img src={this.getRightImage(this.props.ronde.artwork)} alt="kunstwerk" className="kunstwerk" />
+              <img src={require('../../assets/img/art/' + this.props.ronde.artwork + '.jpg')} alt="kunstwerk" className="kunstwerk" />
               <img src={play} alt="play" width="50" className="playbtn" />
             </div>
           </div>

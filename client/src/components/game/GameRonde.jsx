@@ -43,6 +43,7 @@ class GameRonde extends Component {
 
       console.log(answer);
       //this.props.handleChangeScreens();
+      
     }
 
     exitLobby = () => {
@@ -50,37 +51,7 @@ class GameRonde extends Component {
       this.props.history.push('/');
     }
 
-    getRightImage = artwork => {
-
-      switch(artwork){
-        case 1: 
-        return require('../../assets/img/art/1.jpg');
-        break;
-        case 2: 
-        return require('../../assets/img/art/2.jpg');
-        break;
-        case 3: 
-        return require('../../assets/img/art/3.jpg');
-        break;
-        case 4: 
-        return require('../../assets/img/art/4.jpg');
-        break;
-        case 5: 
-        return require('../../assets/img/art/5.jpg');
-        break;
-        case 6: 
-        return require('../../assets/img/art/6.jpg');
-        break;
-        case 7: 
-        return require('../../assets/img/art/7.jpg');
-        break;
-        case 8: 
-        return require('../../assets/img/art/8.jpg');
-        break;
-        default: 
-        break;
-      }
-    }
+    
     
     render() {
 
@@ -99,13 +70,13 @@ class GameRonde extends Component {
           <section className="container">
             <h2 className="hide">Jouw Antwoord</h2>
             <form onSubmit={this.handleSubmitText} className="formInterpretatie">
-              <input name="answer" type="text" placeholder="Schrijf hier jouw grappige interpretatie van dit schilderij. " className="formInterpretatie__invoerveld" />
-              <input disabled={this.state.enteringDone ? true : false } type="submit" name="check" value="&#x2713;" className="formInterpretatie__checkbtn" />
+              <textarea name="answer" placeholder="Schrijf hier jouw grappige interpretatie van dit schilderij. " className={this.state.enteringDone ? "formInterpretatie__invoerveld no-bg" : "formInterpretatie__invoerveld"}></textarea>
+              {this.state.enteringDone ? console.log("no button") : <input disabled={this.state.enteringDone ? true : false } type="submit" name="check" value="&#x2713;" className="formInterpretatie__checkbtn" />}
             </form>
           </section>
-
-          <div className="container artWork__container bottom-item">
-            {this.props.ronde !== null ? <img src={this.getRightImage(this.props.ronde.artwork)} alt="kunstwerk" className="kunstwerk" /> : console.log("not there yet")}
+          
+          <div className={this.state.enteringDone ? "container artWork__container margin-added" : "container artWork__container"}>
+            {this.props.ronde !== null ? <img src={require('../../assets/img/art/' + this.props.ronde.artwork + '.jpg')} alt="kunstwerk" className="kunstwerk" /> : console.log("not there yet")}
             <img src={play} alt="play" width="50" className="playbtn" />
           </div>
 

@@ -20,6 +20,10 @@ textarea:focus, input:focus, button:focus, label:focus{
   width: 100%;
   padding: 2rem;
   margin-top: 2rem;
+  opacity: 0;
+  /* z-index: 9999;
+
+  background-color: white; */
 }
 
 body {
@@ -490,9 +494,19 @@ input[type="submit"], button {
 }
 
 .artWork__container {
-  /* width: 100vw; */
-  height: 100vh;
+  height: 100%;
+  object-fit: cover;
 }
+
+.artWork__container .kunstwerk {
+  height: auto;
+}
+
+.margin-added {
+  margin-top: 3.5rem;
+}
+
+
 
 .playbtn {
   position: relative;
@@ -554,6 +568,15 @@ input[type="submit"], button {
   border-right: transparent;
   border-bottom: .3rem solid var(--greenColor);
   font-size: 2rem;
+}
+
+.formInterpretatie__invoerveld .margin-added {
+  margin-bottom: 10rem;
+}
+
+.no-bg {
+  border: 0;
+  background-color: #F0EEE6;
 }
 
 .formInterpretatie__invoerveld::placeholder {

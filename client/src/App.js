@@ -98,7 +98,7 @@ class App extends Component {
         )} />
       </Switch>
       {/* Put timer on this message so it disappears and reset state. */}
-      <p className="err">{this.state.notification !== null ? <p>{this.state.notification}</p> : console.log("no error")}</p>
+      {/* <p className="err">{this.state.notification !== null ? <p>{this.state.notification}</p> : console.log("no error")}</p> */}
       </div>
     );
   }
