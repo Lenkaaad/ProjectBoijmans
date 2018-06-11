@@ -47,12 +47,12 @@ class EndGame extends Component {
           
             <div className="winnerinfo">
               <div className="avatar">
-                <div className={`avatar__image_small avatar__image__${this.avatar} randomAvatar`}></div>
+                <div className={`avatar__image_small avatar__image__${this.props.winner.winner.avatar} randomAvatar`}></div>
               </div>
 
               <div className="winner">
-                <p className="winner__name">{this.props.winner.nickname}</p>
-                <p>{this.props.winner.wins} punten</p>
+                <p className="winner__name">{this.props.winner.winner.nickname}</p>
+                <p>{this.props.winner.winner.wins} punten</p>
               </div>
             </div>
           </div>
@@ -61,26 +61,27 @@ class EndGame extends Component {
             <h2 className="mentions__title">Honorable mentions</h2>
             <ul>
               <li>
-                <p className="mentions__blok mentions__one">Milenka</p>
+                <p className="mentions__blok mentions__one">{this.props.winner.fastestPlayer.nickname}</p>
                 <article className="mentions__article">
                   <h3 className="mentions__subtitle">De snelle haas</h3>
-                  <p className="mentions__content">met een gemiddelde antwoord snelheid van 14 seconden</p>
+                  <p className="mentions__content">met een gemiddelde antwoord snelheid van {parseInt(this.props.winner.fastestPlayer.responseTime)} seconden.</p>
                 </article>
               </li>
               <li>
-                <p className="mentions__blok mentions__two">Larissa</p>
+                <p className="mentions__blok mentions__two">{this.props.winner.slowestPlayer.nickname}</p>
                 <article className="mentions__article">
                   <h3 className="mentions__subtitle">De schildpad</h3>
-                  <p className="mentions__content">met een gemiddelde antwoord snelheid van 1 minuut</p>
+                  <p className="mentions__content">met een gemiddelde antwoord snelheid van {parseInt(this.props.winner.slowestPlayer.responseTime)} seconden.</p>
                 </article>
               </li>
-              <li>
-                <p className="mentions__blok mentions__three">Elisa</p>
+              { this.props.winner.mothersFavorite !== undefined ? <li>
+                <p className="mentions__blok mentions__three">{this.props.winner.mothersFavorite.nickname}</p>
                 <article className="mentions__article">
                   <h3 className="mentions__subtitle">Moeders favoriet</h3>
                   <p className="mentions__content">omdat je toch goed je best hebt gedaan.</p>
                 </article>
-              </li>
+              </li> : console.log("no favorite!") }
+              
             </ul>
           </section>
         </div>

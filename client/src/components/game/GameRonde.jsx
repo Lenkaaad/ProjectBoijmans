@@ -11,18 +11,33 @@ class GameRonde extends Component {
       super(props);
 
       this.state = {
-        enteringDone: false
+        enteringDone: false,
+        seconds: 0
       }
 
       this.socket = this.props.socket;
     }
 
+    componentDidMount() {
+      this.timer = setInterval(
+        () => this.countSeconds(),
+        1000
+        );
+      }
+    
+    countSeconds() {
+      const newSeconds = this.state.seconds + 1;
+      this.setState({ seconds: newSeconds});
+    }
+
     handleSubmitText = e => {
       e.preventDefault();
+      clearInterval(this.timerId);
 
       const answer = e.currentTarget.answer.value;
+      const seconds = this.state.seconds;
 
-      this.socket.emit('enter answer', answer);
+      this.socket.emit('enter answer', {answer, seconds});
       e.currentTarget.answer.disabled = true;
       this.setState({enteringDone: true})
 
