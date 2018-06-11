@@ -20,7 +20,6 @@ class EndGame extends Component {
       }
 
       this.socket = this.props.socket;
-      this.avatar = this.props.winner.avatar;
     }
 
     exitLobby = () => {

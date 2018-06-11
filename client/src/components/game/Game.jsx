@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import GameRonde from './GameRonde';
 import StemRonde from './StemRonde';
-import GameWinner from './GameWinner';
 import PickerWait from './PickerWait';
 import EndGame from './EndGame';
 import { withRouter } from 'react-router-dom';

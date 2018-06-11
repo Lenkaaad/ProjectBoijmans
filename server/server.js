@@ -99,7 +99,8 @@ io.on('connection', function(socket){
         "id": socket.id,
         "nickname": socket.nickname,
         "avatar": socket.avatar,
-        "wins": 0
+        "wins": 0,
+        "responseTime": 0
       })
       
       socket.join(gamename);
@@ -143,7 +144,8 @@ io.on('connection', function(socket){
           "id": socket.id,
           "nickname": socket.nickname,
           "avatar": socket.avatar,
-          "wins": 0
+          "wins": 0,
+          "responseTime": 0
         }],
         "rondes": []
       }
@@ -166,7 +168,7 @@ io.on('connection', function(socket){
       return lobby.gamename === socket.lobby;
     })
 
-    if(lobby){
+    if(lobby !== undefined){
       // remove the lobby
       var filteredlobbies = lobbies.filter(function(lobby) { return lobby.gamename !== socket.lobby; }); 
       lobbies = filteredlobbies;
@@ -196,15 +198,30 @@ io.on('connection', function(socket){
       })
 
       // filter socket out of players
-      if(lobby){
-        var filteredplayers = lobby.players.filter(function(player) { return player.id !== socket.id; }); 
-        lobby.players = filteredplayers;
+      if(lobby !== undefined){
+        if(!socket.host){
+          var filteredplayers = lobby.players.filter(function(player) { return player.id !== socket.id; }); 
+          lobby.players = filteredplayers;
+        }else{
+          var filteredlobbies = lobbies.filter(function(lobby) { return lobby.gamename !== socket.lobby; }); 
+          lobbies = filteredlobbies;
+
+          io.sockets.in(socket.lobby).emit('leave request');
+          io.sockets.in(socket.lobby).emit('lobby removed', 'The host has removed the lobby!');
+          socket.emit('lobby removed', 'The lobby has been removed!');
+
+          socket.host = false;
+        }
       }
+
+      socket.host = false;
 
       // leave room, send update to other players in room
       socket.leave(socket.lobby)
       io.sockets.in(socket.lobby).emit('lobby', lobby);
       socket.lobby = null
+
+      console.log(lobbies);
   })
 
   socket.on('start game', () => {
@@ -235,7 +252,7 @@ io.on('connection', function(socket){
 
   })
 
-  socket.on('enter answer', answer => {
+  socket.on('enter answer', ({answer, seconds}) => {
     const lobby = lobbies.find(lobby => {
       return lobby.gamename === socket.lobby;
     })
@@ -243,6 +260,11 @@ io.on('connection', function(socket){
     if(lobby !== undefined){
       // get last round
       const laatsteronde = lobby.rondes[lobby.rondes.length - 1];
+      const player = lobby.players.find(player => {
+        return player.id === socket.id;
+      })
+
+      player.responseTime = player.responseTime + seconds;
 
       // create antwoord object
       const antwoord = {
@@ -325,16 +347,28 @@ io.on('connection', function(socket){
       console.log("maximum aantal rondes bereikt!");
       // emit event to get results
 
-      const sorted = lobby.players.sort(function(a, b){
+      const sortedWinner = lobby.players.sort(function(a, b){
         return a.wins < b.wins;
       })
 
-      // still need to fix ties!
-      const winner = sorted[0];
-      console.log(sorted);
-      console.log(winner);
+      const fastestPlayers = lobby.players.sort(function(a, b){
+        return a.responseTime > b.responseTime
+      })
 
-      io.sockets.in(socket.lobby).emit('end game', winner);
+      // still need to fix ties!
+      const winner = sortedWinner[0];
+      console.log(sortedWinner);
+      console.log(fastestPlayers);
+      const fastestPlayer = fastestPlayers[0];
+      fastestPlayer.responseTime = fastestPlayer.responseTime / lobby.maxRondes;
+      const slowestPlayer = fastestPlayers[fastestPlayers.length-1];
+      slowestPlayer.responseTime = slowestPlayer.responseTime / lobby.maxRondes;
+
+      const mothersFavorite = lobby.players.find(player => {
+        return player.id !== winner.id && player.id !== fastestPlayer.id && player.id !== slowestPlayer.id;
+      })
+
+      io.sockets.in(socket.lobby).emit('end game', {winner, fastestPlayer, slowestPlayer, mothersFavorite});
     }
 
   })
