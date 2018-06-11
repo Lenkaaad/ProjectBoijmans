@@ -103,7 +103,7 @@ class StemRonde extends Component {
                 this.props.picker && this.props.ronde !== null ? this.props.ronde.antwoorden.map(ronde => <div className="container"><div className="antwoord_speler"><label htmlFor={ronde.player} className="containerRadio">{ronde.antwoord}<input type="radio" value={ronde.player} id={ronde.player} name="antwoord" /><span class="checkmarkRadio"></span></label></div></div>) : <div><ul className="container">{this.props.ronde.antwoorden.map(ronde => <li className="antwoord_speler">{ronde.antwoord}</li>)}</ul><div className="feedback">Wachten op de beoordeling ...</div></div>
               }
               {
-                this.props.picker && this.props.ronde !== null ? <div className="submitButton"><div className="container submit__layout"><input type="submit" value="Stem nu" /><img src={arrow} alt="arrow" height="25" /></div></div> : console.log("not picker")
+                this.props.picker && this.props.ronde !== null ? <div className="submitButton"><div className="container submit__layout"><input type="submit" className="enter-button" value="Stem nu" /></div></div> : console.log("not picker")
               }
             </form>
             : <ul className="container">{this.props.ronde.antwoorden.map(ronde => <li className={`antwoord_speler ${ronde.antwoord === this.state.winner.antwoord ? 'round_winnerState' : console.log("not winner")}`}>{ronde.antwoord}</li>)}</ul>}
