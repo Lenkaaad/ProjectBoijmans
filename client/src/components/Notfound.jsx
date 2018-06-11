@@ -1,22 +1,29 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import arrow from '../assets/img/arrow.svg';
+import monalisa from '../assets/img/monalisa.svg';
 
 class Notfound extends Component {
 
     render() {
       return (
-        <div className="notfound">
-          <h2>Oeps!</h2>
+        <div className="noconnection notfound">
+          <div className="container">
+            <div className="noconnection__layout">
+              <div>
+                <h2>Oeps!</h2>
+                <p className="content">Mona is totaal de weg kwijt ...</p>
+              </div>
+              <img src={monalisa} alt="scream" width="300" />
+            </div>
+          </div>
 
-          <p>Mona is totaal de weg kwijt</p>
-
-          <img src="#" alt="monalisa" />
-
-          <Link to="/" className="submitButton">
-            <img src={arrow} alt="arrow" height="25" className="arrowRotate" />
-            <p>Terug naar home</p>
-          </Link>
+            <Link to="/" className="submitButton">
+              <div className="container backhome">
+                <img src={arrow} alt="arrow" height="30" className="arrowRotate" />
+                <p>Terug naar home</p>
+              </div>
+            </Link>
         </div>
       );
     }

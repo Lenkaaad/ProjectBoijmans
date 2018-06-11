@@ -14,6 +14,10 @@ import { Switch, Route, Link, withRouter } from 'react-router-dom'
 
 import {artworks} from './assets/data/gallerij.json';
 
+import Offline from './components/Offline';
+import Noscript from './components/Noscript';
+import Noconnectionsocket from './components/Noconnectionsocket';
+
 import openSocket from 'socket.io-client';
 const socket = openSocket('http://localhost:8000');
 

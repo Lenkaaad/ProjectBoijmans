@@ -42,7 +42,7 @@ class Settings extends Component {
           <header>
             <div className="container">
               <Link to="/">
-                <img src={backbtn} alt="backbutton" height="30" />
+                <img src={backbtn} alt="backbutton" height="25" />
               </Link>
               <h2>Hoe loopt je spel?</h2>
               <div></div>

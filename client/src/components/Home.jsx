@@ -41,10 +41,10 @@ class Home extends Component {
 
           <div className="container">
             <div className="homebutton__boijmans">
-              <Link to="/">
+              <a href="https://www.boijmans.nl">
                 <p className="boijmans__text">Powered by</p>
                 <img src={logoboijmans} alt="logoboijmans" width="200" />
-              </Link>
+              </a>
             </div>
           </div>
 

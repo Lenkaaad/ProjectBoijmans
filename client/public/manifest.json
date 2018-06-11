@@ -3,27 +3,27 @@
   "name": "A-Game",
   "icons": [
     {
-      "src": "icons/agamelogohdpi.png",
+      "src": "icons/agamelogohdpi.jpg",
       "type": "image/png",
       "sizes": "192x192"
     },{
-      "src": "icons/agamelogoldpi.png",
+      "src": "icons/agamelogoldpi.jpg",
       "type": "image/png",
       "sizes": "98x98"
     },{
-      "src": "icons/agamelogomdpi.png",
+      "src": "icons/agamelogomdpi.jpg",
       "type": "image/png",
       "sizes": "130x130"
     },{
-      "src": "icons/agamelogoxhdpi.png",
+      "src": "icons/agamelogoxhdpi.jpg",
       "type": "image/png",
       "sizes": "260x260"
     },{
-      "src": "icons/agamelogoxxhdpi.png",
+      "src": "icons/agamelogoxxhdpi.jpg",
       "type": "image/png",
       "sizes": "390x390"
     },{
-      "src": "icons/agamelogoxxxhdpi.png",
+      "src": "icons/agamelogoxxxhdpi.jpg",
       "type": "image/png",
       "sizes": "520x520"
     }
