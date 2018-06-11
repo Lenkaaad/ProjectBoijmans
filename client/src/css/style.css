@@ -197,32 +197,38 @@ input[type="submit"], button {
 }
 
 .avatar__image_small {
-  width: 7rem;
-  height: 7rem;
+  width: 13rem;
+  height: 13rem;
 }
 
 .avatar__image__1 {
   background-image: url('../assets/img/avatar-1.svg');
+  background-repeat: no-repeat;
 }
 
 .avatar__image__2 {
   background-image: url('../assets/img/avatar-2.svg');
+  background-repeat: no-repeat;
 }
 
 .avatar__image__3 {
   background-image: url('../assets/img/avatar-3.svg');
+  background-repeat: no-repeat;
 }
 
 .avatar__image__4 {
   background-image: url('../assets/img/avatar-4.svg');
+  background-repeat: no-repeat;
 }
 
 .avatar__image__5 {
   background-image: url('../assets/img/avatar-5.svg');
+  background-repeat: no-repeat;
 }
 
 .avatar__image__6 {
   background-image: url('../assets/img/avatar-6.svg');
+  background-repeat: no-repeat;
 }
 
 .formInput__input {
@@ -390,6 +396,10 @@ input[type="submit"], button {
   font-size: 2.4rem;
 }
 
+.avatar span {
+  padding-top: 1.5rem;
+}
+
 .waitcontainer__volgende {
   background-color: var(--greenColor);
   padding: 1rem;
@@ -416,7 +426,7 @@ input[type="submit"], button {
 
 .waiting {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-gap: 1rem;
 
   margin: 3rem 0 0;
@@ -431,7 +441,8 @@ input[type="submit"], button {
 }
 
 .waitcontainer__img {
-  width: 100vw;
+  width: 100%;
+  object-fit: cover;
   height: 30vh;
 } 
 
@@ -638,11 +649,11 @@ input[type="submit"], button {
   background-color: #EBE6D2;
   padding: 2rem;
   margin-top: -9rem;
-  width: 20vw;
+  width: 100%;
 }
 
 .winnerinfo .avatar {
-  margin-top: -5rem;
+  margin-top: -8rem;
 }
 
 .winner__name {
@@ -697,10 +708,6 @@ input[type="submit"], button {
 
 .mentions__three {
   background-color: var(--yellowColor);
-}
-
-.winner {
-  width: 50vw;
 }
 
 .winnerinfo {
@@ -901,6 +908,15 @@ input[type="submit"], button {
     font-size: 1.5rem;
   }
 
+  .waitcontainer__img {
+    height: 40vh;
+  }
+
+  .waiting {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .waitgrid {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -917,9 +933,6 @@ input[type="submit"], button {
     font-size: 1.5rem;
   }
 
-  .waitcontainer__img {
-    width: 70vw;
-  }
 }
 
 @media only screen and (min-width: 960px) {
@@ -971,9 +984,9 @@ input[type="submit"], button {
     font-size: 1.6rem
   }
 
-  .waitcontainer__img {
+  /* .waitcontainer__img {
     width: 66vw;
-  }
+  } */
   
   .waiting {
     grid-template-columns: repeat(5, 1fr);
@@ -1006,5 +1019,10 @@ input[type="submit"], button {
 
   .mentions__content {
     font-size: 1.6rem;
+  }
+
+  .avatar__image_small {
+    width: 16rem;
+    height: 16rem;
   }
 }
