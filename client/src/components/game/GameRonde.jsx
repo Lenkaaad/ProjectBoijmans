@@ -10,7 +10,9 @@ class GameRonde extends Component {
 
       this.state = {
         enteringDone: false,
-        seconds: 0
+        seconds: 0,
+        play: false,
+        playStatus: "STOPPED"
       }
 
       this.socket = this.props.socket;
@@ -26,6 +28,14 @@ class GameRonde extends Component {
     countSeconds() {
       const newSeconds = this.state.seconds + 1;
       this.setState({ seconds: newSeconds});
+    }
+
+    handleClickPlayOrPause = (e, status) => {
+      e.preventDefault();
+
+      const isPlaying = this.state.play;
+
+      this.setState({play: !isPlaying, playStatus: status});
     }
 
     handleSubmitText = e => {
@@ -52,8 +62,11 @@ class GameRonde extends Component {
     
     
     render() {
-
-      console.log(this.props.ronde);
+      this.props.ronde !== null ? (
+        this.artwork = this.props.artworks.find(artwork => {
+          return artwork.id === parseInt(this.props.ronde.artwork, 10);
+        })
+      ) : console.log("not there yet");
       
       return (
         <div className="ronde">
@@ -73,14 +86,18 @@ class GameRonde extends Component {
             </form>
           </section>
           
-          <div className={this.state.enteringDone ? "artWork__container margin-added" : "container artWork__container"}>
+          <div className={this.state.enteringDone ? "container artWork__container margin-added" : "container artWork__container"}>
             {this.props.ronde !== null ? <img src={require('../../assets/img/art/' + this.props.ronde.artwork + '.jpg')} alt="kunstwerk" className="kunstwerk" /> : console.log("not there yet")}
-            <img src={play} alt="play" width="50" className="playbtn" />
+            {this.props.ronde !== null ? (
+              <div className="playbtn">
+                {
+                  this.state.play ? <img src={pause} alt="pause" width="50" className="playbtn" onClick={e => this.handleClickPlayOrPause(e, "PAUSED")}/> : <img src={play} alt="play" width="50" className="playbtn" onClick={e => this.handleClickPlayOrPause(e, "PLAYING")}/>
+                }
+                <Sound url={require('../../assets/music/' + this.artwork.muzikaleInterpretatie)} playStatus={this.state.playStatus}/>
+              </div>
+            ) : console.log("not there yet")
+            } 
           </div>
-
-          <section>
-            <p className="hide">{this.props.ronde !== null ? this.props.ronde.artwork : console.log("oopsie!")}</p>
-          </section>
           
         </div>
       );

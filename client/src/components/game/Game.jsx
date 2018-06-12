@@ -76,9 +76,9 @@ class Game extends Component {
       switch (screen) {
         case 0:
           if(this.state.picker){
-            return <PickerWait socket={this.socket} ronde={this.state.ronde}/>
+            return <PickerWait socket={this.socket} ronde={this.state.ronde} artworks={this.props.artworks}/>
           }else{
-            return <GameRonde socket={this.socket} handleChangeScreens={this.changeScreens} ronde={this.state.ronde} />
+            return <GameRonde socket={this.socket} handleChangeScreens={this.changeScreens} ronde={this.state.ronde} artworks={this.props.artworks}/>
           }
         case 1: 
           return <StemRonde socket={this.socket} lobby={this.state.lobby} ronde={this.state.ronde} picker={this.state.picker} />

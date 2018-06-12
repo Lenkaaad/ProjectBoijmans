@@ -545,6 +545,7 @@ avatar__image_small .hide {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  color: white;
 }
 
 .roundsInput {
@@ -1309,17 +1310,27 @@ nav {
 }
 
 .detail-image-description {
-  margin: 2rem 1rem;
+  margin: 2rem 1rem 1rem;
   line-height: 2.3rem;
 }
 
+.artwork-boijmans-link {
+  color: var(--redColor);
+  font-weight: bold;
+}
+
+.artwork-boijmans-link:hover {
+  color: var(--greenColor);
+}
+
 .detail-image-recommended {
-  margin: 0 0 0 1rem;
+  margin: 2rem 0 6rem 1rem;
 }
 
 .detail-image-recommended h3 {
   margin-top: 1rem;
   margin-bottom: 2rem;
+  font-size: 1.8rem;
 }
 
 .recommended-artworks {

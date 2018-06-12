@@ -31,7 +31,7 @@ class Muziekdetail extends Component {
         <div className="muziekdetail">
           <header>
             <div className="container">
-              <Link to="/">
+              <Link to={'/gallery/' + this.props.id}>
                 <img src={backbtn} alt="arrow" height="25" />
               </Link>
               <h2>Detail</h2>

@@ -9,7 +9,8 @@ class PickerWait extends Component {
       super(props);
 
       this.state = {
-        
+        play: false,
+        playStatus: "STOPPED"
       }
 
       this.socket = this.props.socket;
@@ -20,10 +21,22 @@ class PickerWait extends Component {
       this.socket.emit('leave lobby');
       this.props.history.push('/');
     }
+
+    handleClickPlayOrPause = (e, status) => {
+      e.preventDefault();
+
+      const isPlaying = this.state.play;
+
+      this.setState({play: !isPlaying, playStatus: status});
+    }
     
     render() {
 
-      console.log(this.props.ronde);
+      this.props.ronde !== null ? (
+        this.artwork = this.props.artworks.find(artwork => {
+          return artwork.id === parseInt(this.props.ronde.artwork, 10);
+        })
+      ) : console.log("not there yet");
       
       return (
         <div className="judgewait">
@@ -41,8 +54,16 @@ class PickerWait extends Component {
             </div>
 
             <div class="artWork__container bottom-item">
-              <img src={require('../../assets/img/art/' + this.props.ronde.artwork + '.jpg')} alt="kunstwerk" className="kunstwerk" />
-              <img src={play} alt="play" width="50" className="playbtn" />
+              {this.props.ronde !== null ? <img src={require('../../assets/img/art/' + this.props.ronde.artwork + '.jpg')} alt="kunstwerk" className="kunstwerk" /> : console.log("not there yet")}
+              {this.props.ronde !== null ? (
+                <div className="playbtn">
+                  {
+                    this.state.play ? <img src={pause} alt="pause" width="50" className="playbtn" onClick={e => this.handleClickPlayOrPause(e, "PAUSED")}/> : <img src={play} alt="play" width="50" className="playbtn" onClick={e => this.handleClickPlayOrPause(e, "PLAYING")}/>
+                  }
+                  <Sound url={require('../../assets/music/' + this.artwork.muzikaleInterpretatie)} playStatus={this.state.playStatus}/>
+                </div>
+              ) : console.log("not there yet")
+              }
             </div>
           </div>
 

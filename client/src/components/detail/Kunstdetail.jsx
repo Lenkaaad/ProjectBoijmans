@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import backbtn from '../../assets/img/backarrow.svg';
+import arrow from '../../assets/img/arrow.svg';
 
 const Kunstdetail = ({artworks, id}) => {
   const artwork = artworks.find(artwork => {
@@ -11,7 +12,7 @@ const Kunstdetail = ({artworks, id}) => {
     <div className="kunstdetail">
       <header>
         <div className="container">
-          <Link to="/">
+          <Link to="/gallery">
             <img src={backbtn} alt="arrow" height="25" />
           </Link>
           <h2>Detail</h2>
@@ -31,6 +32,7 @@ const Kunstdetail = ({artworks, id}) => {
         </div>
       </div>
       <p className="detail-image-description">{artwork.beschrijvingKunstwerk}</p>
+      <a href={artwork.linkKunstwerk} target="_blank" className="detail-image-description artwork-boijmans-link">Lees meer over dit werk of de website van Boijmans.</a>
       <div className="detail-image-recommended">
         <h3>Bekijk ook deze werken</h3>
         <ul className="recommended-artworks">
@@ -39,7 +41,16 @@ const Kunstdetail = ({artworks, id}) => {
             <li className="recommended-artworks__item"><img src={require('../../assets/img/artworks/detail/recommendations/' + artwork.afbeeldingKunstwerk + '.jpg')} alt={artwork.naam} width="120" height="120"/></li>
         </ul>
       </div>
-      <Link to={'/gallery/' + id + '/music'}><button className="submitButton">Interpretatie van de muziekant</button></Link>
+      {
+        artwork.muzikaleInterpretatie !== "" ? (
+          <Link to={'/gallery/' + artwork.id + '/music'} className="submitButton">
+            <div className="container submit__layout">
+              <p>Interpretatie van de muziekant</p>
+              <img src={arrow} alt="arrow" height="30" />
+            </div>
+          </Link>
+        ) : ""
+      }
     </div>
   );
 }

@@ -78,18 +78,18 @@ class App extends Component {
         <Host socket={socket} state={this.state}/>
         )}/>
         <Route path='/game' render={() => (
-        <Game socket={socket} state={this.state} />
+        <Game socket={socket} state={this.state} artworks={artworks}/>
         )} />
         <Route path='/gallery/:id/music' render={({match}) => {
           const id = match.params.id;
-          if(artworks[id]){
+          if(artworks[id - 1] && artworks[id - 1].muzikaleInterpretatie !== ""){
             return <Muziekdetail artworks={artworks} id={id} />
           }
           return <Route component={Notfound} />
         }} />
         <Route path='/gallery/:id' render={({match}) => {
           const id = match.params.id;
-          if(artworks[id]){
+          if(artworks[id -1]){
             return <Kunstdetail artworks={artworks} id={id} />
           }
           return <Route component={Notfound} />
@@ -97,6 +97,7 @@ class App extends Component {
         <Route path='/gallery' render={() => (
         <Kunstgallerij artworks={artworks}/>
         )} />
+        <Route component={Notfound} />
       </Switch>
       {this.state.notification !== null ? 
       <div>

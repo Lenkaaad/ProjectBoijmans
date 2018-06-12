@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { CSSTransitionGroup } from 'react-transition-group';
 import Item from './Item';
+import Swipeable from 'react-swipeable';
 
 class Carousel extends Component {
     
@@ -51,14 +52,16 @@ class Carousel extends Component {
   
   render() {
       return(
-          <div id="carousel" className="noselect">
-              <div className="arrow arrow-left" onClick={this.leftClick}><i className="fi-arrow-left"></i></div>
-              <CSSTransitionGroup 
-                  transitionName={this.state.direction} transitionEnterTimeout={300} transitionLeaveTimeout={300} className="inner-carousel">
-                  {this.generateItems()}
-              </CSSTransitionGroup>
-              <div className="arrow arrow-right" onClick={this.rightClick}><i className="fi-arrow-right"></i></div>
-          </div>
+        <Swipeable onSwipingLeft={this.rightClick} onSwipingRight={this.leftClick}>
+            <div id="carousel" className="noselect">
+                <div className="arrow arrow-left" onClick={this.leftClick}><i className="fi-arrow-left"></i></div>
+                <CSSTransitionGroup 
+                    transitionName={this.state.direction} transitionEnterTimeout={300} transitionLeaveTimeout={300} className="inner-carousel">
+                    {this.generateItems()}
+                </CSSTransitionGroup>
+                <div className="arrow arrow-right" onClick={this.rightClick}><i className="fi-arrow-right"></i></div>
+            </div>
+        </Swipeable>
       )
   }
 }
