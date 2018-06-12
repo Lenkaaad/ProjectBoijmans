@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import logo from '../assets/img/a_logo.svg';
 import homeimage from '../assets/img/homeimage.jpg';
 import logoboijmans from '../assets/img/boijmans-logo.svg';
-import { Offline, Online, Detector } from "react-detect-offline";
+import { Offline, Online } from "react-detect-offline";
 
 class Home extends Component {
 
@@ -16,6 +16,7 @@ class Home extends Component {
     render() {
       return (
         <div className="home">
+
           <header>
             <div className="container">
               <div className="home__content">
@@ -40,7 +41,7 @@ class Home extends Component {
           </article>
 
           <div className="container">
-            <a href="https://www.boijmans.nl" target="_blank">
+            <a href="https://www.boijmans.nl" target="_blank" rel="noopener noreferrer">
               <div className="homebutton__boijmans">
                   <p className="boijmans__text">Powered by</p>
                   <img src={logoboijmans} alt="logoboijmans" width="200" />

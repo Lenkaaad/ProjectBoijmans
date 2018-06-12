@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './css/style.css';
-import Onboarding from './components/Onboarding';
+// import Onboarding from './components/Onboarding';
 import Home from './components/Home';
 import Lobby from './components/Lobby';
 import Player from './components/player/Player';
@@ -10,13 +10,11 @@ import Kunstgallerij from './components/gallerij/Kunstgallerij';
 import Kunstdetail from './components/detail/Kunstdetail';
 import Muziekdetail from './components/detail/Muziekdetail';
 import Notfound from './components/Notfound';
-import { Switch, Route, Link, withRouter } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom';
+import arrow from './assets/img/arrow.svg';
+import scream from './assets/img/scream.svg';
 
 import {artworks} from './assets/data/gallerij.json';
-
-import Offline from './components/Offline';
-import Noscript from './components/Noscript';
-import Noconnectionsocket from './components/Noconnectionsocket';
 
 import openSocket from 'socket.io-client';
 const socket = openSocket('http://localhost:8000');
@@ -69,7 +67,7 @@ class App extends Component {
       <div className="App">
       <Switch>
         <Route exact path='/' render={() => (
-        <Home socket={socket}/>
+          <Home socket={socket}/>
         )}/>
         <Route path='/lobby' render={() => (
         <Lobby socket={socket} state={this.state}/>
@@ -101,6 +99,10 @@ class App extends Component {
         <Kunstgallerij artworks={artworks}/>
         )} />
       </Switch>
+
+      {/* create way to make sure these images have loaded in the first time */}
+      <img src={scream} class="hide" alt="scream"/>
+      <img src={arrow}  class="hide" alt="arrow"/>
       {/* Put timer on this message so it disappears and reset state. */}
       {/* <p className="err">{this.state.notification !== null ? <p>{this.state.notification}</p> : console.log("no error")}</p> */}
       </div>

@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 import yellowArrow from '../../assets/img/yellowArrow.svg';
-import cezanne from '../../assets/img/cezanne.jpg';
-import { Link } from 'react-router-dom';
 import exit from '../../assets/img/exit.svg';
-import arrow from '../../assets/img/arrow.svg';
 import {withRouter} from "react-router-dom";
 
 class StemRonde extends Component {

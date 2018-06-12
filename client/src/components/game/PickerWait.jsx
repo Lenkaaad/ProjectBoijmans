@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import exit from '../../assets/img/exit.svg';
-import avatar_3 from '../../assets/img/avatar-3.svg';
 import play from '../../assets/img/playbtn.svg';
-import dali from '../../assets/img/dali.jpg';
 import {withRouter} from "react-router-dom";
 
 class PickerWait extends Component {

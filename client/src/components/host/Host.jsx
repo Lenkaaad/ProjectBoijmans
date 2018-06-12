@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import User from './User';
 import Settings from './Settings';
 import Waiting from './Waiting';
 import {withRouter} from "react-router-dom";

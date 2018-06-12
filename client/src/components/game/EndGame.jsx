@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import {withRouter} from "react-router-dom";
 import exit from '../../assets/img/exit.svg';
-import { Link } from 'react-router-dom';
 import sezanne from '../../assets/img/cezanne.jpg';
-import avatar_1 from '../../assets/img/avatar-1.svg';
-import avatar_2 from '../../assets/img/avatar-2.svg';
-import avatar_3 from '../../assets/img/avatar-3.svg';
-import avatar_4 from '../../assets/img/avatar-4.svg';
-import avatar_5 from '../../assets/img/avatar-5.svg';
-import avatar_6 from '../../assets/img/avatar-6.svg';
 
 class EndGame extends Component {
 
@@ -63,14 +56,14 @@ class EndGame extends Component {
                 <p className="mentions__blok mentions__one">{this.props.winner.fastestPlayer.nickname}</p>
                 <article className="mentions__article">
                   <h3 className="mentions__subtitle">De snelle haas</h3>
-                  <p className="mentions__content">met een gemiddelde antwoord snelheid van {parseInt(this.props.winner.fastestPlayer.responseTime)} seconden.</p>
+                  <p className="mentions__content">met een gemiddelde antwoord snelheid van {parseInt(this.props.winner.fastestPlayer.responseTime, 10)} seconden.</p>
                 </article>
               </li>
               <li>
                 <p className="mentions__blok mentions__two">{this.props.winner.slowestPlayer.nickname}</p>
                 <article className="mentions__article">
                   <h3 className="mentions__subtitle">De schildpad</h3>
-                  <p className="mentions__content">met een gemiddelde antwoord snelheid van {parseInt(this.props.winner.slowestPlayer.responseTime)} seconden.</p>
+                  <p className="mentions__content">met een gemiddelde antwoord snelheid van {parseInt(this.props.winner.slowestPlayer.responseTime, 10)} seconden.</p>
                 </article>
               </li>
               { this.props.winner.mothersFavorite !== undefined ? <li>

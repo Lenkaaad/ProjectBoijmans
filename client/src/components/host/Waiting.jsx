@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import yellowArrow from '../../assets/img/yellowArrow.svg';
-import backbtn from '../../assets/img/backarrow.svg';
 import sezanne from '../../assets/img/cezanne.jpg';
 import exit from '../../assets/img/exit.svg';
 import {withRouter} from "react-router-dom";

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import melkmeisje from '../assets/img/melkmeisje.svg';
+import { Link } from 'react-router-dom';
+import arrow from '../assets/img/arrow.svg';
 
 class Noconnectionsocket extends Component {
 
@@ -10,13 +12,17 @@ class Noconnectionsocket extends Component {
             <div className="noconnection__layout">
               <div>
                 <h2>Oeps!</h2>
-                
                 <p className="content">We ondervinden wat technische problemen, maar Pearl zou het leuk vinden als je later terug komt.</p>
-
               </div>
-              <img src={melkmeisje} alt="scream" width="300" />
+              <img src={melkmeisje} alt="Pearl" width="300" />
             </div>
           </div>
+          <Link to="/" className="submitButton">
+              <div className="container backhome">
+                <img src={arrow} alt="arrow" height="30" className="arrowRotate" />
+                <p>Terug naar home</p>
+              </div>
+            </Link>
         </div>
       );
     }

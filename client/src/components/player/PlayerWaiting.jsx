@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import exit from '../../assets/img/exit.svg';
-import avatar_3 from '../../assets/img/avatar-3.svg';
 import {withRouter} from "react-router-dom";
 
 class PlayerWaiting extends Component {

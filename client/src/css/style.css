@@ -255,7 +255,7 @@ input[type="submit"], button {
   flex-wrap: wrap;
   flex-direction: column;
   align-items: center;
-  margin: 3.5rem;
+  margin: 1rem;
 }
 
 .avatar__image {
@@ -269,8 +269,8 @@ input[type="submit"], button {
 }
 
 .avatar__image_small {
-  width: 13rem;
-  height: 13rem;
+  width: 10rem;
+  height: 10rem;
 }
 
 .avatar__image__1 {
@@ -517,10 +517,11 @@ input[type="submit"], button {
 }
 
 .waiting {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-gap: 1rem;
+  display: flex;
+  /* grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem; */
 
+  overflow-x: scroll;
   margin: 3rem 0 0;
   padding: 0 1rem;
   text-align: center;
@@ -1547,10 +1548,10 @@ nav {
     font-size: 1.6rem;
   }
 
-  .avatar__image_small {
+  /* .avatar__image_small {
     width: 16rem;
     height: 16rem;
-  }
+  } */
 
   .formInput {
     padding: 0;

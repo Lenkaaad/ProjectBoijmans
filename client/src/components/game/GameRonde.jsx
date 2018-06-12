@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import exit from '../../assets/img/exit.svg';
 import play from '../../assets/img/playbtn.svg';
-import dali from '../../assets/img/dali.jpg';
 import {withRouter} from "react-router-dom";
 
 class GameRonde extends Component {

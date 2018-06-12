@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import arrow from '../../assets/img/arrow.svg';
 import { Link } from 'react-router-dom';
 import backbtn from '../../assets/img/backarrow.svg';
 import rondeicon from '../../assets/img/rondeicon.svg';

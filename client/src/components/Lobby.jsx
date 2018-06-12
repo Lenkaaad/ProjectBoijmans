@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
 import {withRouter} from "react-router-dom";
-import arrow from '../assets/img/arrow.svg';
+// import arrow from '../assets/img/arrow.svg';
 import backbtn from '../assets/img/backarrow.svg';
 import { Link } from 'react-router-dom';
+
+import { Offline, Online } from "react-detect-offline";
+
+import OfflineComponent from './Offline';
+// import Noscript from './Noscript';
+import Noconnectionsocket from './Noconnectionsocket';
 
 class Lobby extends Component {
 
@@ -43,8 +49,13 @@ class Lobby extends Component {
     }
     
     render() {
+
+      console.log(this.socket.connected);
+
       return (
         <div className="lobby">
+        {this.socket.connected ? 
+        <Online>
           <header>
             <div className="container">
               <Link to="/">
@@ -89,6 +100,15 @@ class Lobby extends Component {
             </div>
           
           </form>
+          </Online>
+            :
+          <div><Offline>
+            <OfflineComponent />
+          </Offline>
+          <Online>
+            <Noconnectionsocket />
+          </Online></div>
+          }
         </div>
       );
     }
