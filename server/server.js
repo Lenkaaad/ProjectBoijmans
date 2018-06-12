@@ -39,6 +39,7 @@ io.on('connection', function(socket){
         socket.lobby = null
       }
 
+      socket.emit('err', "Je hebt connectie verloren met de gameserver.");
       console.log(lobbies);
     }else{
       // if socket is not host of a lobby, check if socket is in a lobby, if so, remove socket from lobby and list of players

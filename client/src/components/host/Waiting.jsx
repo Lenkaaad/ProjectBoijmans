@@ -3,6 +3,7 @@ import yellowArrow from '../../assets/img/yellowArrow.svg';
 import sezanne from '../../assets/img/cezanne.jpg';
 import exit from '../../assets/img/exit.svg';
 import {withRouter} from "react-router-dom";
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class Waiting extends Component {
 
@@ -25,7 +26,6 @@ class Waiting extends Component {
     }
 
     render() {
-
       console.log(this.state);
       return (
         <div className="Waiting">
@@ -53,10 +53,13 @@ class Waiting extends Component {
               <p className="waitingcontent__description">Geef de code door aan je vrienden (of vijanden) zodat ze de lobby in kunnen!</p>
             </div>
 
+            
             <ul className="waiting bottom-item">
+            <CSSTransitionGroup transitionName="avatar__animation" transitionEnterTimeout={700} transitionLeaveTimeout={700}>
               {
                 this.props.lobby !== null ? this.props.lobby.players.map(player => <li className="avatar"><div className={`avatar__image_small avatar__image__${player.avatar}`}></div><span>{player.nickname}</span></li>) : console.log("oopsie!")
               }
+            </CSSTransitionGroup>
             </ul>
           </div>
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import exit from '../../assets/img/exit.svg';
 import {withRouter} from "react-router-dom";
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class PlayerWaiting extends Component {
 
@@ -31,9 +32,11 @@ class PlayerWaiting extends Component {
 
         <div className="container">
           <ul className="waitgrid bottom-item">
+          <CSSTransitionGroup transitionName="avatar__animation" transitionEnterTimeout={700} transitionLeaveTimeout={700}>
             {
               this.props.lobby !== null ? this.props.lobby.players.map(player => <li><div className={`avatar__image_medium avatar__image__${player.avatar}`}></div><span>{player.nickname}</span></li>) : console.log("oopsie!")
             }
+          </CSSTransitionGroup>
           </ul>
         </div>
 

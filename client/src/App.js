@@ -41,19 +41,16 @@ class App extends Component {
 
     socket.on('lobby removed', message => {
       this.setState({notification: message});
-      setTimeout(() => {
-        this.setState({notification: ""});
-      }, 2000);
     })
 
     socket.on('err', err => {
       this.props.history.push('/');
       this.setState({notification: err});
-      setTimeout(() => {
-        this.setState({notification: ""});
-      }, 2000);
     })
+  }
 
+  handleRemoveNotification = () => {
+    this.setState({notification: null});
   }
   
   render() {
@@ -62,6 +59,8 @@ class App extends Component {
       this.setState({lobby: lobby});
       console.log("lobby has been added")
     })
+
+
 
     return (
       <div className="App">
@@ -99,6 +98,15 @@ class App extends Component {
         <Kunstgallerij artworks={artworks}/>
         )} />
       </Switch>
+      {this.state.notification !== null ? 
+      <div>
+        <div class="pop-up__darkbg"></div>
+          <div class="pop-up__err">
+            <p>{this.state.notification}</p>
+            <button onClick={this.handleRemoveNotification}>OK</button>
+          </div>
+      </div>
+      : console.log("no notifications to show")}
 
       {/* create way to make sure these images have loaded in the first time */}
       <img src={scream} class="hide" alt="scream"/>

@@ -3,32 +3,32 @@
   "name": "A-Game",
   "icons": [
     {
-      "src": "icons/agamelogohdpi.jpg",
+      "src": "icons/agamelogohdpi.png",
       "type": "image/png",
       "sizes": "192x192"
     },{
-      "src": "icons/agamelogoldpi.jpg",
+      "src": "icons/agamelogoldpi.png",
       "type": "image/png",
       "sizes": "98x98"
     },{
-      "src": "icons/agamelogomdpi.jpg",
+      "src": "icons/agamelogomdpi.png",
       "type": "image/png",
       "sizes": "130x130"
     },{
-      "src": "icons/agamelogoxhdpi.jpg",
+      "src": "icons/agamelogoxhdpi.png",
       "type": "image/png",
       "sizes": "260x260"
     },{
-      "src": "icons/agamelogoxxhdpi.jpg",
+      "src": "icons/agamelogoxxhdpi.png",
       "type": "image/png",
       "sizes": "390x390"
     },{
-      "src": "icons/agamelogoxxxhdpi.jpg",
+      "src": "icons/agamelogoxxxhdpi.png",
       "type": "image/png",
       "sizes": "520x520"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "/",
   "background_color": "#4E9687",
   "display": "standalone",
   "theme_color": "#EFAF00"
