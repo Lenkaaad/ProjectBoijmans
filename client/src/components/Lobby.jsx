@@ -59,20 +59,20 @@ class Lobby extends Component {
           <header>
             <div className="container">
               <Link to="/">
-                <img src={backbtn} alt="arrow" height="25" />
+                <img src={backbtn} alt="arrow" width="30" />
               </Link>
               <h2>Wie ben je?</h2>
-              <div></div>
+              <div className="blankdiv"></div>
             </div>
           </header>
 
-          <div className="avatar">
+          <div className="avatar avatar_wiebenje">
               <div className={`avatar__image avatar__image__${this.avatar} randomAvatar`}></div>
           </div>
 
           <form onSubmit={this.handleSubmitPlayer}>
 
-            <div className="container">
+            <div className="container wie">
               <div className="formInput">
                 <label htmlFor="nickname" className="formInput__title">Je nickname</label>
                 <input id="nickname" required name="nickname" type="text" placeholder="Vul een leuke nickname in" className="formInput__input" />
@@ -88,7 +88,7 @@ class Lobby extends Component {
 
               <div className="container add-spelcode hide bottom-item">
                 {/* <label htmlFor="spelcode" className="formInput__title">Spelcode</label><br /> */}
-                <input type="text" name="spelcode" id="spelcode" className="formInput__input" placeholder="Vul hier jou spelcode in" />
+                <input type="text" name="spelcode" id="spelcode" className="formInput__input spelcode__input" placeholder="Vul hier jou spelcode in" />
               </div>
 
             </div>

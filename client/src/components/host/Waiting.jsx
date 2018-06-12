@@ -31,9 +31,9 @@ class Waiting extends Component {
         <div className="Waiting">
           <header>
             <div className="container">
-              <div></div>
+              <div className="blankdiv"></div>
               <h2>Spelcode</h2>
-                <img onClick={this.exitLobby} src={exit} alt="exitbtn" height="30" />
+              <img onClick={this.exitLobby} src={exit} alt="exitbtn" width="30" />
             </div>
           </header>
 
@@ -41,7 +41,7 @@ class Waiting extends Component {
             <img src={sezanne} alt="imageWaiting" className="waitcontainer__img" />
             {
                 this.props.lobby !== null ? (this.props.lobby.players.length > 2 ? <button onClick={this.handleStartGame} className="waitcontainer__volgende">
-                Ronde 1
+                Ronde1
                 <img src={yellowArrow} alt="arrow"  height="30" className="waitcontainer__next" />
               </button> : <p className="feedbackmelding">Je bent niet met genoeg aantal spelers. Je moet met minimum 3 spelers zijn om te kunnen spelen.</p> ) : console.log("no lobby")
             }

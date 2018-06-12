@@ -24,9 +24,9 @@ class PlayerWaiting extends Component {
       <div className="player-wait">
         <header>
           <div className="container">
-            <div></div>
+            <div className="blankdiv"></div>
             <h2>Wachtruimte</h2>
-              <img onClick={this.exitLobby} src={exit} alt="exit" height="30" />
+            <img onClick={this.exitLobby} src={exit} alt="exit" width="30" />
           </div>
         </header>
 

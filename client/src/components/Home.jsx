@@ -40,7 +40,7 @@ class Home extends Component {
             </Link>
           </article>
 
-          <div className="container">
+          <div className="container boijmans">
             <a href="https://www.boijmans.nl" target="_blank" rel="noopener noreferrer">
               <div className="homebutton__boijmans">
                   <p className="boijmans__text">Powered by</p>

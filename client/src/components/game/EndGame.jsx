@@ -28,9 +28,9 @@ class EndGame extends Component {
         <div className="endgame">
           <header>
             <div className="container">
-              <div></div>
+              <div className="blankdiv"></div>
               <h2>De winnaar</h2>
-              <img onClick={this.exitLobby} src={exit} alt="exit" height="30" />
+              <img onClick={this.exitLobby} src={exit} alt="exit" width="30" />
             </div>
           </header>
           
@@ -44,7 +44,7 @@ class EndGame extends Component {
 
               <div className="winner">
                 <p className="winner__name">{this.props.winner.winner.nickname}</p>
-                <p>{this.props.winner.winner.wins} punten</p>
+                <p className="winner__points">{this.props.winner.winner.wins} punten</p>
               </div>
             </div>
           </div>

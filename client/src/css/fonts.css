@@ -4,32 +4,32 @@
     font-weight: 400;
     src:
       url('../assets/fonts/schulbuchnord/SchulbuchNordNormal.woff2') format('woff2'),
-      url('../assets/fonts/schulbuchnord/SchulbuchNordNormal.woff') format('woff'),
+      url('../assets/fonts/schulbuchnord/SchulbuchNordNormal.woff') format('woff');
 }
   
 @font-face {
     font-family: 'SFProDisplay';
-    font-style: bold;
+    font-style: normal;
     font-weight: 700;
     src:
       url('../assets/fonts/sfprodisplay/SFProDisplay-Bold.woff2') format('woff2'),
-      url('../assets/fonts/sfprodisplay/SFProDisplay-Bold.woff') format('woff'),
-}
-
-@font-face {
-    font-family: 'SFProDisplay';
-    font-style: bold;
-    font-weight: 600;
-    src:
-      url('../assets/fonts/sfprodisplay/SFProDisplay-Semibold.woff2') format('woff2'),
-      url('../assets/fonts/sfprodisplay/SFProDisplay-Semibold.woff') format('woff'),
+      url('../assets/fonts/sfprodisplay/SFProDisplay-Bold.woff') format('woff');
 }
 
 @font-face {
     font-family: 'SFProDisplay';
     font-style: normal;
-    font-weight: 400;
+    font-weight: 600;
+    src:
+      url('../assets/fonts/sfprodisplay/SFProDisplay-Semibold.woff2') format('woff2'),
+      url('../assets/fonts/sfprodisplay/SFProDisplay-Semibold.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'SFProDisplay';
+    font-style: normal;
+    font-weight: 500;
     src:
       url('../assets/fonts/sfprodisplay/SFProDisplay-Medium.woff2') format('woff2'),
-      url('../assets/fonts/sfprodisplay/SFProDisplay-Medium.woff') format('woff'),
+      url('../assets/fonts/sfprodisplay/SFProDisplay-Medium.woff') format('woff');
 }

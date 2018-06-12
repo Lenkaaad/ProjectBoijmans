@@ -41,10 +41,10 @@ class Settings extends Component {
           <header>
             <div className="container">
               <Link to="/">
-                <img src={backbtn} alt="backbutton" height="25" />
+                <img src={backbtn} alt="backbutton" width="30" />
               </Link>
               <h2>Hoe loopt je spel?</h2>
-              <div></div>
+              <div className="blankdiv"></div>
             </div>
           </header>
 
@@ -58,9 +58,9 @@ class Settings extends Component {
               <p className="formInput__description">Een korte game over de middag of een marathon?</p>
               
               <div className="rondes">
-                <button data-what="less" className="rondes__less" onClick={this.changeRounds}>-</button>
+                <p data-what="less" className="rondes__less" onClick={this.changeRounds}>-</p>
                 <input type="number" disabled id="rondes" name="rondes" min="1" value="5" class="roundsInput"/>
-                <button data-what="more" className="rondes__more" onClick={this.changeRounds}>+</button>
+                <p data-what="more" className="rondes__more" onClick={this.changeRounds}>+</p>
               </div>
             </div>
 

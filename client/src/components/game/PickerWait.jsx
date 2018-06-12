@@ -29,9 +29,9 @@ class PickerWait extends Component {
         <div className="judgewait">
           <header>
             <div className="container">
-              <div></div>
+              <div className="blankdiv"></div>
               <h2>Ronde</h2>
-              <img onClick={this.exitLobby} src={exit} alt="exitbtn" height="30" />
+              <img onClick={this.exitLobby} src={exit} alt="exitbtn" width="30" />
             </div>
           </header>
 

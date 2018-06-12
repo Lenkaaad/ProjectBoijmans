@@ -25,9 +25,9 @@ class User extends Component {
       return (
         <div className="User">
           <header>
-            <img src={backbtn} alt="arrow" height="25" />
+            <img src={backbtn} alt="arrow" width="30" />
             <h2>Wie ben je?</h2>
-            <div></div>
+            <div className="blankdiv"></div>
           </header>
 
             <form onSubmit={this.handleSubmit}>

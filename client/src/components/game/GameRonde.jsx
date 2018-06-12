@@ -59,9 +59,9 @@ class GameRonde extends Component {
         <div className="ronde">
           <header>
             <div className="container">
-              <div></div>
+              <div className="blankdiv"></div>
               <h2>Ronde</h2>
-                <img onClick={this.exitLobby} src={exit} alt="exit" height="30" />
+              <img onClick={this.exitLobby} src={exit} alt="exit" width="30" />
             </div>
           </header>
 
@@ -73,7 +73,7 @@ class GameRonde extends Component {
             </form>
           </section>
           
-          <div className={this.state.enteringDone ? "container artWork__container margin-added" : "container artWork__container"}>
+          <div className={this.state.enteringDone ? "artWork__container margin-added" : "container artWork__container"}>
             {this.props.ronde !== null ? <img src={require('../../assets/img/art/' + this.props.ronde.artwork + '.jpg')} alt="kunstwerk" className="kunstwerk" /> : console.log("not there yet")}
             <img src={play} alt="play" width="50" className="playbtn" />
           </div>
