@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import exit from '../../assets/img/exit.svg';
 import play from '../../assets/img/playbtn.svg';
+import pause from '../../assets/img/pausebtn.svg';
+import Sound from 'react-sound';
 import {withRouter} from "react-router-dom";
 
 class GameRonde extends Component {
