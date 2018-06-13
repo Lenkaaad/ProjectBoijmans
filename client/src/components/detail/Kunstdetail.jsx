@@ -8,6 +8,8 @@ const Kunstdetail = ({artworks, id}) => {
     return artwork.id === parseInt(id, 10);
   });
 
+  console.log(artwork.recommendents);
+
   return (
     <div className="kunstdetail">
       <header>
@@ -45,11 +47,16 @@ const Kunstdetail = ({artworks, id}) => {
       <a href={artwork.linkKunstwerk} target="_blank" className="detail-image-description artwork-boijmans-link">Lees meer over dit werk of de website van Boijmans.</a>
       <div className="detail-image-recommended">
         <h3>Bekijk ook deze werken</h3>
+
         <ul className="recommended-artworks">
-            <li className="recommended-artworks__item"><img src={require('../../assets/img/artworks/detail/recommendations/' + artwork.afbeeldingKunstwerk + '.jpg')} alt={artwork.naam} width="120" height="120"/></li>
-            <li className="recommended-artworks__item"><img src={require('../../assets/img/artworks/detail/recommendations/' + artwork.afbeeldingKunstwerk + '.jpg')} alt={artwork.naam} width="120" height="120"/></li>
-            <li className="recommended-artworks__item"><img src={require('../../assets/img/artworks/detail/recommendations/' + artwork.afbeeldingKunstwerk + '.jpg')} alt={artwork.naam} width="120" height="120"/></li>
+          {artwork.recommendents.map(recommendent => <li className="recommended-artworks__item"><picture><source media="(max-width: 450px)" srcSet={require('../../assets/img/art/' + recommendent.photo + '-450w.webp')} type="image/webp" />
+              <source media="(max-width: 450px)" srcSet={require('../../assets/img/art/' + recommendent.photo + '-450w.jpg')} />
+              <source media="(min-width: 451px)" srcSet={require('../../assets/img/art/' + recommendent.photo + '-675w.webp')} type="image/webp" />
+              <source media="(min-width: 451px)" srcSet={require('../../assets/img/art/' + recommendent.photo + '-675w.jpg')} />
+              <source media="(min-width: 675px)" srcSet={require('../../assets/img/art/' + recommendent.photo + '.webp')} type="image/webp" />
+              <source media="(min-width: 675px)" srcSet={require('../../assets/img/art/' + recommendent.photo + '.jpg')} /><img width="120" height="120" src={require('../../assets/img/art/' + recommendent.photo + '.jpg')} alt="kunstwerk" srcSet={require('../../assets/img/art/' + recommendent.photo + '-450w.jpg') + ' 450w, ' + require('../../assets/img/art/' + recommendent.photo + '-675w.jpg') + ' 675w, ' + require('../../assets/img/art/' + recommendent.photo + '.jpg') + ' 900w'} sizes="(max-width: 900px) 100vw, 900px"/></picture></li> )}
         </ul>
+
       </div>
       {
         artwork.muzikaleInterpretatie !== "" ? (
