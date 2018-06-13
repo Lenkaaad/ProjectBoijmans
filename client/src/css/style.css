@@ -452,6 +452,10 @@ avatar__image_small .hide {
   border-bottom: transparent;
 }
 
+.mg-buttom {
+  margin-bottom: 10rem;
+}
+
 .formInput{
   display: grid;
   margin-bottom: 5rem;
@@ -468,10 +472,6 @@ avatar__image_small .hide {
 .add-spelcode {
   margin-left: 1rem;
 }
-
-/* .bottom-item {
-  margin: 4rem 0;
-} */
 
 .spelcodecontainer__spelcode{
   font-family: 'SFProDisplay';
@@ -738,7 +738,6 @@ avatar__image_small .hide {
   font-size: 1.7rem;
 }
 
-
 .codecontainer__code {
   font-family: 'SFProDisplay';
   color: #D8CC9F;
@@ -868,12 +867,16 @@ avatar__image_small .hide {
 
 .formInterpretatie__checkbtn {
   background-color: var(--greenColor);
-  padding: 0 2rem;
+  padding: 0 4rem;
   border: none;
   margin-top: -2rem;
   color: var(--yellowColor);
   font-size: 4.7rem;
   font-weight: bold;
+
+  background-image: url(../assets/img/vinkjeYellow.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .containerRadio {
@@ -936,6 +939,9 @@ avatar__image_small .hide {
   padding: 3rem 1rem;
   color: #A3A3A3;
   font-size: 2rem;
+  line-height: 2.8rem;
+
+  display: flex;
 }
 
 .antwoorden form {
@@ -953,6 +959,9 @@ avatar__image_small .hide {
 .round_winnerState {
   background-color: var(--greenColor);
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .round_winnerState:nth-child(2n+0){
@@ -962,11 +971,9 @@ avatar__image_small .hide {
 
 .round_winnerState:before {
   content: url('../assets/img/vinkje.svg');
-  /* background-size: 5rem 5rem; */
   display: inline-block;
-  width: 5rem; 
-  height: 5rem;
-  /* content: '\2713'; */
+  width: 13rem; 
+  height: 10rem;
   padding-right: 1rem;
 }
 
@@ -1648,16 +1655,6 @@ nav {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  /* .waiting {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    padding: 0;
-  }
-
-  .waitgrid {
-    grid-template-columns: repeat(3, 1fr);
-  } */
-
   .mentions__title {
     font-size: 2.6rem;
   }
@@ -1792,10 +1789,6 @@ nav {
     font-size: 1.7rem;
   }
 
-  /* .waitcontainer__img {
-    width: 66vw;
-  } */
-  
   .waiting {
     grid-template-columns: repeat(5, 1fr);
     margin: 3rem 0 10rem;
@@ -1829,6 +1822,11 @@ nav {
 
   .waitgrid {
     grid-template-columns: repeat(4, 1fr);
+  }
+
+  .round_winnerState:before {
+    width: 6rem;
+    height: 6rem;
   }
 
   .mentions__title {

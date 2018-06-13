@@ -84,7 +84,7 @@ class GameRonde extends Component {
             <h2 className="hide">Jouw Antwoord</h2>
             <form onSubmit={this.handleSubmitText} className="formInterpretatie">
               <textarea required name="answer" placeholder="Schrijf hier jouw grappige interpretatie van dit schilderij. " className={this.state.enteringDone ? "formInterpretatie__invoerveld no-bg" : "formInterpretatie__invoerveld"}></textarea>
-              {this.state.enteringDone ? console.log("no button") : <input disabled={this.state.enteringDone ? true : false } type="submit" name="check" value="&#x2713;" className="formInterpretatie__checkbtn" />}
+              {this.state.enteringDone ? console.log("no button") : <input disabled={this.state.enteringDone ? true : false } type="submit" name="check" value="" className="formInterpretatie__checkbtn" />}
             </form>
           </section>
 

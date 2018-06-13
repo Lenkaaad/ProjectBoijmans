@@ -55,7 +55,7 @@ class PickerWait extends Component {
               <p>Jij stemt! De andere spelers zijn nu hun antwoorden aan het ingeven.</p>
             </div>
 
-            <div class="artWork__container bottom-item">
+            <div className="artWork__container bottom-item">
               {this.props.ronde !== null ? (<picture className="kunstdetail__picture">
               <source media="(max-width: 450px)" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '-450w.webp')} type="image/webp" />
               <source media="(max-width: 450px)" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '-450w.jpg')} />
