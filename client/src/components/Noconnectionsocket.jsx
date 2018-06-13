@@ -10,11 +10,11 @@ class Noconnectionsocket extends Component {
         <div className="noconnection socket">
           <div className="container">
             <div className="noconnection__layout">
-              <div>
+              <div className="noconnection__content">
                 <h2>Oeps!</h2>
                 <p className="content">We ondervinden wat technische problemen, maar Pearl zou het leuk vinden als je later terug komt.</p>
               </div>
-              <img src={melkmeisje} alt="Pearl" width="300" />
+              <img src={melkmeisje} alt="Pearl" />
             </div>
           </div>
           <Link to="/" className="submitButton">

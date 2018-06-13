@@ -8,14 +8,14 @@ class Noscript extends Component {
         <div className="noconnection noscript">
           <div className="container">
             <div className="noconnection__layout">
-              <div>
+              <div className="noconnection__content">
                 <h2>Help</h2>
                 
                 <p className="content">Maak Vincent blij door Javascript aan te zetten.</p>
                 <p className="content">Zonder kan je helaas de app niet gebruiken</p>
 
               </div>
-              <img src={vangogh} alt="scream" width="300" />
+              <img src={vangogh} alt="vangogh" />
             </div>
           </div>
         </div>

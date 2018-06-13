@@ -10,11 +10,11 @@ class Offline extends Component {
         <div className="noconnection offline">
           <div className="container">
             <div className="noconnection__layout">
-              <div>
+              <div className="noconnection__content">
                 <h2>Aaah!</h2>
                 <p className="content">#SteveZonderInternet</p>
               </div>
-              <img src={scream} alt="scream" width="300" />
+              <img src={scream} alt="scream" />
 
             </div>
           </div>

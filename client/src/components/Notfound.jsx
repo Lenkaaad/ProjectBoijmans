@@ -10,11 +10,11 @@ class Notfound extends Component {
         <div className="noconnection notfound">
           <div className="container">
             <div className="noconnection__layout">
-              <div>
+              <div className="noconnection__content">
                 <h2>Oeps!</h2>
                 <p className="content">Mona is totaal de weg kwijt ...</p>
               </div>
-              <img src={monalisa} alt="scream" width="300" />
+              <img src={monalisa} alt="monalisa" className="noconnection__img" />
             </div>
           </div>
 

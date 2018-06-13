@@ -102,8 +102,8 @@ class App extends Component {
       </Switch>
       {this.state.notification !== null ? 
       <div>
-        <div class="pop-up__darkbg"></div>
-          <div class="pop-up__err">
+        <div className="pop-up__darkbg"></div>
+          <div className="pop-up__err">
             <p>{this.state.notification}</p>
             <button onClick={this.handleRemoveNotification}>OK</button>
           </div>
@@ -111,8 +111,8 @@ class App extends Component {
       : console.log("no notifications to show")}
 
       {/* create way to make sure these images have loaded in the first time */}
-      <img src={scream} class="hide" alt="scream"/>
-      <img src={arrow}  class="hide" alt="arrow"/>
+      <img src={scream} className="hide" alt="scream"/>
+      <img src={arrow}  className="hide" alt="arrow"/>
       {/* Put timer on this message so it disappears and reset state. */}
       {/* <p className="err">{this.state.notification !== null ? <p>{this.state.notification}</p> : console.log("no error")}</p> */}
       <WakeLock />

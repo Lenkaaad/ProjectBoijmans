@@ -81,18 +81,22 @@ textarea:focus, input:focus, button:focus, label:focus{
 
 .notfound {
   background-color: var(--yellowColor);
+  height: 100vh;
 }
 
 .noscript {
   background-color: var(--purpleColor);
+  height: 100vh;
 }
 
 .socket {
   background-color: #CF4463;
+  height: 100vh;
 }
 
 .offline {
   background-color: var(--redColor);
+  height: 100vh;
 }
 
 .offline h2, .noscript h2, .socket h2, .notfound h2 {
@@ -101,6 +105,16 @@ textarea:focus, input:focus, button:focus, label:focus{
   font-size: 7rem;
   padding-bottom: 7rem;
   margin-top: 14rem;
+}
+
+.noconnection__content {
+  width: 100%;
+  z-index: 999;
+}
+
+.noconnection__img {
+  width: 100vw;
+  height: 60vh;
 }
 
 .content {
@@ -120,7 +134,7 @@ textarea:focus, input:focus, button:focus, label:focus{
   flex-flow: column wrap;
   justify-content: space-between;
   align-items: center;
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 .backhome {
@@ -129,6 +143,8 @@ textarea:focus, input:focus, button:focus, label:focus{
 }
 
 .backhome p {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
   font-size: 2rem;
 }
 
@@ -162,6 +178,7 @@ header {
 h1, h3, h4 {
   font-family: 'SFProDisplay', sans-serif;
   font-weight: 700;
+  padding-bottom: .7rem;
 }
 
 h2 {
@@ -191,6 +208,7 @@ h2 {
 a {
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
 
 .hide {
@@ -548,6 +566,8 @@ avatar__image_small .hide {
 }
 
 .submit__layout {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -1302,6 +1322,8 @@ nav {
 }
 
 .detail-title {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
   font-size: 2.5rem;
   line-height: 2.7rem;
 
@@ -1369,6 +1391,8 @@ nav {
 }
 
 .muziekdetail__title {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
   background-color: var(--offWhiteColor);
 
   padding: 2rem;
@@ -1420,6 +1444,8 @@ nav {
 }
 
 .muziekdetail__interpretation {
+  font-family: 'SFProDisplay';
+  font-weight: 500;
   background-color: var(--redColor);
   color: white;
   padding: 2rem;
@@ -1588,7 +1614,11 @@ nav {
     height: 40vh;
   }
 
-  .waiting {
+  .waitgrid > span {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  /* .waiting {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     padding: 0;
@@ -1596,7 +1626,7 @@ nav {
 
   .waitgrid {
     grid-template-columns: repeat(3, 1fr);
-  }
+  } */
 
   .mentions__title {
     font-size: 2.6rem;
@@ -1664,6 +1694,7 @@ nav {
 
   .detail-image-recommended {
     margin: 0;
+    padding-bottom: 7rem;
   }
 }
 
@@ -1802,6 +1833,10 @@ nav {
 
   .content {
     font-size: 2.4rem;
+  }
+
+  .gallery__container {
+    padding: 5rem 0;
   }
 }
 

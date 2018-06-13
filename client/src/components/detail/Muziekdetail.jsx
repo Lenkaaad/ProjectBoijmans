@@ -32,10 +32,10 @@ class Muziekdetail extends Component {
           <header>
             <div className="container">
               <Link to={'/gallery/' + this.props.id}>
-                <img src={backbtn} alt="arrow" height="25" />
+                <img src={backbtn} alt="arrow" width="30" />
               </Link>
               <h2>Detail</h2>
-              <div></div>
+              <div className="blankdiv"></div>
             </div>
           </header>
           <img className="muziekdetail__image" src={require('../../assets/img/artworks/musicDetail/' + this.artwork.afbeeldingArtiest + '.jpg')} alt=""/>
