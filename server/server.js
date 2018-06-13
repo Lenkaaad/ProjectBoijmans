@@ -349,11 +349,11 @@ io.on('connection', function(socket){
       // emit event to get results
 
       const sortedWinner = lobby.players.sort(function(a, b){
-        return a.wins < b.wins;
+        return b.wins - a.wins;
       })
 
       const fastestPlayers = lobby.players.sort(function(a, b){
-        return a.responseTime > b.responseTime
+        return a.responseTime - b.responseTime
       })
 
       // still need to fix ties!

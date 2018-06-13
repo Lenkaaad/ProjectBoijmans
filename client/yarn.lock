@@ -4855,6 +4855,10 @@ normalize-url@^1.4.0:
     query-string "^4.1.0"
     sort-keys "^1.0.0"
 
+nosleep.js@^0.7.0:
+  version "0.7.0"
+  resolved "https://registry.yarnpkg.com/nosleep.js/-/nosleep.js-0.7.0.tgz#cfd919c25523ca0d0f4a69fb3305c083adaee289"
+
 npm-bundled@^1.0.1:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/npm-bundled/-/npm-bundled-1.0.3.tgz#7e71703d973af3370a9591bafe3a63aca0be2308"
@@ -5862,10 +5866,6 @@ react-transition-group@1.x:
     loose-envify "^1.3.1"
     prop-types "^15.5.6"
     warning "^3.0.0"
-
-react-wakelock@^0.0.4:
-  version "0.0.4"
-  resolved "https://registry.yarnpkg.com/react-wakelock/-/react-wakelock-0.0.4.tgz#113b53c9ed9ac9394c51695754311de2381fad8e"
 
 react@^16.4.0:
   version "16.4.0"

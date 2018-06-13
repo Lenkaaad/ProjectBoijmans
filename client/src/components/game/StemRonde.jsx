@@ -59,7 +59,7 @@ class StemRonde extends Component {
             }
             </div>
           </section>
-          <section className="bottom-item">
+          <section className="bottom-item antwoorden mg-buttom">
             <h2 className="hide">Antwoorden</h2>
             { this.state.winner === null ?
               <form onSubmit={this.handleStem}>
@@ -72,7 +72,7 @@ class StemRonde extends Component {
                 this.props.picker && this.props.ronde !== null ? <div className="submitButton"><div className="container submit__layout"><input type="submit" className="enter-button" value="Stem nu" /></div></div> : console.log("not picker")
               }
             </form>
-            : <ul className="container">{this.props.ronde.antwoorden.map(ronde => <li className={`antwoord_speler ${ronde.antwoord === this.state.winner.antwoord ? 'round_winnerState' : console.log("not winner")}`}>{ronde.antwoord}</li>)}</ul>}
+            : <ul className="container mg-bottom">{this.props.ronde.antwoorden.map(ronde => <li className={`antwoord_speler ${ronde.antwoord === this.state.winner.antwoord ? 'round_winnerState' : console.log("not winner")}`}>{ronde.antwoord}</li>)}</ul>}
           </section>
         </div>
       );

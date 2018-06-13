@@ -760,7 +760,6 @@ avatar__image_small .hide {
   width: 100%;
   /* margin-top: -3rem; */
   z-index: -999;
-  padding-top: 2rem;
 }
 
 .artWork__container {
@@ -939,6 +938,10 @@ avatar__image_small .hide {
   font-size: 2rem;
 }
 
+.antwoorden form {
+  margin-bottom: 6rem;
+}
+
 .antwoord_speler:nth-child(2n+0) {
   background-color: #EAE6D9;
 }
@@ -948,6 +951,11 @@ avatar__image_small .hide {
 }
 
 .round_winnerState {
+  background-color: var(--greenColor);
+  color: white;
+}
+
+.round_winnerState:nth-child(2n+0){
   background-color: var(--greenColor);
   color: white;
 }
