@@ -13,6 +13,7 @@ import Notfound from './components/Notfound';
 import { Switch, Route, withRouter } from 'react-router-dom';
 import arrow from './assets/img/arrow.svg';
 import scream from './assets/img/scream.svg';
+import WakeLock from 'react-wakelock';
 
 import {artworks} from './assets/data/gallerij.json';
 
@@ -114,6 +115,7 @@ class App extends Component {
       <img src={arrow}  class="hide" alt="arrow"/>
       {/* Put timer on this message so it disappears and reset state. */}
       {/* <p className="err">{this.state.notification !== null ? <p>{this.state.notification}</p> : console.log("no error")}</p> */}
+      <WakeLock />
       </div>
     );
   }

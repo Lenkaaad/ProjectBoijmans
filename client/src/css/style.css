@@ -5,6 +5,12 @@
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  
+}
+
+body {
+  /* should disable pull to refresh! */
+  overscroll-behavior-y: contain;
 }
 
 *, *:before, *:after { /* stylelint-disable-line */

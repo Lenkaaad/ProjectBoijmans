@@ -5863,6 +5863,10 @@ react-transition-group@1.x:
     prop-types "^15.5.6"
     warning "^3.0.0"
 
+react-wakelock@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/react-wakelock/-/react-wakelock-0.0.4.tgz#113b53c9ed9ac9394c51695754311de2381fad8e"
+
 react@^16.4.0:
   version "16.4.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.4.0.tgz#402c2db83335336fba1962c08b98c6272617d585"
