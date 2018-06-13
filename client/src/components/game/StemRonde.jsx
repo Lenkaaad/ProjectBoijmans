@@ -53,10 +53,19 @@ class StemRonde extends Component {
           <section>
             <h2 className="hide">Kunstwerk</h2>
             <div className="artWork__container waitcontainer artworkbtn">
-            <img src={require('../../assets/img/art/' + this.props.ronde.artwork + '.jpg')} alt="Kunstwerk" className="kunstwerk" />
-            {
-              this.props.picker && this.state.winner !== null ? <p onClick={this.handleNextRound} className="waitcontainer__volgende">Volgende ronde <img src={yellowArrow} alt="arrow" height="30" className="waitcontainer__next" /></p> : console.log("not picker")
-            }
+              <picture className="kunstdetail__picture">
+              <source media="(max-width: 450px)" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '-450w.webp')} type="image/webp" />
+              <source media="(max-width: 450px)" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '-450w.jpg')} />
+              <source media="(min-width: 451px)" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '-675w.webp')} type="image/webp" />
+              <source media="(min-width: 451px)" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '-675w.jpg')} />
+              <source media="(min-width: 675px)" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '.webp')} type="image/webp" />
+              <source media="(min-width: 675px)" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '.jpg')} />
+
+              <img className="kunstwerk" src={require('../../assets/img/art/' + this.props.ronde.artwork + '.jpg')} alt="kunstwerk" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '-450w.jpg') + ' 450w, ' + require('../../assets/img/art/' + this.props.ronde.artwork + '-675w.jpg') + ' 675w, ' + require('../../assets/img/art/' + this.props.ronde.artwork + '.jpg') + ' 900w'} sizes="(max-width: 900px) 100vw, 900px"/>
+              </picture>
+              {
+                this.props.picker && this.state.winner !== null ? <p onClick={this.handleNextRound} className="waitcontainer__volgende">Volgende ronde <img src={yellowArrow} alt="arrow" height="30" className="waitcontainer__next" /></p> : console.log("not picker")
+              }
             </div>
           </section>
           <section className="bottom-item antwoorden mg-buttom">

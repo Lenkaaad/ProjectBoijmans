@@ -59,7 +59,7 @@ class Settings extends Component {
               
               <div className="rondes">
                 <p data-what="less" className="rondes__less" onClick={this.changeRounds}>-</p>
-                <input type="number" disabled id="rondes" name="rondes" min="1" value="5" class="roundsInput"/>
+                <input type="number" disabled id="rondes" name="rondes" min="1" value="5" className="roundsInput"/>
                 <p data-what="more" className="rondes__more" onClick={this.changeRounds}>+</p>
               </div>
             </div>

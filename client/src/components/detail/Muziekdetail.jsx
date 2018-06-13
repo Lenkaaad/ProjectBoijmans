@@ -38,7 +38,16 @@ class Muziekdetail extends Component {
               <div className="blankdiv"></div>
             </div>
           </header>
-          <img className="muziekdetail__image" src={require('../../assets/img/artworks/musicDetail/' + this.artwork.afbeeldingArtiest + '.jpg')} alt=""/>
+          <picture className="kunstdetail__picture">
+            <source media="(max-width: 450px)" srcSet={require('../../assets/img/artworks/musicDetail/' + this.artwork.afbeeldingArtiest + '-450w.webp')} type="image/webp" />
+            <source media="(max-width: 450px)" srcSet={require('../../assets/img/artworks/musicDetail/' + this.artwork.afbeeldingArtiest + '-450w.jpg')} />
+            <source media="(min-width: 451px)" srcSet={require('../../assets/img/artworks/musicDetail/' + this.artwork.afbeeldingArtiest + '-675w.webp')} type="image/webp" />
+            <source media="(min-width: 451px)" srcSet={require('../../assets/img/artworks/musicDetail/' + this.artwork.afbeeldingArtiest + '-675w.jpg')} />
+            <source media="(min-width: 675px)" srcSet={require('../../assets/img/artworks/musicDetail/' + this.artwork.afbeeldingArtiest + '.webp')} type="image/webp" />
+            <source media="(min-width: 675px)" srcSet={require('../../assets/img/artworks/musicDetail/' + this.artwork.afbeeldingArtiest + '.jpg')} />
+
+            <img className="muziekdetail__image" src={require('../../assets/img/artworks/musicDetail/' + this.artwork.afbeeldingArtiest + '.jpg')} alt={this.artwork.naamArtiest} srcSet={require('../../assets/img/artworks/musicDetail/' + this.artwork.afbeeldingArtiest + '-450w.jpg') + ' 450w, ' + require('../../assets/img/artworks/musicDetail/' + this.artwork.afbeeldingArtiest + '-675w.jpg') + ' 675w, ' + require('../../assets/img/artworks/musicDetail/' + this.artwork.afbeeldingArtiest + '.jpg') + ' 900w'} sizes="(max-width: 900px) 100vw, 900px"/>
+          </picture>
           <div className="title-container">
             <h2 className="muziekdetail__title">{this.artwork.muziekDetailTitel}</h2>
           </div>

@@ -1160,6 +1160,16 @@ nav {
   z-index: 2;
 }
 
+.level-1 .gallery__picture .gallery-image,
+.level1 .gallery__picture .gallery-image {
+  width: 100%;
+}
+
+.level-1 .gallery__picture,
+.level1 .gallery__picture {
+  position: relative;
+}
+
 .level-1 .gallery-image-info,
 .level1 .gallery-image-info {
   display: none;
@@ -1171,6 +1181,10 @@ nav {
   z-index: 3;
 
   margin: 0 1rem;
+}
+
+.gallery__picture {
+  position: absolute;
 }
 
 .level0 .gallery-image {
@@ -1291,6 +1305,7 @@ nav {
   margin-right: 1rem;
   margin-bottom: 1.2rem;
   cursor: pointer;
+  z-index: 99;
 }
 
 .heart-open {
@@ -1327,6 +1342,13 @@ nav {
 .kunstdetail__image {
   width: 100%;
   max-width: 90rem;
+}
+
+.kunstdetail__picture {
+  display: block;
+  align-self: center;
+  width: 100vw;
+  height: 50vw;
 }
 
 .detail-title {
@@ -1703,6 +1725,11 @@ nav {
   .detail-image-recommended {
     margin: 0;
     padding-bottom: 7rem;
+  }
+
+  .kunstdetail__picture {
+    width: 90rem;
+    height: 45rem;
   }
 }
 

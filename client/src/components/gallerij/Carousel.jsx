@@ -56,7 +56,7 @@ class Carousel extends Component {
             <div id="carousel" className="noselect">
                 <div className="arrow arrow-left" onClick={this.leftClick}><i className="fi-arrow-left"></i></div>
                 <CSSTransitionGroup 
-                    transitionName={this.state.direction} transitionEnterTimeout={300} transitionLeaveTimeout={300} className="inner-carousel">
+                    transitionName={this.state.direction} transitionEnterTimeout={1000} transitionLeaveTimeout={1000} className="inner-carousel">
                     {this.generateItems()}
                 </CSSTransitionGroup>
                 <div className="arrow arrow-right" onClick={this.rightClick}><i className="fi-arrow-right"></i></div>

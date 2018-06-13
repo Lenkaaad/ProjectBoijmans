@@ -56,7 +56,16 @@ class PickerWait extends Component {
             </div>
 
             <div class="artWork__container bottom-item">
-              {this.props.ronde !== null ? <img src={require('../../assets/img/art/' + this.props.ronde.artwork + '.jpg')} alt="kunstwerk" className="kunstwerk" /> : console.log("not there yet")}
+              {this.props.ronde !== null ? (<picture className="kunstdetail__picture">
+              <source media="(max-width: 450px)" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '-450w.webp')} type="image/webp" />
+              <source media="(max-width: 450px)" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '-450w.jpg')} />
+              <source media="(min-width: 451px)" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '-675w.webp')} type="image/webp" />
+              <source media="(min-width: 451px)" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '-675w.jpg')} />
+              <source media="(min-width: 675px)" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '.webp')} type="image/webp" />
+              <source media="(min-width: 675px)" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '.jpg')} />
+
+              <img className="kunstwerk" src={require('../../assets/img/art/' + this.props.ronde.artwork + '.jpg')} alt="kunstwerk" srcSet={require('../../assets/img/art/' + this.props.ronde.artwork + '-450w.jpg') + ' 450w, ' + require('../../assets/img/art/' + this.props.ronde.artwork + '-675w.jpg') + ' 675w, ' + require('../../assets/img/art/' + this.props.ronde.artwork + '.jpg') + ' 900w'} sizes="(max-width: 900px) 100vw, 900px"/>
+              </picture>) : console.log("not there yet")}
               {this.props.ronde !== null ? (
                 <div className="playbtn">
                   {
