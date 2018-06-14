@@ -15,7 +15,7 @@ class Noscript extends Component {
                 <p className="content">Zonder kan je helaas de app niet gebruiken</p>
 
               </div>
-              <img src={vangogh} alt="vangogh" />
+              <img src={vangogh} alt="vangogh" className="noconnection__img"/>
             </div>
           </div>
         </div>

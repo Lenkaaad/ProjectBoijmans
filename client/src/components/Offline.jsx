@@ -14,7 +14,7 @@ class Offline extends Component {
                 <h2>Aaah!</h2>
                 <p className="content">#SteveZonderInternet</p>
               </div>
-              <img src={scream} alt="scream" />
+              <img src={scream} alt="scream" className="noconnection__img"/>
 
             </div>
           </div>

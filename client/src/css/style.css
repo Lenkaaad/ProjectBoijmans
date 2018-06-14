@@ -203,7 +203,7 @@ h2 {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-} 
+}
 
 a {
   text-decoration: none;
@@ -752,6 +752,7 @@ avatar__image_small .hide {
   padding: 3rem 1rem;
   text-align: center;
   margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 .kunstwerk {
@@ -766,8 +767,9 @@ avatar__image_small .hide {
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 100vw;
   object-fit: cover;
+
+  margin-top: -3rem;
 }
 
 .artWork__container .kunstwerk {
@@ -850,6 +852,7 @@ avatar__image_small .hide {
   border-right: transparent;
   border-bottom: .3rem solid var(--greenColor);
   font-size: 2rem;
+  padding: 1rem;
 }
 
 .formInterpretatie__invoerveld .margin-added {
@@ -873,6 +876,7 @@ avatar__image_small .hide {
   color: var(--yellowColor);
   font-size: 4.7rem;
   font-weight: bold;
+  z-index: 99;
 
   background-image: url(../assets/img/vinkjeYellow.svg);
   background-repeat: no-repeat;
@@ -961,7 +965,6 @@ avatar__image_small .hide {
   color: white;
   display: flex;
   align-items: center;
-  justify-content: center;
 }
 
 .round_winnerState:nth-child(2n+0){
@@ -972,8 +975,7 @@ avatar__image_small .hide {
 .round_winnerState:before {
   content: url('../assets/img/vinkje.svg');
   display: inline-block;
-  width: 13rem; 
-  height: 10rem;
+  width: 6rem;
   padding-right: 1rem;
 }
 
@@ -1065,6 +1067,12 @@ avatar__image_small .hide {
 
 .gallerij {
   overflow: hidden;
+}
+
+.empty-gallery {
+  padding: 1rem;
+  opacity: .5;
+  align-self: center;
 }
 
 nav {
@@ -1728,6 +1736,10 @@ nav {
     width: 90rem;
     height: 45rem;
   }
+
+  .artWork__container {
+    width: 90rem;
+  }
 }
 
 @media only screen and (min-width: 960px) {
@@ -1808,12 +1820,8 @@ nav {
   }
 
   .artWork__container {
-    width: 40vw;
     margin: auto;
-  }
-
-  .kunstwerk {
-    width: 40vw;
+    margin-top: -3rem;
   }
 
   .containerRadio {

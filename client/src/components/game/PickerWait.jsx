@@ -25,7 +25,7 @@ class PickerWait extends Component {
     }
 
     handleClickPlayOrPause = (e, status) => {
-      e.preventDefault();
+      console.log("clicked")
 
       const isPlaying = this.state.play;
 

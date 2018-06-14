@@ -49,7 +49,7 @@ class FavouritesList extends Component {
     }
     return (
       <div className="gallery__container">
-        <p>Je hebt nog geen favoriete kunstwerken.</p>
+        <p className="empty-gallery">Is er echt geen enkel kunstwerk dat je leuk vind?</p>
       </div>
     )
   }

@@ -107,7 +107,7 @@ class App extends Component {
             <button onClick={this.handleRemoveNotification}>OK</button>
           </div>
       </div>
-      : console.log("no notifications to show")}
+      : ""}
 
       {/* create way to make sure these images have loaded in the first time */}
       <img src={scream} className="hide" alt="scream"/>

@@ -14,7 +14,7 @@ class Noconnectionsocket extends Component {
                 <h2>Oeps!</h2>
                 <p className="content">We ondervinden wat technische problemen, maar Pearl zou het leuk vinden als je later terug komt.</p>
               </div>
-              <img src={melkmeisje} alt="Pearl" />
+              <img src={melkmeisje} alt="Pearl" className="noconnection__img"/>
             </div>
           </div>
           <Link to="/" className="submitButton">

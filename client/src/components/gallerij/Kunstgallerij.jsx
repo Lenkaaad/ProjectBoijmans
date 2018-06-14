@@ -48,7 +48,8 @@ class Kunstgallerij extends Component {
                   <option value="Expressionisme">Expressionisme</option>
                   <option value="Beeldhouwkunst">Beeldhouwkunst</option>
                   <option value="Moderne Kunst">Moderne Kunst</option>
-                  <option value="Postimpressionisme">Postimpressionisme</option>
+                  <option value="Post-impressionisme">Postimpressionisme</option>
+                  <option value="Renaissance">Renaissance</option>
                   <option value="Maniërisme">Maniërisme</option>
                 </select>
               </div>

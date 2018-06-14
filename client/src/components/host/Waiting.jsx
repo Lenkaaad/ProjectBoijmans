@@ -50,14 +50,14 @@ class Waiting extends Component {
           <div className="container">
             <div className="waitingcontent">
               <h3 className="waitingcontent__title">And now we wait...</h3>
-              <p className="waitingcontent__description">Geef de code door aan je vrienden (of vijanden) zodat ze de lobby in kunnen!</p>
+              <p className="waitingcontent__description">Geef de code door aan je vrienden (of vijanden) zodat ze zich aan kunnen sluiten bij het spel!</p>
             </div>
 
             
             <ul className="waiting bottom-item">
             <CSSTransitionGroup transitionName="avatar__animation" transitionEnterTimeout={700} transitionLeaveTimeout={700}>
               {
-                this.props.lobby !== null ? this.props.lobby.players.map(player => <li className="avatar"><div className={`avatar__image_small avatar__image__${player.avatar}`}></div><span>{player.nickname}</span></li>) : console.log("oopsie!")
+                this.props.lobby !== null ? this.props.lobby.players.map(player => <li key={player.id} className="avatar"><div className={`avatar__image_small avatar__image__${player.avatar}`}></div><span>{player.nickname}</span></li>) : console.log("oopsie!")
               }
             </CSSTransitionGroup>
             </ul>

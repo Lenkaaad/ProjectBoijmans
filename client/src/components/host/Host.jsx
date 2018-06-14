@@ -41,9 +41,6 @@ class Host extends Component {
 
     renderSwitch = (screen) => {
       switch (screen) {
-        // case 0:
-        //   return <User socket={this.socket} handleChangeScreens={this.changeScreens} />
-        //   break;
         case 0: 
           return <Settings socket={this.socket} handleChangeScreens={this.changeScreens} />
         case 1: 
