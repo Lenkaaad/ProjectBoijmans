@@ -17,7 +17,7 @@ import scream from './assets/img/scream.svg';
 import {artworks} from './assets/data/gallerij.json';
 
 import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:8000');
+const socket = openSocket('http://localhost:8000/');
 
 class App extends Component {
 
