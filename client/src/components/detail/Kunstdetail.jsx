@@ -49,12 +49,9 @@ const Kunstdetail = ({artworks, id}) => {
         <h3>Bekijk ook deze werken</h3>
 
         <ul className="recommended-artworks">
-          {artwork.recommendents.map(recommendent => <li className="recommended-artworks__item"><picture><source media="(max-width: 450px)" srcSet={require('../../assets/img/art/' + recommendent.photo + '-450w.webp')} type="image/webp" />
-              <source media="(max-width: 450px)" srcSet={require('../../assets/img/art/' + recommendent.photo + '-450w.jpg')} />
-              <source media="(min-width: 451px)" srcSet={require('../../assets/img/art/' + recommendent.photo + '-675w.webp')} type="image/webp" />
-              <source media="(min-width: 451px)" srcSet={require('../../assets/img/art/' + recommendent.photo + '-675w.jpg')} />
-              <source media="(min-width: 675px)" srcSet={require('../../assets/img/art/' + recommendent.photo + '.webp')} type="image/webp" />
-              <source media="(min-width: 675px)" srcSet={require('../../assets/img/art/' + recommendent.photo + '.jpg')} /><img width="120" height="120" src={require('../../assets/img/art/' + recommendent.photo + '.jpg')} alt="kunstwerk" srcSet={require('../../assets/img/art/' + recommendent.photo + '-450w.jpg') + ' 450w, ' + require('../../assets/img/art/' + recommendent.photo + '-675w.jpg') + ' 675w, ' + require('../../assets/img/art/' + recommendent.photo + '.jpg') + ' 900w'} sizes="(max-width: 900px) 100vw, 900px"/></picture></li> )}
+          {artwork.recommendents.map(recommendent => <li key={recommendent.photo} className="recommended-artworks__item"><picture><source media="(min-width: 1px)" srcSet={require('../../assets/img/artworks/detail/recommendations/' + recommendent.photo + '.webp')} type="image/webp" />
+              <source media="(min-width: 1px)" srcSet={require('../../assets/img/artworks/detail/recommendations/' + recommendent.photo + '.jpg')} />
+              <img width="120" height="120" src={require('../../assets/img/artworks/detail/recommendations/' + recommendent.photo + '.jpg')} alt="kunstwerk"/></picture></li> )}
         </ul>
 
       </div>
