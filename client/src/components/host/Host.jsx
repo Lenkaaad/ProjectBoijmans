@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import User from './User';
 import Settings from './Settings';
-import Mode from './Mode';
 import Waiting from './Waiting';
 import {withRouter} from "react-router-dom";
 
@@ -22,6 +20,10 @@ class Host extends Component {
       this.socket.on('lobby', lobby => {
         this.setState({lobby: lobby});
       })
+
+      this.socket.on('go game', lobby => {
+        this.props.history.push('/game');
+      })
     }
 
     changeScreens = () => {
@@ -39,18 +41,10 @@ class Host extends Component {
 
     renderSwitch = (screen) => {
       switch (screen) {
-        case 0:
-          return <User socket={this.socket} handleChangeScreens={this.changeScreens} />
-          break;
-        case 1: 
+        case 0: 
           return <Settings socket={this.socket} handleChangeScreens={this.changeScreens} />
-          break;
-        case 2: 
-          return <Mode socket={this.socket} handleChangeScreens={this.changeScreens} />
-          break;
-        case 3:
+        case 1: 
           return <Waiting socket={this.socket} lobby={this.state.lobby} />
-          break;
         default:
           break;
       }
@@ -60,7 +54,6 @@ class Host extends Component {
 
       return (
         <div className="Host">
-        <button onClick={this.leaveLobby}>leave lobby</button>
         {this.renderSwitch(this.state.screen)}
         </div>
       );

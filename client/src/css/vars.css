@@ -1,0 +1,20 @@
+:root {
+  --textColor: #000;
+  --greenColor: #4E9687;
+  --yellowColor: #EFAF00;
+  --redColor: #D94700;
+  --purpleColor: #692E47;
+  --backgroundColorInput: #F7F6F3;
+  --offWhiteColor: #E5D9C1;
+  --darkerOffWhiteColor: #D9CDB7;
+  --wildSandColor: #E7E5DD;
+
+  --level1-height: 33.75rem;
+  --level1-width: 18rem;
+  --level0-height: 40.125rem;
+  --level0-width: 21.4rem;
+
+  --level-1-left: 50rem;
+  --level0-left: 33rem;
+  --level1-left: 18rem;
+}

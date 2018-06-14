@@ -1,0 +1,1893 @@
+@import "reset.css";
+@import "vars.css";
+@import "fonts.css";
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  
+}
+
+body {
+  /* should disable pull to refresh! */
+  overscroll-behavior-y: contain;
+}
+
+*, *:before, *:after { /* stylelint-disable-line */
+  box-sizing: inherit;
+}
+
+textarea:focus, input:focus, button:focus, label:focus{
+  outline: none;
+}
+
+.err {
+  font-size: 1.8rem;
+  width: 100%;
+  padding: 2rem;
+  margin-top: 2rem;
+  opacity: 0;
+  /* z-index: 9999;
+
+  background-color: white; */
+}
+
+.pop-up__err {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 90%;
+  height: auto;
+  background-color: var(--yellowColor);
+  padding: 2rem;
+  margin-left: -45%;
+  text-align: center;
+  transform: scale(0);
+  animation: 0.3s ease-in-out popUp forwards;
+}
+
+@keyframes popUp {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    background-color: rgba(0,0,0,0.0);
+  }
+  100% {
+    background-color: rgba(0,0,0,0.5);
+  }
+}
+
+.pop-up__darkbg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.0);
+  animation: 0.3s ease-in-out fadeIn forwards;
+}
+
+.pop-up__err p {
+  margin-bottom: 1.5rem;
+}
+
+
+.notfound {
+  background-color: var(--yellowColor);
+  height: 100vh;
+}
+
+.noscript {
+  background-color: var(--purpleColor);
+  height: 100vh;
+}
+
+.socket {
+  background-color: #CF4463;
+  height: 100vh;
+}
+
+.offline {
+  background-color: var(--redColor);
+  height: 100vh;
+}
+
+.offline h2, .noscript h2, .socket h2, .notfound h2 {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  font-size: 7rem;
+  padding-bottom: 7rem;
+  margin-top: 14rem;
+}
+
+.noconnection__content {
+  width: 100%;
+  z-index: 999;
+}
+
+.noconnection__img {
+  width: 100vw;
+  height: 60vh;
+}
+
+.content {
+  font-size: 2.1rem;
+  padding-bottom: 1.3rem;
+  line-height: 2.9rem;
+}
+
+.noconnection h2,
+.noconnection p {
+  color: white;
+  text-align: center;
+}
+
+.noconnection__layout {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  align-items: center;
+  /* height: 100vh; */
+}
+
+.backhome {
+  display: flex;
+  align-items: center;
+}
+
+.backhome p {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.arrowRotate {
+  -ms-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  margin-right: 1.5rem;
+}
+
+body {
+  background-color: #F0EEE6;
+  font-size: 1.5rem;
+  line-height: 1.8rem;
+  font-family: 'SchulbuchNord', sans-serif;
+  color: var(--textColor);
+}
+
+header {
+  background-color: var(--yellowColor);
+  padding: 1rem 1rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.6rem;
+
+  position: sticky;
+  top: 0;
+  z-index: 99999;
+}
+
+h1, h3, h4 {
+  font-family: 'SFProDisplay', sans-serif;
+  font-weight: 700;
+  padding-bottom: .7rem;
+}
+
+h2 {
+  font-family: 'SFProDisplay', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.lobby header .container,
+.Waiting header .container,
+.Settings header .container,
+.ronde header .container,
+.player-wait header .container,
+.judgewait header .container,
+.stemmen header .container,
+.endgame header .container,
+.ronde header .container,
+.gallerij header .container,
+.kunstdetail header .container,
+.muziekdetail header .container {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+.hide {
+  display: none;
+}
+
+.blankdiv {
+  width: 3rem;
+}
+
+input[type="submit"], button {
+  border-color: var(--greenColor);
+  background-color: var(--greenColor);
+  border: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.home header {
+  height: 13rem;
+  color: white;
+  font-size: 3.4rem;
+  text-align: right;
+  padding: 3.3rem 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.home__logo {
+  z-index: 99;
+  margin-right: 1rem;
+  position: relative;
+}
+
+.home__content {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 6rem;
+}
+
+.home__image {
+  margin-top: -3rem;
+}
+
+.home__buttons {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 9rem;
+}
+
+.homebutton {
+  border: none;
+  width: 11rem;
+  height: 11rem;
+  color: white;
+  margin-left: 1rem;
+  padding: 1rem;
+  font-size: 1.8rem;
+}
+
+.playbutton {
+  background-color: #4E9687;
+  border: none;
+  width: 20rem;
+  height: 20rem;
+  color: white;
+  font-size: 1.3rem;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.playbutton__play {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  background-color: var(--redColor);
+  font-size: 4rem;
+  padding: 3rem 2rem;
+  width: 15rem;
+  margin-left: -1rem;
+  margin-bottom: 1.5rem;
+  margin-top: -0.3rem;
+}
+
+.playbutton__text, 
+.boijmans__text {
+  color: white;
+  opacity: 0.6;
+  padding: 0 .5rem;
+  font-size: 1.6rem;
+}
+
+.homebutton__gallerij {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  font-size: 2.2rem;
+  background-color: var(--redColor);
+}
+
+.homebutton__boijmans {
+  background-color: var(--purpleColor);
+  color: white;
+  padding: 1rem;
+  margin: 1rem 7rem 0 2rem;
+}
+
+.boijmans__text {
+  padding: 0 0 1rem 0;
+}
+
+.avatar, 
+.rondes {
+  text-align: center;
+  margin: 2rem 0 7rem;
+}
+
+.rondes {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.avatar {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem;
+}
+
+.avatar_wiebenje {
+  margin: 5rem 0;
+}
+
+.waiting .bottom-item .avatar {
+  opacity: 1;
+  overflow: none;
+  width: 10rem;
+}
+
+.waiting span {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.avatar__image {
+  width: 20rem;
+  height: 20rem;
+}
+
+.avatar__image_medium {
+  width: 14rem;
+  height: 14rem;
+}
+
+.avatar__image_small {
+  width: 10rem;
+  height: 10rem;
+}
+
+.avatar__animation-enter {
+  opacity: 0;
+  width: 0.01rem;
+}
+
+.avatar__animation-enter.avatar__animation-enter-active {
+  opacity: 1;
+  width: 10rem;
+  transition: 300ms ease-out;
+}
+
+.avatar__animation-leave {
+  width: 10rem;
+  opacity: 1;
+}
+
+.avatar__animation-leave.avatar__animation-leave-active {
+  opacity: 0;
+  width: 0.01rem;
+  transition: 300ms ease-in;
+}
+
+.avatar__image_small .show {
+  height: 10rem;
+}
+
+avatar__image_small .hide {
+  transition: height 500ms 0ms;
+}
+
+.avatar__image__1 {
+  background-image: url('../assets/img/avatar-1.svg');
+  background-repeat: no-repeat;
+}
+
+.avatar__image__2 {
+  background-image: url('../assets/img/avatar-2.svg');
+  background-repeat: no-repeat;
+}
+
+.avatar__image__3 {
+  background-image: url('../assets/img/avatar-3.svg');
+  background-repeat: no-repeat;
+}
+
+.avatar__image__4 {
+  background-image: url('../assets/img/avatar-4.svg');
+  background-repeat: no-repeat;
+}
+
+.avatar__image__5 {
+  background-image: url('../assets/img/avatar-5.svg');
+  background-repeat: no-repeat;
+}
+
+.avatar__image__6 {
+  background-image: url('../assets/img/avatar-6.svg');
+  background-repeat: no-repeat;
+}
+
+.formInput__input {
+  background-color: var(--backgroundColorInput);
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  border-bottom: .2rem solid var(--greenColor);
+  height: 4rem;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.styleSelector .formInput__input {
+  border-bottom: transparent;
+}
+
+.mg-buttom {
+  margin-bottom: 10rem;
+}
+
+.formInput{
+  display: grid;
+  margin-bottom: 5rem;
+  padding: 0 1rem;
+}
+
+.formInput__title {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  margin: 1rem 0 .7rem;
+  font-size: 2rem;
+}
+
+.add-spelcode {
+  margin-left: 1rem;
+}
+
+.spelcodecontainer__spelcode{
+  font-family: 'SFProDisplay';
+  font-weight: 600;
+  display: block;
+  position: relative;
+  padding: 0.5rem 3rem 0rem 3rem;
+  margin: 1rem 0 1.5rem 1rem;
+  cursor: pointer;
+  font-size: 1.7rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2.5rem;
+  width: 2.5rem;
+  background-color: var(--backgroundColorInput);
+  border: .2rem solid var(--greenColor);
+}
+
+.wie, .boijmans {
+  padding-bottom: 10rem;
+}
+
+.feedbackmelding {
+  font-size: 1.3rem;
+  color: var(--redColor);
+  padding: 1rem;
+}
+
+.spelcodecontainer input:checked ~ .checkmark {
+  background-color: var(--greenColor);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.spelcodecontainer input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.spelcodecontainer .checkmark:after {
+  left: .9rem;
+  top: .5rem;
+  width: .5rem;
+  height: 1rem;
+  border: solid white;
+  border-width: 0 .3rem .3rem 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.spelcode__input {
+  margin-left: 1rem;
+}
+
+.formInput__description {
+  color: var(--greenColor);
+  width: 100%;
+  text-align: right;
+  margin-top: 0.5rem;
+  font-size: 1.4rem;
+}
+
+.settingGame .formInput__description {
+  text-align: left;
+}
+
+.rondes button {
+  padding: 0;
+}
+
+.submitButton {
+  background-color: var(--greenColor);
+  padding: 0.7rem;
+  width: 100%;
+  margin-top: 4rem;
+
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+}
+
+.submit__layout {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+.roundsInput {
+  font-family: 'SFProDisplay';
+  font-weight: 500;
+  height: 6rem;
+  width: 12rem;
+  font-size: 4rem;
+  border: 0;
+  text-align: center;
+  padding: 0 1rem 1rem 2.7rem;
+  background-color: rgba(0,0,0,0);
+}
+
+.submitButton input, button{
+  color: white;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 1rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.submitButton .submit__layout .enter-button {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  font-size: 1.9rem;
+  width: 100%;
+  text-align: left;
+  background-image: url('../assets/img/arrow.svg');
+  background-position: right;
+  background-repeat: no-repeat;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+.feedback {
+  background-color: var(--yellowColor);
+  padding: .8rem;
+  width: 100%;
+  font-size: 1.4rem;
+
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+
+  color: white;
+  text-align: center;
+}
+
+.feedback_offline {
+  background-color: var(--redColor);
+}
+
+.settingGame {
+  padding: 0 1rem;
+}
+
+.rondes__less, .rondes__more {
+  background-color: var(--greenColor);
+  color: var(--yellowColor);
+  border: none;
+  font-size: 2.4rem;
+  width: 5rem;
+  height: 5rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+}
+
+.avatar span {
+  padding-top: 1.5rem;
+}
+
+.waitcontainer__volgende {
+  font-family: 'SFProDisplay';
+  background-color: var(--greenColor);
+  padding: 1rem;
+  color: var(--yellowColor);
+  font-size: 2.6rem;
+  line-height: 2.7rem;
+  z-index: 0;
+  font-weight: 700;
+  border: none;
+  margin: -3rem 0 2rem;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-wait header,
+.Waiting header,
+.ronde header,
+.stemmen header,
+.endgame header,
+.judgewait header {
+  background-color: var(--redColor);
+  color: white;
+}
+
+.ronde header {
+  margin-bottom: 2rem;
+}
+
+.waiting {
+  display: flex;
+  /* grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem; */
+
+  overflow-x: scroll;
+  margin: 3rem 0 0;
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.waitcontainer {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+
+.waitcontainer__img {
+  width: 100%;
+  object-fit: cover;
+  height: 30vh;
+} 
+
+.waitcontainer__next {
+  margin-left: 1.5rem;
+}
+
+.waitingcontent {
+  padding: 0 1rem;
+  margin: 1rem 0;
+}
+
+.codecontainer {
+  background-color: #EBE6D2;
+  padding: 2rem 0;
+  margin-top: 3rem;
+
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+}
+
+.avatar span, .waitgrid li span {
+  font-family: 'SFProDisplay';
+  font-weight: 500;
+}
+
+.waitgrid li span {
+  font-size: 1.7rem;
+}
+
+.codecontainer__code {
+  font-family: 'SFProDisplay';
+  color: #D8CC9F;
+  text-align: center;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 2.8rem;
+}
+
+.pickerwait {
+  background-color: var(--backgroundColorInput);
+  padding: 3rem 1rem;
+  text-align: center;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.kunstwerk {
+  object-fit: cover;
+  width: 100%;
+  /* margin-top: -3rem; */
+  z-index: -999;
+}
+
+.artWork__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  object-fit: cover;
+
+  margin-top: -3rem;
+}
+
+.artWork__container .kunstwerk {
+  height: auto;
+}
+
+.margin-added {
+  margin-top: 3.5rem;
+}
+
+.playbtn {
+  position: absolute;
+}
+
+.waitimg {
+  width: 100%;
+  height: 50%;
+}
+
+.waitgrid {
+  text-align: center;
+}
+
+.waitgrid > span {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2rem;
+  margin-top: 3rem;
+  padding: 0 1rem;
+}
+
+.waitgrid span > li {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.waitgrid .avatar__image_medium {
+  margin-bottom: 1rem;
+}
+
+.waitingcontent__title {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  text-align: center;
+  font-size: 2.5rem;
+  padding: 1.5rem 0;
+}
+
+.waitingcontent__description {
+  text-align: center;
+}
+
+.judgecontainer {
+  background-color: var(--greenColor);
+  padding: 1rem;
+}
+
+.judgecontainer p {
+  color: white;
+}
+
+.formInterpretatie {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+
+.formInterpretatie__invoerveld {
+  width: 97%;
+  height: 11rem;
+  display: block;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, .7);
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  border-bottom: .3rem solid var(--greenColor);
+  font-size: 2rem;
+  padding: 1rem;
+}
+
+.formInterpretatie__invoerveld .margin-added {
+  margin-bottom: 10rem;
+}
+
+.no-bg {
+  border: 0;
+  background-color: #F0EEE6;
+}
+
+.formInterpretatie__invoerveld::placeholder {
+  font-size: 2rem;
+}
+
+.formInterpretatie__checkbtn {
+  background-color: var(--greenColor);
+  padding: 0 4rem;
+  border: none;
+  margin-top: -2rem;
+  color: var(--yellowColor);
+  font-size: 4.7rem;
+  font-weight: bold;
+  z-index: 99;
+
+  background-image: url(../assets/img/vinkjeYellow.svg);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.containerRadio {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  display: block;
+  position: relative;
+  padding-left: 4.5rem;
+  cursor: pointer;
+  font-size: 1.8rem;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.containerRadio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkmarkRadio {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3rem;
+  width: 3rem;
+  background-color: transparent;
+  border: .3rem solid var(--yellowColor);
+}
+
+.containerRadio input:checked ~ .checkmarkRadio {
+  background-color: var(--yellowColor);
+}
+
+.checkmarkRadio:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.containerRadio input:checked ~ .checkmarkRadio:after {
+  display: block;
+}
+
+.containerRadio .checkmarkRadio:after {
+  top: .9rem;
+  left: .9rem;
+  width: .8rem;
+  height: .8rem;
+  border-radius: 50%;
+  background: white;
+}
+
+.antwoord_speler {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  padding: 2.5rem;
+  padding: 3rem 1rem;
+  color: #A3A3A3;
+  font-size: 2rem;
+  line-height: 2.8rem;
+
+  display: flex;
+}
+
+.antwoorden form {
+  margin-bottom: 6rem;
+}
+
+.antwoord_speler:nth-child(2n+0) {
+  background-color: #EAE6D9;
+}
+
+.avatar__winner {
+  margin: -5rem 0 0 1rem;
+}
+
+.round_winnerState {
+  background-color: var(--greenColor);
+  color: white;
+  display: flex;
+  align-items: center;
+}
+
+.round_winnerState:nth-child(2n+0){
+  background-color: var(--greenColor);
+  color: white;
+}
+
+.round_winnerState:before {
+  content: url('../assets/img/vinkje.svg');
+  display: inline-block;
+  width: 6rem;
+  padding-right: 1rem;
+}
+
+.artworkbtn {
+  justify-content: flex-end;
+}
+
+.winner {
+  background-color: #EBE6D2;
+  padding: 2rem;
+  margin-top: -9rem;
+  width: 100%;
+}
+
+.winnerinfo .avatar {
+  margin-top: -8rem;
+}
+
+.winner__name {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  font-size: 3rem;
+  padding-bottom: 1rem;
+}
+
+.winner__points {
+  font-family: 'SFProDisplay';
+  font-weight: 500;
+  font-size: 1.7rem;
+}
+
+.mentions {
+  padding: 0 1rem;
+}
+
+.mentions li {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-gap: 1rem;
+
+  margin-bottom: 2.6rem;
+}
+
+.mentions__title {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  text-align: center;
+  padding: 4rem 0 2rem;
+  font-size: 2.2rem;
+}
+
+.mentions__subtitle {
+  font-family: 'SFProDisplay';
+  font-weight: 500;
+  font-size: 1.7rem;
+  padding-bottom: .7rem;
+}
+
+.mentions__blok {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  padding: 2rem;
+  color: white;
+  text-align: center;
+}
+
+.mentions__content {
+  color: #A7A7A7;
+  font-size: 1.4rem;
+}
+
+.mentions__one {
+  background-color: var(--purpleColor);
+}
+
+.mentions__two {
+  background-color: var(--redColor);
+}
+
+.mentions__three {
+  background-color: var(--yellowColor);
+}
+
+.winnerinfo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.gallerij {
+  overflow: hidden;
+}
+
+.empty-gallery {
+  padding: 1rem;
+  opacity: .5;
+  align-self: center;
+}
+
+nav {
+  background-color: var(--offWhiteColor);
+}
+
+.submenu {
+  display: flex;
+  justify-content: center;
+}
+
+.submenu__item {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 1rem .5rem;
+}
+
+.submenu__item:hover {
+  background-color: var(--darkerOffWhiteColor);
+  cursor: pointer;
+}
+
+.submenu__item.active {
+  font-family: 'SFProDisplay', sans-serif;
+  font-weight: 700;
+  border-bottom: .6rem solid var(--greenColor);
+}
+
+.submenu__item.active:hover {
+  background-color: var(--offWhiteColor);
+  cursor: default;
+}
+
+.gallery__container {
+  max-width: 90rem;
+  padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.styleSelector {
+  display: flex;
+  flex-direction: column;
+
+  padding: 0 2rem;
+  margin-top: -2rem;
+}
+
+.carousel__container {
+  align-self: center;
+}
+
+#carousel {
+  min-width: 57rem;
+  max-width: 80rem;
+  display: flex;
+  justify-content: center;
+
+  align-self: center;
+  position: relative;
+
+  margin-top: 2rem;
+}
+
+.inner-carousel {
+  display: flex;
+}
+
+.arrow {
+  width: 3rem;
+  height: 3rem;
+  cursor: pointer;
+  z-index: 1000;
+
+  position: absolute;
+}
+
+.arrow-left {
+  top: 14rem;
+  left: 14.3rem;
+  background-image: url(../assets/img/arrow-left.svg);
+}
+
+.arrow-right {
+  top: 14rem;
+  left: 42.05rem;
+  background-image: url(../assets/img/arrow-right.svg);
+}
+
+.item {
+  transition: height .3s, width .3s, left .3s, margin-top .3s, line-height .3s, background-color .3s;
+}
+
+.level-1 {
+  height: var(--level1-height);
+  width: var(--level1-width);
+  margin-top: 2.5rem;
+  z-index: 2;
+}
+
+.level-1 .gallery__picture .gallery-image,
+.level1 .gallery__picture .gallery-image {
+  width: 100%;
+}
+
+.level-1 .gallery__picture,
+.level1 .gallery__picture {
+  position: relative;
+}
+
+.level-1 .gallery-image-info,
+.level1 .gallery-image-info {
+  display: none;
+}
+
+.level0 {
+  height: var(--level0-height);
+  width: var(--level0-width);
+  z-index: 3;
+
+  margin: 0 1rem;
+}
+
+.gallery__picture {
+  position: absolute;
+}
+
+.level0 .gallery-image {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.level1 {
+  height: var(--level1-height);
+  width: var(--level1-width);
+  margin-top: 2.5rem;
+  z-index: 2;
+}
+
+.left-enter {
+  opacity: 0;
+  height: var(--level1-height) - 30;
+  width: 0;
+  margin-top: 2.5rem;
+}
+
+.left-enter.left-enter-active {
+  opacity: 1;
+  height: var(--level1-height);
+  width: var(--level1-width);
+  margin-top: 2.5rem;
+  transition: left .3s, opacity .3s, height .3s, width .3s, margin-top .3s, line-height .3s;
+}
+
+.left-leave {
+  opacity: 1;
+  height: var(--level1-height);
+  width: var(--level1-width);
+  margin-top: 2.5rem;
+}
+
+.left-leave.left-leave-active {
+  opacity: 0;
+  height: var(--level1-height);
+  margin-top: 2.5rem;
+  width: 0;
+  transition: left .3s, opacity .3s, height .3s, width .3s, margin-top .3s, line-height .3s;
+}
+
+.right-enter {
+  opacity: 0;
+  height: var(--level1-height) - 30;
+  width: 0;
+  margin-top: 2.5rem;
+}
+
+.right-enter.right-enter-active {
+  opacity: 1;
+  height: var(--level1-height);
+  margin-top: 2.5rem;
+  width: var(--level1-width);
+  transition: left .3s, opacity .3s, height .3s, width .3s, margin-top .3s, line-height .3s;
+}
+
+.right-leave {
+  height: var(--level1-height);
+  opacity: 1;
+  margin-top: 2.5rem;
+  width: var(--level1-width);
+}
+
+.right-leave.right-leave-active {
+  opacity: 0;
+  height: var(--level1-height);
+  width: 0;
+  margin-top: 2.5rem;
+  transition: left .3s, opacity .3s, height .3s, width .3s, margin-top .3s, line-height .3s;
+}
+
+.noselect {
+  -webkit-user-select: none; 
+   -khtml-user-select: none; 
+     -moz-user-select: none; 
+      -ms-user-select: none;  
+          user-select: none;
+}
+
+.gallery-image {
+  height: 80%;
+}
+
+.gallery-image-info {
+  height: 20%;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1rem;
+}
+
+.gallery-image-info__item {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.gallery-image-info__left-item {
+  align-items: flex-end;
+  padding-left: .5rem;
+}
+
+.gallery-image-info__left-item p {
+  text-align: right;
+}
+
+.default-cursor {
+  cursor: default;
+}
+
+.heart {
+  width: 4.1rem;
+  height: 3.75rem;
+  background-repeat: no-repeat;
+  margin-right: 1rem;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  z-index: 99;
+}
+
+.heart-open {
+  background-image: url(../assets/img/heart-open.svg);
+}
+
+.heart-filled {
+  background-image: url(../assets/img/heart-filled.svg);
+}
+
+.favourites-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem 0;
+}
+
+.favourites-item__odd {
+  background-color: var(--wildSandColor);
+}
+
+.favourites-item__image {
+  width: 7.6rem;
+}
+
+.favourites-item__text {
+  width: 33vw;
+}
+
+.favourites-item__text h3 {
+  margin-bottom: .5rem;
+}
+
+.kunstdetail__image {
+  width: 100%;
+  max-width: 90rem;
+}
+
+.kunstdetail__picture {
+  display: block;
+  align-self: center;
+  width: 100vw;
+  height: 50vw;
+}
+
+.detail-title {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  font-size: 2.5rem;
+  line-height: 2.7rem;
+
+  margin: 1rem 1rem;
+}
+
+.detail-image-info {
+  display: flex;
+  justify-content: space-between;
+
+  margin: 0 1rem;
+}
+
+.detail-image-description {
+  margin: 2rem 1rem 1rem;
+  line-height: 2.3rem;
+}
+
+.artwork-boijmans-link {
+  color: var(--redColor);
+  font-weight: bold;
+}
+
+.artwork-boijmans-link:hover {
+  color: var(--greenColor);
+}
+
+.detail-image-recommended {
+  margin: 2rem 0 6rem 1rem;
+}
+
+.detail-image-recommended h3 {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.8rem;
+}
+
+.recommended-artworks {
+  display: flex;
+  overflow: auto;
+}
+
+.recommended-artworks__item {
+  display: inline-block;
+}
+
+.recommended-artworks__item + .recommended-artworks__item {
+  margin-left: 1rem;
+}
+
+.muziekdetail {
+  display: flex;
+  flex-direction: column;
+}
+
+.muziekdetail__image {
+  width: 100%;
+  max-width: 90rem;
+}
+
+.title-container{
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.muziekdetail__title {
+  font-family: 'SFProDisplay';
+  font-weight: 700;
+  background-color: var(--offWhiteColor);
+
+  padding: 2rem;
+  width: 80vw;
+
+  display: flex;
+  justify-content: center;
+
+  margin-bottom: 2rem;
+  margin-top: -3rem;
+  position: relative;
+  z-index: 99;
+}
+
+.muziekdetail__description {
+  padding: 0 1rem;
+  line-height: 2.3rem;
+}
+
+.muziekdetail__button {
+  width: 100%;
+  margin-bottom: -2rem;
+  padding: 8rem;
+
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.muziekdetail__play::after {
+  content: '';
+  background-image: url(../assets/img/musicdetail-play.svg);
+  width: 5rem;
+  height: 5rem;
+
+  position: absolute;
+  margin: auto;
+}
+
+.muziekdetail__pause::after {
+  content: '';
+  background-image: url(../assets/img/musicdetail-pause.svg);
+  width: 5rem;
+  height: 5rem;
+
+  position: absolute;
+  margin: auto;
+}
+
+.muziekdetail__interpretation {
+  font-family: 'SFProDisplay';
+  font-weight: 500;
+  background-color: var(--redColor);
+  color: white;
+  padding: 2rem;
+  width: 95vw;
+
+  position: relative;
+  z-index: 99;
+  margin-bottom: -2rem;
+  margin-top: 2rem;
+}
+
+@media only screen and (min-width: 350px) {
+  .arrow-left {
+    left: 13.3rem;
+  }
+  
+  .arrow-right {
+    left: 43.05rem;
+  }
+
+  .muziekdetail__title {
+    width: 28rem
+  }
+
+  .muziekdetail__interpretation {
+    width: 31rem;
+  }
+}
+
+@media only screen and (min-width: 400px) {
+  .arrow-left {
+    left: 11.3rem;
+  }
+  
+  .arrow-right {
+    left: 45.05rem;
+  }
+
+  .favourites-item__text {
+    width: 50vw;
+  }
+}
+
+@media only screen and (min-width: 450px) {
+  .arrow-left {
+    left: 9.3rem;
+  }
+  
+  .arrow-right {
+    left: 47.05rem;
+  }
+}
+
+@media only screen and (min-width: 500px) {
+  .arrow-left {
+    left: 7.3rem;
+  }
+  
+  .arrow-right {
+    left: 49.05rem;
+  }
+}
+
+@media only screen and (min-width: 550px) {
+  .arrow-left {
+    left: 4.3rem;
+  }
+  
+  .arrow-right {
+    left: 52.05rem;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .arrow-left {
+    left: 1.3rem;
+  }
+  
+  .arrow-right {
+    left: 55.05rem;
+  }
+
+  .gallerij {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media only screen and (min-width: 650px) {
+  .arrow {
+    top: 13.5rem;
+    width: 5rem;
+    height: 5rem;
+  }
+
+  .arrow-left {
+    left: -2.3rem;
+  }
+
+  .arrow-right {
+    left: 56.75rem;
+  }
+
+  .favourites-item__text {
+    width: 60vw;
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .arrow-left {
+    left: -4.3rem;
+  }
+  
+  .arrow-right {
+    left: 58.75rem;
+  }
+}
+
+@media only screen and (min-width: 760px) {
+
+  h2 {
+    font-size: 2.3rem;
+  }
+
+  header {
+    padding: 1.5rem 1.5rem;
+  }
+
+  .homebutton__boijmans {
+    width: 30vw;
+    margin: 1rem 7rem 0 25rem;
+  }
+
+  .feedback {
+    font-size: 1.5rem;
+  }
+
+  .homebutton {
+    width: 13rem;
+    height: 13rem;
+  }
+
+  .home__image {
+    width: 40rem;
+  }
+
+  .playbutton {
+    width: 21rem;
+    height: 21rem;
+  }
+
+  .playbutton__text {
+    font-size: 1.6rem;
+  }
+
+  .formInput__title {
+    font-size: 2.6rem;
+    margin-bottom: 1.7rem;
+  }
+
+  .formInput__description {
+    font-size: 1.5rem;
+  }
+
+  .waitcontainer__img {
+    height: 40vh;
+  }
+
+  .waitgrid > span {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .mentions__title {
+    font-size: 2.6rem;
+  }
+
+  .mentions__subtitle {
+    font-size: 1.8rem;
+  }
+
+  .mentions__content {
+    font-size: 1.5rem;
+  }
+
+  .arrow-left {
+    left: -7.3rem;
+  }
+  
+  .arrow-right {
+    left: 61.75rem;
+  }
+
+  .muziekdetail__title {
+    width: 33rem
+  }
+
+  .muziekdetail__interpretation {
+    width: 35rem;
+  }
+
+}
+
+@media only screen and (min-width: 850px) {
+  .arrow-left {
+    left: -9.3rem;
+  }
+  
+  .arrow-right {
+    left: 63.75rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .gallerij {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .kunstdetail,
+  .muziekdetail {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .detail-title,
+  .detail-image-info,
+  .detail-image-description,
+  .detail-image-recommended,
+  .kunstdetail__image,
+  .muziekdetail__image,
+  .muziekdetail__description,
+  .title-container {
+    width: 90rem;
+    align-self: center;
+  }
+
+  .detail-image-recommended {
+    margin: 0;
+    padding-bottom: 7rem;
+  }
+
+  .kunstdetail__picture {
+    width: 90rem;
+    height: 45rem;
+  }
+
+  .artWork__container {
+    width: 90rem;
+  }
+}
+
+@media only screen and (min-width: 960px) {
+  body {
+    font-size: 1.8rem;
+  }
+
+  .gallerij h3,
+  .gallerij p {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    width: 96rem;
+    margin: 0 auto;
+  }
+
+  .home header {
+    margin-bottom: 5rem;
+  }
+
+  .homebutton__boijmans {
+    width: 25vw;
+  }
+
+  .home__buttons{
+    margin-top: 12rem;
+  }
+
+  .playbutton {
+    width: 25rem;
+    height: 25rem;
+  }
+
+  .playbutton__play {
+    padding: 3.5rem 4rem;
+    width: 20rem;
+    font-size: 5rem;
+  }
+
+  .spelcode__input {
+    margin-left: 0;
+  }
+
+  .spelcodecontainer__spelcode {
+    margin: 1rem 0 1.5rem;
+  }
+
+  .rondes__less, .rondes__more {
+    font-size: 3.4rem;
+  }
+
+  .waitingcontent__title {
+    font-size: 3rem;
+    padding: 2rem 0;
+  }
+
+  .waitingcontent__description {
+    font-size: 1.7rem;
+  }
+
+  .waiting {
+    grid-template-columns: repeat(5, 1fr);
+    margin: 3rem 0 10rem;
+  }
+
+  .submitButton input, button {
+    font-size: 1.8rem;
+  }
+
+  .feedbackmelding {
+    font-size: 1.5rem;
+    padding: 1rem 0;
+  }
+
+  .waitcontainer__volgende {
+    padding: 1rem 3.5rem;
+  }
+
+  .artWork__container {
+    margin: auto;
+    margin-top: -3rem;
+  }
+
+  .containerRadio {
+    font-size: 2rem;
+  }
+
+  .waitgrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .round_winnerState:before {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .mentions__title {
+    padding: 5rem 0 4rem;
+  }
+
+  .mentions__subtitle {
+    font-size: 2rem;
+  }
+
+  .mentions__content {
+    font-size: 1.6rem;
+  }
+
+  .mentions ul {
+    padding: 0 13rem;
+  }
+
+  .mentions li {
+    grid-gap: 2rem;
+  }
+
+  .avatar__image_small {
+    width: 16rem;
+    height: 16rem;
+  }
+
+  .formInput {
+    padding: 0;
+  }
+
+  .offline h2, .noscript h2, .socket h2, .notfound h2 {
+    font-size: 10rem;
+    padding-bottom: 7rem;
+    margin-top: 17rem;
+  }
+
+  .content {
+    font-size: 2.4rem;
+  }
+
+  .gallery__container {
+    padding: 5rem 0;
+  }
+}
+
+@media only screen and (min-width: 1050px) {
+  .favourites-item {
+    justify-content: center;
+  }
+
+  .favourites-item__text {
+    width: 71rem;
+    margin: 0 6rem;
+  }
+}

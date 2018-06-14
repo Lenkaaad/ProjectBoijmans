@@ -1,17 +1,23 @@
 import React, { Component } from 'react';
-import './App.css';
-import Onboarding from './components/Onboarding';
+import './css/style.css';
+// import Onboarding from './components/Onboarding';
 import Home from './components/Home';
+import Lobby from './components/Lobby';
 import Player from './components/player/Player';
 import Host from './components/host/Host';
+import Game from './components/game/Game';
 import Kunstgallerij from './components/gallerij/Kunstgallerij';
 import Kunstdetail from './components/detail/Kunstdetail';
 import Muziekdetail from './components/detail/Muziekdetail';
-import { Switch, Route, Link } from 'react-router-dom'
-//import { Offline, Online, Detector } from "react-detect-offline";
+import Notfound from './components/Notfound';
+import { Switch, Route, withRouter } from 'react-router-dom';
+import arrow from './assets/img/arrow.svg';
+import scream from './assets/img/scream.svg';
+
+import {artworks} from './assets/data/gallerij.json';
 
 import openSocket from 'socket.io-client';
-const socket = openSocket('http://localhost:8000');
+const socket = openSocket('http://localhost:8000/');
 
 class App extends Component {
 
@@ -37,10 +43,14 @@ class App extends Component {
       this.setState({notification: message});
     })
 
-    socket.on('error', alert => {
-      alert(alert);
+    socket.on('err', err => {
+      this.props.history.push('/');
+      this.setState({notification: err});
     })
+  }
 
+  handleRemoveNotification = () => {
+    this.setState({notification: null});
   }
   
   render() {
@@ -50,11 +60,16 @@ class App extends Component {
       console.log("lobby has been added")
     })
 
+
+
     return (
       <div className="App">
       <Switch>
         <Route exact path='/' render={() => (
-        <Home socket={socket}/>
+          <Home socket={socket}/>
+        )}/>
+        <Route path='/lobby' render={() => (
+        <Lobby socket={socket} state={this.state}/>
         )}/>
         <Route path='/join' render={() => (
         <Player socket={socket} state={this.state}/>
@@ -62,17 +77,46 @@ class App extends Component {
         <Route path='/create' render={() => (
         <Host socket={socket} state={this.state}/>
         )}/>
+        <Route path='/game' render={() => (
+        <Game socket={socket} state={this.state} artworks={artworks}/>
+        )} />
+        <Route path='/gallery/:id/music' render={({match}) => {
+          const id = match.params.id;
+          if(artworks[id - 1] && artworks[id - 1].muzikaleInterpretatie !== ""){
+            return <Muziekdetail artworks={artworks} id={id} />
+          }
+          return <Route component={Notfound} />
+        }} />
+        <Route path='/gallery/:id' render={({match}) => {
+          const id = match.params.id;
+          if(artworks[id -1]){
+            return <Kunstdetail artworks={artworks} id={id} />
+          }
+          return <Route component={Notfound} />
+        }} />
+        <Route path='/gallery' render={() => (
+        <Kunstgallerij artworks={artworks}/>
+        )} />
+        <Route component={Notfound} />
       </Switch>
-      <h2>Testing</h2>
-      {/* Clarification: voor een of andere manier heeft hij bij de eerste fetch nog geen resultaat. Bij deze dus eerst checken om errors te voorkomen. */}
-      <ul>
-      {this.state.lobby !== null ? <li>{this.state.lobby.gamename}</li> : console.log("loading...")}
-      </ul>
+      {this.state.notification !== null ? 
+      <div>
+        <div className="pop-up__darkbg"></div>
+          <div className="pop-up__err">
+            <p>{this.state.notification}</p>
+            <button onClick={this.handleRemoveNotification}>OK</button>
+          </div>
+      </div>
+      : ""}
+
+      {/* create way to make sure these images have loaded in the first time */}
+      <img src={scream} className="hide" alt="scream"/>
+      <img src={arrow}  className="hide" alt="arrow"/>
       {/* Put timer on this message so it disappears and reset state. */}
-      {this.state.notification !== null ? <p>{this.state.notification}</p> : console.log("no error")}
+      {/* <p className="err">{this.state.notification !== null ? <p>{this.state.notification}</p> : console.log("no error")}</p> */}
       </div>
     );
   }
 }
 
-export default App;
+export default withRouter(App);

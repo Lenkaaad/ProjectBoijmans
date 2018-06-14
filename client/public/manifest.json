@@ -1,15 +1,35 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "A-Game",
+  "name": "A-Game",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "icons/agamelogohdpi.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },{
+      "src": "icons/agamelogoldpi.png",
+      "type": "image/png",
+      "sizes": "98x98"
+    },{
+      "src": "icons/agamelogomdpi.png",
+      "type": "image/png",
+      "sizes": "130x130"
+    },{
+      "src": "icons/agamelogoxhdpi.png",
+      "type": "image/png",
+      "sizes": "260x260"
+    },{
+      "src": "icons/agamelogoxxhdpi.png",
+      "type": "image/png",
+      "sizes": "390x390"
+    },{
+      "src": "icons/agamelogoxxxhdpi.png",
+      "type": "image/png",
+      "sizes": "520x520"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "/",
+  "background_color": "#4E9687",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#EFAF00"
 }

@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import exit from '../../assets/img/exit.svg';
+import {withRouter} from "react-router-dom";
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class PlayerWaiting extends Component {
 
@@ -7,6 +10,11 @@ class PlayerWaiting extends Component {
 
     this.socket = this.props.socket;
   }
+
+  exitLobby = () => {
+    this.socket.emit('leave lobby');
+    this.props.history.push('/');
+  }
   
   render() {
 
@@ -14,21 +22,30 @@ class PlayerWaiting extends Component {
 
     return (
       <div className="player-wait">
-        <section>
-          <h2>Wachten tot het spel start!</h2>
-          <ul>
+        <header>
+          <div className="container">
+            <div className="blankdiv"></div>
+            <h2>Wachtruimte</h2>
+            <img onClick={this.exitLobby} src={exit} alt="exit" width="30" />
+          </div>
+        </header>
+
+        <div className="container">
+          <ul className="waitgrid bottom-item">
+          <CSSTransitionGroup transitionName="avatar__animation" transitionEnterTimeout={700} transitionLeaveTimeout={700}>
             {
-              this.props.lobby !== null ? this.props.lobby.players.map(player => <li>{player.nickname}</li>) : console.log("oopsie!")
+              this.props.lobby !== null ? this.props.lobby.players.map(player => <li><div className={`avatar__image_medium avatar__image__${player.avatar}`}></div><span>{player.nickname}</span></li>) : console.log("oopsie!")
             }
+          </CSSTransitionGroup>
           </ul>
-        </section>
-        <section>
-          <h2 className="hide">Loading Tekst</h2>
-          <p>Nog even de kunst afstoffen...</p>
-        </section>
+        </div>
+
+        <div className="feedback">
+          <p>Wachten tot het spel start ...</p>
+        </div>
       </div>
     );
   }
 }
   
-  export default PlayerWaiting;
+  export default withRouter(PlayerWaiting);

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PlayerJoin from './PlayerJoin';
 import PlayerWaiting from './PlayerWaiting';
 import {withRouter} from "react-router-dom";
 
@@ -25,6 +24,10 @@ class Player extends Component {
         this.socket.emit('leave lobby');
         this.props.history.push('/');
       })
+      
+      this.socket.on('go game', lobby => {
+        this.props.history.push('/game');
+      })
     }
 
     leaveLobby = () => {
@@ -42,10 +45,7 @@ class Player extends Component {
 
     renderSwitch = (screen) => {
       switch (screen) {
-        case 0:
-          return <PlayerJoin socket={this.socket} handleChangeScreens={this.changeScreens} />
-          break;
-        case 1: 
+        case 0: 
           return <PlayerWaiting socket={this.socket} lobby={this.state.lobby} />
         default:
           break;
@@ -55,8 +55,6 @@ class Player extends Component {
     render() {
       return (
         <div className="player">
-        <button onClick={this.leaveLobby}>leave lobby</button>
-          <h1>Game Lobby</h1>
           {this.renderSwitch(this.state.screen)}
         </div>
       );
